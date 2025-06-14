@@ -1,6 +1,6 @@
 baseURL = 'https://tyz-kotono.github.io/'
 languageCode = 'zh-cn'
-title = 'Modern Graphics Engine Guide'
+title = 'Tyz_Kotono'
 theme = 'PaperMod'
 
 [params]
@@ -44,8 +44,6 @@ theme = 'PaperMod'
   authorDesc = 'UE技术开发者'
   # 作者头像
   # authorImage = '<url / path>'
-  # 作者网站
-  authorURL = 'https://github.com/Tyz-Kotono'
   # 网站图标
   # favicon = '<url / path>'
   # 网站描述
@@ -70,64 +68,53 @@ theme = 'PaperMod'
   disableHLJS = false
 
 [params.label]
-  text = 'Modern Graphics Engine Guide'
+  text = 'Tyz_Kotono'
+  icon = "<path or url to logo>"
+  iconHeight = 30
 
-# [params.profileMode]
-#   enabled = true
-#   title = 'Tyz-Kotono'
-#   subtitle = 'UE技术开发者'
-#   imageUrl = '<title image url>'
-#   imageWidth = 120
-#   imageHeight = 120
-#   imageTitle = 'Tyz-Kotono'
+[params.profileMode]
+  enabled = true
+  title = 'Tyz_Kotono'
+  subtitle = 'Blender,3Dmax ,Adoble Designer, UE Unity, Wwise'
+  imageUrl = 'https://avatars.githubusercontent.com/u/84105459?v=4'
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = 'GitHub 头像'
 
 # [params.homeInfoParams]
 #   Title = '欢迎来到我的技术博客 👋'
 #   Content = '这里是我分享UE技术开发经验的地方'
 
-# [params.socialIcons]
-#   email = 'mailto:your-email@example.com'
-#   github = 'https://github.com/Tyz-Kotono'
-#   twitter = 'https://twitter.com/your-twitter'
-#   linkedin = 'https://linkedin.com/in/your-linkedin'
-#   stackoverflow = 'https://stackoverflow.com/users/your-stackoverflow'
+[params.socialIcons]
+  github = 'https://github.com/Tyz-Kotono'
+  qq = 'https://wpa.qq.com/msgrd?v=3&uin=2713421980&site=qq&menu=yes'
+  zhihu = 'https://www.zhihu.com/people/you-ma-wei-7/posts'
+  bilibili = 'https://space.bilibili.com/315857408?spm_id_from=333.1007.0.0'
+  twitter = 'https://x.com/tyz_kotono'
 
 [menu]
   [[menu.main]]
-    identifier = "posts"
-    name = "开篇"
-    url = "/posts/"
+    identifier = "home"
+    name = "主页"
+    url = "/"
     weight = 10
   [[menu.main]]
-    identifier = "cpp"
-    name = "C++"
-    url = "/cpp/"
+    identifier = "articles"
+    name = "文章"
+    url = "/posts/"
     weight = 20
   [[menu.main]]
-    identifier = "graphics-api"
-    name = "图形API"
-    url = "/graphics-api/"
+    identifier = "repo"
+    name = "仓库"
+    url = "https://github.com/Tyz-Kotono?tab=repositories"
     weight = 30
+    isExtranet = true
   [[menu.main]]
-    identifier = "engine-tech"
-    name = "引擎技术"
-    url = "/engine-tech/"
+    identifier = "open-source-plugin"
+    name = "开源插件"
+    url = "https://github.com/Tyz-Kotono/KotonoGraph"
     weight = 40
-  [[menu.main]]
-    identifier = "unreal-engine"
-    name = "Unreal Engine"
-    url = "/ue/"
-    weight = 50
-  [[menu.main]]
-    identifier = "open-source"
-    name = "开源"
-    url = "/open-source/"
-    weight = 60
-  [[menu.main]]
-    identifier = "personal-blog"
-    name = "个人博客"
-    url = "/about/"
-    weight = 70
+    isExtranet = true
 
 [markup]
   [markup.highlight]
