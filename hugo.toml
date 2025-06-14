@@ -69,7 +69,7 @@ theme = 'PaperMod'
 
 [params.label]
   text = 'Tyz_Kotono'
-  icon = "<path or url to logo>"
+  icon = ""
   iconHeight = 30
 
 [params.profileMode]
@@ -85,13 +85,9 @@ theme = 'PaperMod'
 #   Title = '欢迎来到我的技术博客 👋'
 #   Content = '这里是我分享UE技术开发经验的地方'
 
-[params.socialIcons]
-  github = 'https://github.com/Tyz-Kotono'
-  # PaperMod 默认不支持 QQ、知乎、B站的图标，但链接可以生效
-  qq = 'https://wpa.qq.com/msgrd?v=3&uin=2713421980&site=qq&menu=yes'
-  zhihu = 'https://www.zhihu.com/people/you-ma-wei-7/posts'
-  bilibili = 'https://space.bilibili.com/315857408?spm_id_from=333.1007.0.0'
-  twitter = 'https://x.com/tyz_kotono'
+# [params.socialIcons] # 彻底注释掉社交图标部分
+#   github = 'https://github.com/Tyz-Kotono'
+#   twitter = 'https://x.com/tyz_kotono'
 
 [menu]
   [[menu.main]]
@@ -104,18 +100,18 @@ theme = 'PaperMod'
     name = "文章"
     url = "/posts/"
     weight = 20
-  [[menu.main]]
-    identifier = "repo"
-    name = "仓库"
-    url = "https://github.com/Tyz-Kotono?tab=repositories"
-    weight = 30
-    isExtranet = true
-  [[menu.main]]
-    identifier = "open-source-plugin"
-    name = "开源插件"
-    url = "https://github.com/Tyz-Kotono/KotonoGraph"
-    weight = 40
-    isExtranet = true
+  # [[menu.main]] # 暂时注释掉仓库链接
+  #   identifier = "repo"
+  #   name = "仓库"
+  #   url = "https://github.com/Tyz-Kotono?tab=repositories"
+  #   weight = 30
+  #   isExtranet = true
+  # [[menu.main]] # 暂时注释掉开源插件链接
+  #   identifier = "open-source-plugin"
+  #   name = "开源插件"
+  #   url = "https://github.com/Tyz-Kotono/KotonoGraph"
+  #   weight = 40
+  #   isExtranet = true
 
 [markup]
   [markup.highlight]
