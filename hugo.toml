@@ -43,61 +43,11 @@ theme = 'PaperMod'
   # 作者描述
   authorDesc = 'UE技术开发者'
   # 作者头像
-  authorImage = '<url / path>'
+  # authorImage = '<url / path>'
   # 作者网站
   authorURL = 'https://github.com/Tyz-Kotono'
   # 网站图标
-  favicon = '<url / path>'
-  # 网站描述
-  description = 'UE技术开发者的个人技术博客'
-  # 关键词
-  keywords = ['UE', 'Unreal Engine', '技术博客', '游戏开发', 'C++']
-  # 默认主题模式
-  defaultTheme = 'auto'
-  # 禁用特殊字符转义
-  disableSpecial1stPost = false
-  # 禁用滚动到顶部
-  disableScrollToTop = false
-  # 禁用切换主题
-  disableSwitchThemes = false
-  # 显示完整内容
-  ShowFullTextinRSS = false
-  # 显示阅读时间
-  ShowReadingTime = true
-  # 显示字数统计
-  ShowWordCount = true
-  # 显示最后修改时间
-  ShowLastMod = true
-  # 显示分享按钮
-  ShowShareButtons = true
-  # 显示相关文章
-  ShowRelatedContent = true
-  # 显示评论
-  ShowComments = false
-  # 显示面包屑导航
-  ShowBreadCrumbs = true
-  # 显示页面导航
-  ShowPageNav = true
-  # 显示返回顶部按钮
-  ShowBackToTop = true
-  # 显示标签
-  ShowTags = true
-  # 显示分类
-  ShowCategories = true
-  # 显示系列文章
-  ShowSeries = true
-  # 显示作者信息
-  ShowAuthor = true
-  # 作者名称
-  author = 'Tyz-Kotono'
-  # 作者描述
-  authorDesc = 'UE技术开发者'
-  # 作者头像
-  authorImage = '<url / path>'
-  # 作者网站
-  authorURL = 'https://github.com/Tyz-Kotono'
-  # 网站图标
-  favicon = '<url / path>'
+  # favicon = '<url / path>'
   # 网站描述
   description = 'UE技术开发者的个人技术博客'
   # 关键词
@@ -126,7 +76,7 @@ theme = 'PaperMod'
   enabled = true
   title = 'Tyz-Kotono'
   subtitle = 'UE技术开发者'
-  imageUrl = '<title image url>'
+  # imageUrl = '<title image url>'
   imageWidth = 120
   imageHeight = 120
   imageTitle = 'Tyz-Kotono'
@@ -135,12 +85,12 @@ theme = 'PaperMod'
   Title = '欢迎来到我的技术博客 👋'
   Content = '这里是我分享UE技术开发经验的地方'
 
-[params.socialIcons]
-  email = 'mailto:your-email@example.com'
-  github = 'https://github.com/Tyz-Kotono'
-  twitter = 'https://twitter.com/your-twitter'
-  linkedin = 'https://linkedin.com/in/your-linkedin'
-  stackoverflow = 'https://stackoverflow.com/users/your-stackoverflow'
+# [params.socialIcons]
+#   email = 'mailto:your-email@example.com'
+#   github = 'https://github.com/Tyz-Kotono'
+#   twitter = 'https://twitter.com/your-twitter'
+#   linkedin = 'https://linkedin.com/in/your-linkedin'
+#   stackoverflow = 'https://stackoverflow.com/users/your-stackoverflow'
 
 [menu]
   [[menu.main]]
@@ -169,29 +119,21 @@ theme = 'PaperMod'
     lineNumbersInTable = true
     guessSyntax = true
     noInline = false
-    noClasses = false
-    noHl = false
-    style = 'github'
-    tabWidth = 2
-    lineNos = true
-    lineNumbersInTable = true
-    guessSyntax = true
-    noInline = false
 
-[markup.goldmark.renderer]
-  unsafe = true
-  [markup.goldmark.renderer.hardWraps]
-    enabled = false
-  [markup.goldmark.extensions]
-    definitionList = true
-    footnote = true
-    linkify = true
-    strikethrough = true
-    table = true
-    taskList = true
-    typographer = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
 
-[markup.tableOfContents]
-  endLevel = 3
-  ordered = false
-  startLevel = 1
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
