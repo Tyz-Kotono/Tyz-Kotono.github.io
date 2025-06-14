@@ -1,0 +1,126 @@
+
+
+### 一、Blur
+
+##### 1.1 均值模糊
+
+![b0bfa984ab0c83303334ffea22b2f6f2](./assets/b0bfa984ab0c83303334ffea22b2f6f2.png)
+
+```c++
+float3 blur = Texture2DSample(In, InSampler, UV);
+
+for (int i = 0; i < r; i++)
+{
+
+  blur += Texture2DSample(In, InSampler, UV + float2(i * dist, 0));
+  blur += Texture2DSample(In, InSampler, UV - float2(i * dist, 0));
+
+}
+
+for (int j = 0; j < r; j++)
+{ 
+
+  blur += Texture2DSample(In, InSampler, UV + float2(0, j * dist));
+  blur += Texture2DSample(In, InSampler, UV - float2(0, j * dist));
+
+}
+
+blur /= 2*(2*r)+1;
+return blur;
+```
+
+##### 1.2 高斯模糊
+
+![4a855c6f-3323-49a2-a153-155d9afbbdb1](./assets/4a855c6f-3323-49a2-a153-155d9afbbdb1.png)
+
+```c++
+static const float Weights[9] = {
+    0.077847, 0.123317, 0.077847,
+    0.123317, 0.195346, 0.123317,
+    0.077847, 0.123317, 0.077847
+};
+
+
+static const float2 Offsets[9] = {
+    float2(-1.5,-1.5), float2(0.5,-1.5), float2(1.5,-1.5),
+    float2(-1.5,0.5),  float2(0.5,0.5),  float2(1.5,0.5),
+    float2(-1.5,1.5),  float2(0.5,1.5),  float2(1.5,1.5)
+};
+
+float3 ColorSum = 0;
+for(int i=0; i<9; i++){
+    float2 SampleUV = UV + Offsets[i] * TexelSize * dist;
+    SampleUV = clamp(SampleUV, 0.0, 1.0);
+    ColorSum += DecodeSceneColorForMaterialNode(SampleUV).rgb * Weights[i];
+}
+return ColorSum;
+```
+
+##### Dither Blur
+
+```c++
+struct Code
+{
+float rand(float2 co)
+{
+    return frac(sin(dot(co, float2(12.9898,78.233))) * 43758.5453);
+}
+};  
+Code a;
+
+    float u1 = a.rand(uv + float2(0.0, 0.0));
+    float u2 = a.rand(uv + float2(1.0, 1.0));
+
+    // 避免 log(0)
+    u1 = max(u1, 0.0001);
+
+    // Box-Muller 变换
+    float z0 = sqrt(-2.0 * log(u1)) * cos(2.0 * 3.14159265 * u2);
+    float z1 = sqrt(-2.0 * log(u1)) * sin(2.0 * 3.14159265 * u2);
+
+    // 根据 random01 决定使用 z0 和 z1 的哪一个
+    float offsetX = (random01 < 0.5) ? z0 : z1;
+    float offsetY = (random01 < 0.5) ? z1 : z0;
+
+    // 应用 kernelSize
+    offsetX *= kernelSize;
+    offsetY *= kernelSize;
+
+    return float2(offsetX, offsetY);
+```
+
+![5a5eeea8-9362-4bf0-a1f9-c010785be84b](./assets/5a5eeea8-9362-4bf0-a1f9-c010785be84b.png)
+
+![d95ac481-11e4-45d9-a24d-33f377996938](./assets/d95ac481-11e4-45d9-a24d-33f377996938.png)
+
+##### 色相偏移
+
+    // 噪点颜色
+    float2 noiseUV = float2(sin(fTime / Frq), cos(fTime / Frq));
+    float noiseColor = Texture2DSample(Noise, TextureSampler, noiseUV).r;
+    noiseColor = noiseColor / Stl;
+    
+    // 红色左移
+    float redColor = Texture2DSample(Texture, TextureSampler, float2(UV + float2(noiseColor.r,noiseColor.r))).r;
+    
+    // 绿色不变
+    float greenColor = Texture2DSample(Texture, TextureSampler, UV).g;
+    
+    // 蓝色右移
+    float blueColor = Texture2DSample(Texture, TextureSampler, float2(UV - float2(noiseColor.r,noiseColor.r))).b;
+    
+    return float3(redColor, greenColor, blueColor);
+
+![5fcb5e2d-ac69-4025-8cec-49dad3dae1c3](./assets/5fcb5e2d-ac69-4025-8cec-49dad3dae1c3.png)
+
+
+
+##### 前景去除
+
+![adcbb03813df140d6eef9e3b36acb162](./assets/adcbb03813df140d6eef9e3b36acb162.png)
+
+![216c706463964c34fbb143fcd8629f8e](./assets/216c706463964c34fbb143fcd8629f8e.png)
+
+##### 折射
+
+![b5c62e5d66f8b6643208ef187efe9b9c](./assets/b5c62e5d66f8b6643208ef187efe9b9c.png)
