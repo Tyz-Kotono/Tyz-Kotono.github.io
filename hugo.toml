@@ -1,6 +1,6 @@
 baseURL = 'https://tyz-kotono.github.io/'
 languageCode = 'zh-cn'
-title = 'Tyz-Kotono 技术博客'
+title = 'Modern Graphics Engine Guide'
 theme = 'PaperMod'
 
 [params]
@@ -70,20 +70,20 @@ theme = 'PaperMod'
   disableHLJS = false
 
 [params.label]
-  text = 'Tyz-Kotono 技术博客'
+  text = 'Modern Graphics Engine Guide'
 
-[params.profileMode]
-  enabled = true
-  title = 'Tyz-Kotono'
-  subtitle = 'UE技术开发者'
-  # imageUrl = '<title image url>'
-  imageWidth = 120
-  imageHeight = 120
-  imageTitle = 'Tyz-Kotono'
+# [params.profileMode]
+#   enabled = true
+#   title = 'Tyz-Kotono'
+#   subtitle = 'UE技术开发者'
+#   imageUrl = '<title image url>'
+#   imageWidth = 120
+#   imageHeight = 120
+#   imageTitle = 'Tyz-Kotono'
 
-[params.homeInfoParams]
-  Title = '欢迎来到我的技术博客 👋'
-  Content = '这里是我分享UE技术开发经验的地方'
+# [params.homeInfoParams]
+#   Title = '欢迎来到我的技术博客 👋'
+#   Content = '这里是我分享UE技术开发经验的地方'
 
 # [params.socialIcons]
 #   email = 'mailto:your-email@example.com'
@@ -94,20 +94,40 @@ theme = 'PaperMod'
 
 [menu]
   [[menu.main]]
-    identifier = 'categories'
-    name = '分类'
-    url = '/categories/'
+    identifier = "posts"
+    name = "开篇"
+    url = "/posts/"
     weight = 10
   [[menu.main]]
-    identifier = 'tags'
-    name = '标签'
-    url = '/tags/'
+    identifier = "cpp"
+    name = "C++"
+    url = "/cpp/"
     weight = 20
   [[menu.main]]
-    identifier = 'about'
-    name = '关于'
-    url = '/about/'
+    identifier = "graphics-api"
+    name = "图形API"
+    url = "/graphics-api/"
     weight = 30
+  [[menu.main]]
+    identifier = "engine-tech"
+    name = "引擎技术"
+    url = "/engine-tech/"
+    weight = 40
+  [[menu.main]]
+    identifier = "unreal-engine"
+    name = "Unreal Engine"
+    url = "/ue/"
+    weight = 50
+  [[menu.main]]
+    identifier = "open-source"
+    name = "开源"
+    url = "/open-source/"
+    weight = 60
+  [[menu.main]]
+    identifier = "personal-blog"
+    name = "个人博客"
+    url = "/about/"
+    weight = 70
 
 [markup]
   [markup.highlight]
