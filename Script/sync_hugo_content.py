@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 
 # 定义源目录和目标目录
-UE_DIR = 'UE'
+UE_DIR = 'Typora/UE'
 CONTENT_DIR = 'content'
 
 def generate_front_matter(file_path, categories):
@@ -198,6 +198,10 @@ def sync_hugo_content():
             dest_file_path = os.path.join(root, file_name)
             relative_path = os.path.relpath(dest_file_path, CONTENT_DIR)
             
+            # 排除 _index.md 文件不被删除
+            if relative_path.lower() == '_index.md':
+                continue
+
             if relative_path not in ue_items:
                 try:
                     os.remove(dest_file_path)
