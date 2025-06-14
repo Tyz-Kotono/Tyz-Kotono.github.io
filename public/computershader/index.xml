@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ComputerShaders on Tyz-Kotono 技术博客</title><link>https://tyz-kotono.github.io/computershader/</link><description>Recent content in ComputerShaders on Tyz-Kotono 技术博客</description><generator>Hugo -- 0.147.8</generator><language>zh-cn</language><atom:link href="https://tyz-kotono.github.io/computershader/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://tyz-kotono.github.io/computershader/computer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tyz-kotono.github.io/computershader/computer/</guid><description>&lt;p>Link：https://unreal.shadeup.dev/docs/compute/base&lt;/p>
+&lt;p>官方：https://dev.epicgames.com/community/learning/tutorials/WkwJ/unreal-engine-simple-compute-shader-with-cpu-readback&lt;/p>
+&lt;p>&lt;a href="https://coda.io/d/Unreal-Engine-Documentation_ddc4DRCa7bn/Compute-Shader-UE-5_suGR5dnU#_lu_yltQ9">https://coda.io/d/Unreal-Engine-Documentation_ddc4DRCa7bn/Compute-Shader-UE-5_suGR5dnU#_lu_yltQ9&lt;/a>&lt;/p>
+&lt;p>UAV&lt;/p>
+&lt;p>UAV用于保存ComputeShader的计算结果，它的创建步骤如下：&lt;/p>
+&lt;p>#include失败可以&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="n">PublicIncludePaths&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddRange&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">new&lt;/span> &lt;span class="n">string&lt;/span>&lt;span class="p">[]&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// ... add public include paths required here ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Combine&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">GetModuleDirectory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Renderer&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="s">&amp;#34;Private&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img alt="image-20241016204051883" loading="lazy" src="./assets/image-20241016204051883.png">&lt;/p>
+&lt;p>可以修复&lt;/p>
+&lt;p>&lt;img alt="image-20241016204528125" loading="lazy" src="./assets/image-20241016204528125.png">&lt;/p>
+&lt;p>1、改动&lt;/p>
+&lt;p>1.1&lt;/p>
+&lt;p>&lt;img alt="image-20241016005028800" loading="lazy" src="./assets/image-20241016005028800.png">&lt;/p>
+&lt;p>&lt;img alt="image-20241016005055237" loading="lazy" src="./assets/image-20241016005055237.png">&lt;/p>
+&lt;h5 id="一">一、&lt;/h5>
+&lt;p>&lt;a href="https://www.youtube.com/watch?v=arPFxTrOkog&amp;amp;t=310s">https://www.youtube.com/watch?v=arPFxTrOkog&amp;amp;t=310s&lt;/a>&lt;/p>
+&lt;h5 id="11-自定义插件">1.1 自定义插件&lt;/h5>
+&lt;p>LearnShader.uplugin&lt;/p>
+&lt;p>&lt;img alt="image-20241017164658866" loading="lazy" src="./assets/image-20241017164658866.png">&lt;/p>
+&lt;p>LearnShader.Build.cs&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="n">PublicDependencyModuleNames&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddRange&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">new&lt;/span> &lt;span class="n">string&lt;/span>&lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Core&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Engine&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">PrivateDependencyModuleNames&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddRange&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">new&lt;/span> &lt;span class="n">string&lt;/span>&lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;CoreUObject&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Engine&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Slate&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;SlateCore&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Projects&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;RHI&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Renderer&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;RenderCore&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img alt="image-20241017164936023" loading="lazy" src="./assets/image-20241017164936023.png">&lt;/p></description></item></channel></rss>

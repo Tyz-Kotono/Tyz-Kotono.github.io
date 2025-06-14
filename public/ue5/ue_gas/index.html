@@ -1,0 +1,1305 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Tyz-Kotono 技术博客</title><meta name=keywords content><meta name=description content='教程路径
+Link：https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5
+基础准备
+创建相应的类，具体的类有
+
+首先是重要的AMyPlayerStateCharacter
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+
+
+UCLASS()
+class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper
+{
+GENERATED_BODY()
+public:
+AMyPlayerStateCharacter(const FObjectInitializer& ObjectInitializer);
+
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+//class USpringArmComponent* SpringArmComponent;
+TObjectPtr<USpringArmComponent> SpringArmComponent;
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UCameraComponent> CameraComponent;
+
+//允许交互 提供技能
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UGSCCoreComponent> GSCCoreComponent;
+
+//输入绑定到角色
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UGSCAbilityInputBindingComponent> GSCAbilityInputBindingComponent;
+
+protected:
+virtual void  BeginPlay() override;
+
+public:
+virtual  void  Tick(float DeltaSeconds) override;
+
+virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+};
+
+
+CPP代码如下'><meta name=author content="Tyz-Kotono"><link rel=canonical href=https://tyz-kotono.github.io/ue5/ue_gas/><link crossorigin=anonymous href=/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as=style><link rel=icon href=https://tyz-kotono.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://tyz-kotono.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://tyz-kotono.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://tyz-kotono.github.io/apple-touch-icon.png><link rel=mask-icon href=https://tyz-kotono.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://tyz-kotono.github.io/ue5/ue_gas/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://tyz-kotono.github.io/ue5/ue_gas/"><meta property="og:site_name" content="Tyz-Kotono 技术博客"><meta property="og:title" content="Tyz-Kotono 技术博客"><meta property="og:description" content='教程路径
+Link：https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5
+基础准备 创建相应的类，具体的类有
+首先是重要的AMyPlayerStateCharacter
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 UCLASS() class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper { GENERATED_BODY() public: AMyPlayerStateCharacter(const FObjectInitializer& ObjectInitializer); UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess)) //class USpringArmComponent* SpringArmComponent; TObjectPtr<USpringArmComponent> SpringArmComponent; UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess)) TObjectPtr<UCameraComponent> CameraComponent; //允许交互 提供技能 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess)) TObjectPtr<UGSCCoreComponent> GSCCoreComponent; //输入绑定到角色 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess)) TObjectPtr<UGSCAbilityInputBindingComponent> GSCAbilityInputBindingComponent; protected: virtual void BeginPlay() override; public: virtual void Tick(float DeltaSeconds) override; virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override; }; CPP代码如下'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="ue5"><meta name=twitter:card content="summary"><meta name=twitter:title content><meta name=twitter:description content='教程路径
+Link：https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5
+基础准备
+创建相应的类，具体的类有
+
+首先是重要的AMyPlayerStateCharacter
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+
+
+UCLASS()
+class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper
+{
+GENERATED_BODY()
+public:
+AMyPlayerStateCharacter(const FObjectInitializer& ObjectInitializer);
+
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+//class USpringArmComponent* SpringArmComponent;
+TObjectPtr<USpringArmComponent> SpringArmComponent;
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UCameraComponent> CameraComponent;
+
+//允许交互 提供技能
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UGSCCoreComponent> GSCCoreComponent;
+
+//输入绑定到角色
+UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess))
+TObjectPtr<UGSCAbilityInputBindingComponent> GSCAbilityInputBindingComponent;
+
+protected:
+virtual void  BeginPlay() override;
+
+public:
+virtual  void  Tick(float DeltaSeconds) override;
+
+virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+};
+
+
+CPP代码如下'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"UE5s","item":"https://tyz-kotono.github.io/ue5/"},{"@type":"ListItem","position":2,"name":"","item":"https://tyz-kotono.github.io/ue5/ue_gas/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"教程路径\nLink：https://www.youtube.com/watch?v=7tUwMa1BU3c\u0026amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT\u0026amp;index=5\n基础准备 创建相应的类，具体的类有\n首先是重要的AMyPlayerStateCharacter\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 UCLASS() class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper { GENERATED_BODY() public: AMyPlayerStateCharacter(const FObjectInitializer\u0026amp; ObjectInitializer); UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \u0026#34;Camera\u0026#34;, meta = (AllowPrivateAccess)) //class USpringArmComponent* SpringArmComponent; TObjectPtr\u0026lt;USpringArmComponent\u0026gt; SpringArmComponent; UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \u0026#34;Camera\u0026#34;, meta = (AllowPrivateAccess)) TObjectPtr\u0026lt;UCameraComponent\u0026gt; CameraComponent; //允许交互 提供技能 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \u0026#34;Camera\u0026#34;, meta = (AllowPrivateAccess)) TObjectPtr\u0026lt;UGSCCoreComponent\u0026gt; GSCCoreComponent; //输入绑定到角色 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \u0026#34;Camera\u0026#34;, meta = (AllowPrivateAccess)) TObjectPtr\u0026lt;UGSCAbilityInputBindingComponent\u0026gt; GSCAbilityInputBindingComponent; protected: virtual void BeginPlay() override; public: virtual void Tick(float DeltaSeconds) override; virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override; }; CPP代码如下\n","keywords":[],"articleBody":"教程路径\nLink：https://www.youtube.com/watch?v=7tUwMa1BU3c\u0026list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT\u0026index=5\n基础准备 创建相应的类，具体的类有\n首先是重要的AMyPlayerStateCharacter\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 UCLASS() class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper { GENERATED_BODY() public: AMyPlayerStateCharacter(const FObjectInitializer\u0026 ObjectInitializer); UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) //class USpringArmComponent* SpringArmComponent; TObjectPtr\u003cUSpringArmComponent\u003e SpringArmComponent; UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUCameraComponent\u003e CameraComponent; //允许交互 提供技能 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUGSCCoreComponent\u003e GSCCoreComponent; //输入绑定到角色 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUGSCAbilityInputBindingComponent\u003e GSCAbilityInputBindingComponent; protected: virtual void BeginPlay() override; public: virtual void Tick(float DeltaSeconds) override; virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override; }; CPP代码如下\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 #include \"MyPlayerStateCharacter.h\" #include \"Camera/CameraComponent.h\" #include \"Components/GSCAbilityInputBindingComponent.h\" #include \"Components/GSCCoreComponent.h\" #include \"GameFramework/SpringArmComponent.h\" AMyPlayerStateCharacter::AMyPlayerStateCharacter(const FObjectInitializer\u0026 ObjectInitializer):Super(ObjectInitializer) { PrimaryActorTick.bCanEverTick = true; //Set up movement bUseControllerRotationYaw = false; SpringArmComponent = CreateDefaultSubobject\u003cUSpringArmComponent\u003e(TEXT(\"SpringArmComponent\")); SpringArmComponent-\u003eSetupAttachment(RootComponent); SpringArmComponent-\u003eSetRelativeLocation(FVector(0.f, 0.f, 70.0f)); SpringArmComponent-\u003eTargetArmLength = 450.0f; //Paw 旋转 SpringArmComponent-\u003ebUsePawnControlRotation = true; SpringArmComponent-\u003ebInheritYaw = true; //滞后 SpringArmComponent-\u003ebEnableCameraLag = true; SpringArmComponent-\u003eCameraLagSpeed = 15.f; //Setup CameraComponent CameraComponent = CreateDefaultSubobject\u003cUCameraComponent\u003e(TEXT(\"CameraComponent\")); CameraComponent-\u003eSetupAttachment(SpringArmComponent); CameraComponent-\u003ebUsePawnControlRotation = false; CameraComponent-\u003eFieldOfView = 75.f; //Setup GAS Companion GSCCoreComponent = CreateDefaultSubobject\u003cUGSCCoreComponent\u003e(TEXT(\"GSCCoreComponent\")); GSCAbilityInputBindingComponent = CreateDefaultSubobject\u003cUGSCAbilityInputBindingComponent\u003e(TEXT(\"GSCAbilityInputBindingComponent\")); } void AMyPlayerStateCharacter::BeginPlay() { Super::BeginPlay(); } void AMyPlayerStateCharacter::Tick(float DeltaSeconds) { Super::Tick(DeltaSeconds); } void AMyPlayerStateCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) { Super::SetupPlayerInputComponent(PlayerInputComponent); } 主要的继承关系如下\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 //GameMode AMyGameMode-\u003eAGSCModularGameModeBase-\u003eAGameModeBase //Character AMyPlayerStateCharacter-\u003eAGSCModularPlayerStateCharacter-\u003e (public ACharacter, public IAbilitySystemInterface, public IGameplayTagAssetInterface) //PlayerController AMyPlayerController-\u003eAGSCModularPlayerController-\u003eAPlayerController //CheatManager UMyCheatManager-\u003eUCheatManager //PlayerState AMyPlayerState-\u003eAGSCModularPlayerState-\u003e (public APlayerState, public IAbilitySystemInterface) //GameInstance UMyGameInstance-\u003eUGameInstance //GameStateBase AMyGameStateBase-\u003eAGSCModularGameStateBase-\u003eAGameStateBase 1、Input Action 1.1 设置键位 利用Input Action 和Input Mapping\n设置上大同小异水平二维输入\n利用Input mapping 进行设备自适应\n其中鼠标输入需要颠倒Y 轴\n移动里面WS，需要颠倒为Y轴\nAD 只需要设置A为负值\n手柄输入设置死区\n可以看到输入，利用~ 和 show debug\n如果不选择这里，旋转将会利用相机旋转，不会使用按键旋转\n使用控制器旋转\n1.2 ICharacterHelper 我们要让其他组件抓取数据，首先需要保存玩家的数据利用接口\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 #pragma once #include \"CoreMinimal.h\" #include \"UObject/Interface.h\" #include \"CharacterHelper.generated.h\" // This class does not need to be modified. UINTERFACE() class UCharacterHelper : public UInterface { GENERATED_BODY() }; /** * */ class GAS_RELAX_API ICharacterHelper { GENERATED_BODY() //接口在 character 的蓝图中赋值，随后被其他数值调用 public: UFUNCTION(BlueprintNativeEvent,BlueprintCallable,Category = \"Character Helper\") FVector2D GetInputActionLookValue(); UFUNCTION(BlueprintNativeEvent,BlueprintCallable,Category = \"Character Helper\") FVector2D GetInputActionMoveValue(); }; 随后让玩家继承\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 class UGSCAbilityInputBindingComponent; class UCameraComponent; class UGSCCoreComponent; /** * */ UCLASS() class GAS_RELAX_API AMyPlayerStateCharacter : public AGSCModularPlayerStateCharacter,public ICharacterHelper { GENERATED_BODY() public: AMyPlayerStateCharacter(const FObjectInitializer\u0026 ObjectInitializer); UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) //class USpringArmComponent* SpringArmComponent; TObjectPtr\u003cUSpringArmComponent\u003e SpringArmComponent; UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUCameraComponent\u003e CameraComponent; //允许交互 提供技能 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUGSCCoreComponent\u003e GSCCoreComponent; //输入绑定到角色 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"Camera\", meta = (AllowPrivateAccess)) TObjectPtr\u003cUGSCAbilityInputBindingComponent\u003e GSCAbilityInputBindingComponent; protected: virtual void BeginPlay() override; public: virtual void Tick(float DeltaSeconds) override; virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override; }; 就可以在玩家蓝图中看到两个函数，随后我们将InPunt Action的值穿进去，缓存\n2、Data Set 因此可以创建一个data Asset\n随后创建能力\n2.1 UGSCGameplayAbility 基于UGSCGameplayAbility 创建Look 和Move\nGA_Player_Look、GA_Player_Move都继承于UGSCGameplayAbility\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 #include \"CoreMinimal.h\" #include \"Abilities/GSCGameplayAbility.h\" #include \"MyGamePlayerAbility_Move.generated.h\" /** * */ UCLASS() class GAS_RELAX_API UMyGamePlayerAbility_Move : public UGSCGameplayAbility { GENERATED_BODY() public: UMyGamePlayerAbility_Move(); protected: virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override; virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override; UFUNCTION(BlueprintCallable,Category = \"Player Movement\") void Move(const FVector2D ActionValue); }; ///// ///// #include \"CoreMinimal.h\" #include \"Abilities/GSCGameplayAbility.h\" #include \"MyGamePlayerAbility_Look.generated.h\" UCLASS() class GAS_RELAX_API UMyGamePlayerAbility_Look : public UGSCGameplayAbility { GENERATED_BODY() public: UMyGamePlayerAbility_Look(); protected: virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override; virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override; UFUNCTION(BlueprintCallable,Category = \"Player Movement\") void Look(const FVector2D ActionValue); }; 代码大同小异，但是都会有一个函数允许蓝图调用分别是Look和Move\n函数如下，首先要判断传入的值，而这个值，是通过接口获得的\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 void UMyGamePlayerAbility_Look::Look(const FVector2D ActionValue) { if(!ActionValue.IsZero()) { if(AMyPlayerStateCharacter* MyPlayerStateCharacter = Cast\u003cAMyPlayerStateCharacter\u003e(GetAvatarActorFromActorInfo())) { MyPlayerStateCharacter-\u003eAddControllerYawInput(ActionValue.X); MyPlayerStateCharacter-\u003eAddControllerPitchInput(ActionValue.Y); } } } /// /// /// void UMyGamePlayerAbility_Move::Move(const FVector2D ActionValue) { if(!ActionValue.IsZero()) { //返回执行此能力的物理角色 if(AMyPlayerStateCharacter* MyPlayerStateCharacter = Cast\u003cAMyPlayerStateCharacter\u003e(GetAvatarActorFromActorInfo())) { //获取控制器的旋转角度，通常也就是该 Pawn 的 \"视图 \"旋转角度。 const FRotator Rotation = MyPlayerStateCharacter-\u003eGetControlRotation(); //按给定的旋转角度旋转世界右矢量 const FVector RightDirection = UKismetMathLibrary:: GetRightVector(FRotator(0.0f,Rotation.Yaw,0.f)); const FVector ForwardDirection = UKismetMathLibrary:: GetForwardVector(FRotator(0.0f,Rotation.Yaw,0.f)); //指定方向与值 MyPlayerStateCharacter-\u003eAddMovementInput(RightDirection,ActionValue.X); MyPlayerStateCharacter-\u003eAddMovementInput(ForwardDirection,ActionValue.Y); } } } 调用在蓝图中使用，也是大同小异\n首先抓取角色，随后抓取角色接口保存的值即\n1 2 3 4 5 6 7 8 9 10 11 12 13 class GAS_RELAX_API ICharacterHelper { GENERATED_BODY() //接口在 character 的蓝图中赋值，随后被其他数值调用 public: UFUNCTION(BlueprintNativeEvent,BlueprintCallable,Category = \"Character Helper\") FVector2D GetInputActionLookValue(); UFUNCTION(BlueprintNativeEvent,BlueprintCallable,Category = \"Character Helper\") FVector2D GetInputActionMoveValue(); }; 随后将值传入GA_Player_Look、GA_Player_Move去执行对应的Look和Move函数\n处理已经实现了，那么就要编写触发\n利用这个去获取能力，那么行走移动也是能力\n2.2 Event Trigger 将数据放入创建的Data Asset中，可以在这里绑定Input Action与GameplayAbility\n随后在BP_MyPlayerState中使用，而他在Game Modes中使用\n2.3 Debug\n’’ 加数字键盘3可以查看\n3、Data Table 3.1 Data 利用这个可以制作，数值相关内容\n如：Health、Stamina 、Man、RegenRate\n设置按可以在\n在控制台就会显示\n3.2 UI Link: https://www.youtube.com/watch?v=7tUwMa1BU3c\u0026list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT\u0026index=5\n3.3 Cheat manager 可以利用控制台命令\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 // Fill out your copyright notice in the Description page of Project Settings. #pragma once #include \"CoreMinimal.h\" #include \"GameplayEffect.h\" #include \"Abilities/GSCAbilitySet.h\" #include \"Abilities/GSCAbilitySystemComponent.h\" #include \"GameFramework/CheatManager.h\" #include \"MyCheatManager.generated.h\" /** * */ UCLASS() class GAS_RELAX_API UMyCheatManager : public UCheatManager { GENERATED_BODY() public: UMyCheatManager(); virtual void InitCheatManager() override; //控制台命令 UFUNCTION(Exec,BlueprintAuthorityOnly) virtual void DamageSelf(const float DamageAmount); public: UPROPERTY(EditAnywhere,BlueprintReadWrite,Category=\"GamePlayEffects\") TSubclassOf\u003cUGameplayEffect\u003e DamageGE; protected: void ApplySetByCallerDamage(TObjectPtr\u003cUGSCAbilitySystemComponent\u003e ASC,float DamageAmount) const; TObjectPtr\u003cUGSCAbilitySystemComponent\u003e GetPlayerAbilitySystemComponent() const; }; Cpp\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 // Fill out your copyright notice in the Description page of Project Settings. #include \"MyCheatManager.h\" #include \"MyPlayerController.h\" #include \"MyPlayerState.h\" UMyCheatManager::UMyCheatManager() { } void UMyCheatManager::InitCheatManager() { Super::InitCheatManager(); } void UMyCheatManager::DamageSelf(const float DamageAmount) { if(TObjectPtr\u003cUGSCAbilitySystemComponent\u003e ASC = GetPlayerAbilitySystemComponent()) { ApplySetByCallerDamage(ASC,DamageAmount); } } // 向某个角色（或其他对象）施加一个伤害效果。这个伤害效果的数值是动态的，由函数的参数 DamageAmount 决定 void UMyCheatManager::ApplySetByCallerDamage(TObjectPtr\u003cUGSCAbilitySystemComponent\u003e ASC, float DamageAmount) const { //断言 //ASC 用于管理角色的能力和效果系统 check(ASC) //通常用于描述一个效果，例如伤害、治疗等 //Gameplay Effect (GE): 这个函数涉及的是 Unreal Engine 的 Gameplay Effect 系统， //它用于处理角色之间的状态变化，例如伤害、治疗、增益或减益。DamageEf 代表了一个 GameplayEffect 对象 if (DamageGE) { //GE //游戏效果的规范（Spec），描述了如何应用游戏效果。这包括效果的类型、强度、持续时间 FGameplayEffectSpecHandle SpecHandle = ASC-\u003eMakeOutgoingSpec(DamageGE, 1.f, ASC-\u003eMakeEffectContext()); // MakeEffectContext() 创建了一个包含效果施加时的上下文信息的对象，这个上下文可以包括施加者、目标、位置等信息。 if (SpecHandle.IsValid()) { //GameplayTag: FGameplayTag::RequestGameplayTag(\"SetByCaller.Damage\") //用于查找或创建一个 GameplayTag。这个标签用于标识这个具体的“SetByCaller”参数， //并且需要在 GameplayEffect 中配置为“SetByCaller”类型的输入。 //RequestGameplayTag //这个函数请求或创建一个名为 SetByCaller.Damage 的 GameplayTag。这个标签用于标识即将传递的参数（即伤害值）。 // 这个标签通常在 GameplayEffect 的配置中预定义，但不会具体赋值，因为它是一个 SetByCaller 类型的标签。 SpecHandle.Data-\u003eSetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(\"SetByCaller.Damage\"), DamageAmount); ASC-\u003eApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get()); } } } TObjectPtr\u003cUGSCAbilitySystemComponent\u003e UMyCheatManager::GetPlayerAbilitySystemComponent() const { if (AMyPlayerController* PC = Cast\u003cAMyPlayerController\u003e(GetOuterAPlayerController())) { //PC-\u003eGetPlayerState() 内含类型转换 return Cast\u003cUGSCAbilitySystemComponent\u003e(PC-\u003eGetPlayerState\u003cAMyPlayerState\u003e()-\u003eGetAbilitySystemComponent()); } return nullptr; } 3.4 GE 创建一个GE 蓝图基类，随后让子类继承他\n抽象函数，允许子类继承使用\n其中计算调用的是Cheat manager中书写的代码\n1 2 SpecHandle.Data-\u003eSetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(\"SetByCaller.Damage\"), DamageAmount); 3.5 Damage Calculation link：https://www.youtube.com/watch?v=40rLuYJ7KJE\u0026list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT\u0026index=7\n继承于 UGameplayEffectExecutionCalculation\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 #include \"MyDamageExecutionCalculation.h\" struct FDamageStatics { // capture declarations //Target Attributes //声明一个 FGameplayEffectAttributeCaptureDefinition 类型的变量 DECLARE_ATTRIBUTE_CAPTUREDEF(health); //可以在 Gameplay Effect 或者 Gameplay Ability 的定义中使用这个捕获定义，来获取目标的 health 属性的当前值或者基础值 }; UMyDamageExecutionCalculation::UMyDamageExecutionCalculation() { } // 函数的实现可能会根据你的具体需求而不同，但一般来说， // 你可能会先从 ExecutionParams 中获取必要的信息，然后根据这些信息计算效果的结果，最后将结果写入 OutExecutionOutput。 void UMyDamageExecutionCalculation::Execute_Implementation( const FGameplayEffectCustomExecutionParameters\u0026 ExecutionParams, FGameplayEffectCustomExecutionOutput\u0026 OutExecutionOutput) const { Super::Execute_Implementation(ExecutionParams, OutExecutionOutput); } 随后利用继承于UGSCAttributeSetBase\nAttributeSet 类的声明。AttributeSet 类用于存储和管理角色的所有游戏相关属性，例如生命值、魔法值、攻击力等\nPreAttributeChange：这个函数在属性值改变之前被调用，你可以在这个函数中实现一些自定义逻辑，例如限制属性值的范围。 PostGameplayEffectExecute：这个函数在 Gameplay Effect 执行之后被调用，你可以在这个函数中实现一些自定义逻辑，例如根据造成的伤害播放不同的动画。 GetLifetimeReplicatedProps：这个函数用于设置哪些属性需要在网络中进行复制。在网络游戏中，你需要确保所有客户端都能看到正确的属性值。 PreAttributeBaseChange：这个函数在属性的基础值改变之前被调用，你可以在这个函数中实现一些自定义逻辑，例如限制属性基础值的范围。 其中\n在 Unreal Engine 的 Gameplay Ability 系统中，DECLARE_ATTRIBUTE_CAPTUREDEF 宏声明的属性捕获定义的类型确实是 FGameplayEffectAttributeCaptureDefinition。这个类型用于存储关于如何捕获一个属性的信息，包括应该捕获哪个类的哪个属性，以及应该捕获这个属性的当前值还是基础值。\n当你在代码中写 DECLARE_ATTRIBUTE_CAPTUREDEF(Health);，你实际上是在声明一个 FGameplayEffectAttributeCaptureDefinition 类型的变量，这个变量的名字是 HealthDef。这个变量用于存储关于如何捕获 Health 属性的信息。\n然后，当你在构造函数中写 DEFINE_ATTRIBUTE_CAPTUREDEF(UGSCAttributeSet, Health, Target, false);，你实际上是在定义 HealthDef 变量的行为。这行代码指定了 HealthDef 应该捕获 UGSCAttributeSet 类中的 Health 属性的值，这个值应该被视为目标属性，而且应该捕获这个属性的当前值（而不是基础值）。\n因此，HealthDef 和 Health 的关系是：HealthDef 是一个属性捕获定义，它定义了如何捕获 Health 属性的值。你可以在 Gameplay Effect 或 Gameplay Ability 的定义中使用 HealthDef 来捕获目标的 Health 属性的值。\n3.6 AttributeSetBase 设置\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 // Fill out your copyright notice in the Description page of Project Settings. #pragma once #include \"CoreMinimal.h\" #include \"Abilities/Attributes/GSCAttributeSetBase.h\" #include \"CombatSet.generated.h\" /** * */ UCLASS() class GAS_RELAX_API UCombatSet : public UGSCAttributeSetBase { GENERATED_BODY() public: UCombatSet(); virtual void PreAttributeChange(const FGameplayAttribute\u0026 Attribute, float\u0026 NewValue) override; virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData\u0026 Data) override; virtual void GetLifetimeReplicatedProps(TArray\u003cFLifetimeProperty\u003e\u0026 OutLifetimeProps) const override; virtual auto PreAttributeBaseChange(const FGameplayAttribute\u0026 Attribute, float\u0026 NewValue) const -\u003e void override; //Offensive //ReplicatedUsing 允许你指定一个函数，这个函数会在属性在客户端上被更新时被调用 UPROPERTY(BlueprintReadOnly,Category = \"CombatSet\", ReplicatedUsing = OnRep_AttackSpeed) FGameplayAttributeData AttackSpeed = 1.0f; //用于生成属性的 getter 和 setter 函数。在这个例子中，它会生成 GetAttackSpeed 和 SetAttackSpeed 函数 ATTRIBUTE_ACCESSORS(UCombatSet,AttackSpeed); UPROPERTY(BlueprintReadOnly,Category = \"CombatSet\", ReplicatedUsing = OnRep_CriticalStrikeChance) FGameplayAttributeData CriticalStrikeChance = 0.1f; ATTRIBUTE_ACCESSORS(UCombatSet,CriticalStrikeChance); UPROPERTY(BlueprintReadOnly,Category = \"CombatSet\",ReplicatedUsing= OnRep_CriticalStrikeDamageMultiple) FGameplayAttributeData CriticalStrikeDamageMultiple = 1.2f; ATTRIBUTE_ACCESSORS(UCombatSet,CriticalStrikeDamageMultiple); //Defensive UPROPERTY(BlueprintReadOnly,Category = \"CombatSet\",ReplicatedUsing= OnRep_DamageReduction) FGameplayAttributeData DamageReduction = 1.2f; ATTRIBUTE_ACCESSORS(UCombatSet,DamageReduction) protected: UFUNCTION() virtual void OnRep_AttackSpeed(const FGameplayAttributeData\u0026 OldAttackSpeed); UFUNCTION() virtual void OnRep_CriticalStrikeChance(const FGameplayAttributeData\u0026 OldCriticalStrikeChance); UFUNCTION() virtual void OnRep_CriticalStrikeDamageMultiple(const FGameplayAttributeData\u0026 OldCriticalStrikeDamageMultiple); UFUNCTION() virtual void OnRep_DamageReduction(const FGameplayAttributeData\u0026 OldDamageReduction); }; 同事\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 // Fill out your copyright notice in the Description page of Project Settings. #include \"CombatSet.h\" #include \"Net/UnrealNetwork.h\" UCombatSet::UCombatSet() { } void UCombatSet::PreAttributeChange(const FGameplayAttribute\u0026 Attribute, float\u0026 NewValue) { Super::PreAttributeChange(Attribute, NewValue); if (Attribute == GetCriticalStrikeChanceAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.f, 1.f); } else if (Attribute == GetCriticalStrikeDamageMultipleAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 1.2f, 12.0f); } else if (Attribute == GetAttackSpeedAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.1f, 2.f); } else if (Attribute == GetDamageReductionAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.f, .9f); } } void UCombatSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData\u0026 Data) { Super::PostGameplayEffectExecute(Data); FGSCAttributeSetExecutionData ExecutionData; GetExecutionDataFromMod(Data, ExecutionData); } void UCombatSet::GetLifetimeReplicatedProps(TArray\u003cFLifetimeProperty\u003e\u0026 OutLifetimeProps) const { Super::GetLifetimeReplicatedProps(OutLifetimeProps); //通知服务器，服务器进行更新 // 这个参数是一个枚举值，用于决定何时触发复制通知函数。在你的例子中，这个通知是 REPNOTIFY_Always， // 表示无论属性是否发生改变，都会触发复制通知函数。 DOREPLIFETIME_CONDITION_NOTIFY(UCombatSet, AttackSpeed, COND_None, REPNOTIFY_Always) DOREPLIFETIME_CONDITION_NOTIFY(UCombatSet, CriticalStrikeChance, COND_None, REPNOTIFY_Always) DOREPLIFETIME_CONDITION_NOTIFY(UCombatSet, CriticalStrikeDamageMultiple, COND_None, REPNOTIFY_Always) DOREPLIFETIME_CONDITION_NOTIFY(UCombatSet, DamageReduction, COND_None, REPNOTIFY_Always) } void UCombatSet::PreAttributeBaseChange(const FGameplayAttribute\u0026 Attribute, float\u0026 NewValue) const { Super::PreAttributeBaseChange(Attribute, NewValue); if (Attribute == GetCriticalStrikeChanceAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.f, 1.f); } else if (Attribute == GetCriticalStrikeDamageMultipleAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 1.2f, 12.0f); } else if (Attribute == GetAttackSpeedAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.1f, 2.f); } else if (Attribute == GetDamageReductionAttribute()) { //限制暴击率在 0 - 100 NewValue = FMath::Clamp(NewValue, 0.f, .9f); } } //\t这个函数 UCombatSet::OnRep_AttackSpeed 是一个网络复制通知函数，它在 AttackSpeed //\t属性被网络复制时被调用。这是 Unreal Engine 的网络系统的一部分，用于同步服务器和客户端之间的游戏状态。 // 函数的参数 const FGameplayAttributeData\u0026 OldAttackSpeed 是 AttackSpeed 属性在被复制之前的值。 // 在函数体中，你调用了 GAMEPLAYATTRIBUTE_REPNOTIFY 宏。这个宏用于处理网络复制通知。它的参数是： void UCombatSet::OnRep_AttackSpeed(const FGameplayAttributeData\u0026 OldAttackSpeed) { GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatSet, AttackSpeed,OldAttackSpeed); } void UCombatSet::OnRep_CriticalStrikeChance(const FGameplayAttributeData\u0026 OldCriticalStrikeChance) { GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatSet, CriticalStrikeChance,OldCriticalStrikeChance); } void UCombatSet::OnRep_CriticalStrikeDamageMultiple(const FGameplayAttributeData\u0026 OldCriticalStrikeDamageMultiple) { GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatSet, CriticalStrikeDamageMultiple,OldCriticalStrikeDamageMultiple); } void UCombatSet::OnRep_DamageReduction(const FGameplayAttributeData\u0026 OldDamageReduction) { GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatSet, DamageReduction,OldDamageReduction); } ","wordCount":"1914","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Tyz-Kotono"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://tyz-kotono.github.io/ue5/ue_gas/"},"publisher":{"@type":"Organization","name":"Tyz-Kotono 技术博客","logo":{"@type":"ImageObject","url":"https://tyz-kotono.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://tyz-kotono.github.io/ accesskey=h title="Tyz-Kotono 技术博客 (Alt + H)">Tyz-Kotono 技术博客</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://tyz-kotono.github.io/categories/ title=分类><span>分类</span></a></li><li><a href=https://tyz-kotono.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://tyz-kotono.github.io/about/ title=关于><span>关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://tyz-kotono.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://tyz-kotono.github.io/ue5/>UE5s</a></div><h1 class="post-title entry-hint-parent"></h1><div class=post-meta>9 min&nbsp;·&nbsp;1914 words&nbsp;·&nbsp;Tyz-Kotono</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e5%9f%ba%e7%a1%80%e5%87%86%e5%a4%87 aria-label=基础准备>基础准备</a></li><li><a href=#1input-action aria-label="1、Input Action">1、Input Action</a><ul><li><a href=#11-%e8%ae%be%e7%bd%ae%e9%94%ae%e4%bd%8d aria-label="1.1 设置键位">1.1 设置键位</a></li><li><a href=#12-icharacterhelper aria-label="1.2 ICharacterHelper">1.2 ICharacterHelper</a></li></ul></li><li><a href=#2data-set aria-label="2、Data Set">2、Data Set</a><ul><li><a href=#21-ugscgameplayability aria-label="2.1 UGSCGameplayAbility">2.1 UGSCGameplayAbility</a></li><li><a href=#22-event-trigger aria-label="2.2 Event Trigger">2.2 Event Trigger</a></li></ul></li><li><a href=#3data-table aria-label="3、Data Table">3、Data Table</a><ul><li><a href=#31-data aria-label="3.1 Data">3.1 Data</a></li><li><a href=#32-ui aria-label="3.2 UI">3.2 UI</a></li><li><a href=#33-cheat-manager aria-label="3.3 Cheat manager">3.3 Cheat manager</a></li><li><a href=#34-ge aria-label="3.4 GE">3.4 GE</a></li><li><a href=#35-damage-calculation aria-label="3.5 Damage Calculation">3.5 Damage Calculation</a></li><li><a href=#36-attributesetbase aria-label="3.6 AttributeSetBase">3.6 AttributeSetBase</a></li></ul></li></ul></div></details></div><div class=post-content><p>教程路径</p><p>Link：https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5</p><h4 id=基础准备>基础准备<a hidden class=anchor aria-hidden=true href=#基础准备>#</a></h4><p>创建相应的类，具体的类有</p><p><img alt=image-20240831192123660 loading=lazy src=./assets/image-20240831192123660.png></p><p>首先是重要的AMyPlayerStateCharacter</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>AMyPlayerStateCharacter</span> <span class=p>:</span> <span class=k>public</span> <span class=n>AGSCModularPlayerStateCharacter</span><span class=p>,</span><span class=k>public</span> <span class=n>ICharacterHelper</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl><span class=n>AMyPlayerStateCharacter</span><span class=p>(</span><span class=k>const</span> <span class=n>FObjectInitializer</span><span class=o>&amp;</span> <span class=n>ObjectInitializer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>//class USpringArmComponent* SpringArmComponent;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>USpringArmComponent</span><span class=o>&gt;</span> <span class=n>SpringArmComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UCameraComponent</span><span class=o>&gt;</span> <span class=n>CameraComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//允许交互 提供技能
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCCoreComponent</span><span class=o>&gt;</span> <span class=n>GSCCoreComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//输入绑定到角色
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilityInputBindingComponent</span><span class=o>&gt;</span> <span class=n>GSCAbilityInputBindingComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl><span class=k>virtual</span> <span class=kt>void</span>  <span class=n>BeginPlay</span><span class=p>()</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl><span class=k>virtual</span>  <span class=kt>void</span>  <span class=n>Tick</span><span class=p>(</span><span class=kt>float</span> <span class=n>DeltaSeconds</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>virtual</span> <span class=kt>void</span> <span class=nf>SetupPlayerInputComponent</span><span class=p>(</span><span class=n>UInputComponent</span><span class=o>*</span> <span class=n>PlayerInputComponent</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>CPP代码如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyPlayerStateCharacter.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Camera/CameraComponent.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Components/GSCAbilityInputBindingComponent.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Components/GSCCoreComponent.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;GameFramework/SpringArmComponent.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>AMyPlayerStateCharacter</span><span class=o>::</span><span class=n>AMyPlayerStateCharacter</span><span class=p>(</span><span class=k>const</span> <span class=n>FObjectInitializer</span><span class=o>&amp;</span> <span class=n>ObjectInitializer</span><span class=p>)</span><span class=o>:</span><span class=n>Super</span><span class=p>(</span><span class=n>ObjectInitializer</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>PrimaryActorTick</span><span class=p>.</span><span class=n>bCanEverTick</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Set up movement
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>bUseControllerRotationYaw</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span> <span class=o>=</span> <span class=n>CreateDefaultSubobject</span><span class=o>&lt;</span><span class=n>USpringArmComponent</span><span class=o>&gt;</span><span class=p>(</span><span class=n>TEXT</span><span class=p>(</span><span class=s>&#34;SpringArmComponent&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>SetupAttachment</span><span class=p>(</span><span class=n>RootComponent</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>SetRelativeLocation</span><span class=p>(</span><span class=n>FVector</span><span class=p>(</span><span class=mf>0.f</span><span class=p>,</span> <span class=mf>0.f</span><span class=p>,</span> <span class=mf>70.0f</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>TargetArmLength</span> <span class=o>=</span> <span class=mf>450.0f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Paw 旋转
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>bUsePawnControlRotation</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>bInheritYaw</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//滞后
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>bEnableCameraLag</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>SpringArmComponent</span><span class=o>-&gt;</span><span class=n>CameraLagSpeed</span> <span class=o>=</span> <span class=mf>15.f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Setup CameraComponent
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>CameraComponent</span> <span class=o>=</span> <span class=n>CreateDefaultSubobject</span><span class=o>&lt;</span><span class=n>UCameraComponent</span><span class=o>&gt;</span><span class=p>(</span><span class=n>TEXT</span><span class=p>(</span><span class=s>&#34;CameraComponent&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>CameraComponent</span><span class=o>-&gt;</span><span class=n>SetupAttachment</span><span class=p>(</span><span class=n>SpringArmComponent</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>CameraComponent</span><span class=o>-&gt;</span><span class=n>bUsePawnControlRotation</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>CameraComponent</span><span class=o>-&gt;</span><span class=n>FieldOfView</span> <span class=o>=</span> <span class=mf>75.f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Setup GAS Companion
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>GSCCoreComponent</span> <span class=o>=</span> <span class=n>CreateDefaultSubobject</span><span class=o>&lt;</span><span class=n>UGSCCoreComponent</span><span class=o>&gt;</span><span class=p>(</span><span class=n>TEXT</span><span class=p>(</span><span class=s>&#34;GSCCoreComponent&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>GSCAbilityInputBindingComponent</span> <span class=o>=</span> <span class=n>CreateDefaultSubobject</span><span class=o>&lt;</span><span class=n>UGSCAbilityInputBindingComponent</span><span class=o>&gt;</span><span class=p>(</span><span class=n>TEXT</span><span class=p>(</span><span class=s>&#34;GSCAbilityInputBindingComponent&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>AMyPlayerStateCharacter</span><span class=o>::</span><span class=n>BeginPlay</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>BeginPlay</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>AMyPlayerStateCharacter</span><span class=o>::</span><span class=n>Tick</span><span class=p>(</span><span class=kt>float</span> <span class=n>DeltaSeconds</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>Tick</span><span class=p>(</span><span class=n>DeltaSeconds</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>AMyPlayerStateCharacter</span><span class=o>::</span><span class=n>SetupPlayerInputComponent</span><span class=p>(</span><span class=n>UInputComponent</span><span class=o>*</span> <span class=n>PlayerInputComponent</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>SetupPlayerInputComponent</span><span class=p>(</span><span class=n>PlayerInputComponent</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>主要的继承关系如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//GameMode
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>AMyGameMode</span><span class=o>-&gt;</span><span class=n>AGSCModularGameModeBase</span><span class=o>-&gt;</span><span class=n>AGameModeBase</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//Character
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>AMyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>AGSCModularPlayerStateCharacter</span><span class=o>-&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=k>public</span> <span class=n>ACharacter</span><span class=p>,</span> <span class=k>public</span> <span class=n>IAbilitySystemInterface</span><span class=p>,</span> <span class=k>public</span> <span class=n>IGameplayTagAssetInterface</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//PlayerController
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>AMyPlayerController</span><span class=o>-&gt;</span><span class=n>AGSCModularPlayerController</span><span class=o>-&gt;</span><span class=n>APlayerController</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//CheatManager
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UMyCheatManager</span><span class=o>-&gt;</span><span class=n>UCheatManager</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//PlayerState
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>AMyPlayerState</span><span class=o>-&gt;</span><span class=n>AGSCModularPlayerState</span><span class=o>-&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=k>public</span> <span class=n>APlayerState</span><span class=p>,</span> <span class=k>public</span> <span class=n>IAbilitySystemInterface</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//GameInstance
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UMyGameInstance</span><span class=o>-&gt;</span><span class=n>UGameInstance</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//GameStateBase
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>AMyGameStateBase</span><span class=o>-&gt;</span><span class=n>AGSCModularGameStateBase</span><span class=o>-&gt;</span><span class=n>AGameStateBase</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=1input-action>1、Input Action<a hidden class=anchor aria-hidden=true href=#1input-action>#</a></h4><h5 id=11-设置键位>1.1 设置键位<a hidden class=anchor aria-hidden=true href=#11-设置键位>#</a></h5><p>利用Input Action 和Input Mapping</p><p><img alt=image-20240831185204546 loading=lazy src=./assets/image-20240831185204546.png></p><p>设置上大同小异水平二维输入</p><p><img alt=image-20240831185228650 loading=lazy src=./assets/image-20240831185228650.png></p><p>利用Input mapping 进行设备自适应</p><p><img alt=image-20240831185158082 loading=lazy src=./assets/image-20240831185158082.png></p><p><img alt=image-20240831185309620 loading=lazy src=./assets/image-20240831185309620.png></p><p>其中鼠标输入需要颠倒Y 轴</p><p><img alt=image-20240831185333156 loading=lazy src=./assets/image-20240831185333156.png></p><p>移动里面WS，需要颠倒为Y轴</p><p><img alt=image-20240831185414506 loading=lazy src=./assets/image-20240831185414506.png></p><p>AD 只需要设置A为负值</p><p>手柄输入设置死区</p><p><img alt=image-20240831185526551 loading=lazy src=./assets/image-20240831185526551.png></p><p>可以看到输入，利用~ 和 show debug</p><p><img alt=image-20240831185607935 loading=lazy src=./assets/image-20240831185607935.png></p><p><img alt=image-20240831181131117 loading=lazy src=./assets/image-20240831181131117.png></p><p>如果不选择这里，旋转将会利用相机旋转，不会使用按键旋转</p><p><img alt=image-20240831181411416 loading=lazy src=./assets/image-20240831181411416.png></p><p>使用控制器旋转</p><h5 id=12-icharacterhelper>1.2 ICharacterHelper<a hidden class=anchor aria-hidden=true href=#12-icharacterhelper>#</a></h5><p>我们要让其他组件抓取数据，首先需要保存玩家的数据利用接口</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#pragma once
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CoreMinimal.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;UObject/Interface.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CharacterHelper.generated.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// This class does not need to be modified.
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UINTERFACE</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>UCharacterHelper</span> <span class=o>:</span> <span class=k>public</span> <span class=n>UInterface</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=n>ICharacterHelper</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//接口在 character 的蓝图中赋值，随后被其他数值调用
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintNativeEvent</span><span class=p>,</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Character Helper&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FVector2D</span> <span class=n>GetInputActionLookValue</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintNativeEvent</span><span class=p>,</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Character Helper&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FVector2D</span> <span class=n>GetInputActionMoveValue</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>随后让玩家继承</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>UGSCAbilityInputBindingComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>UCameraComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>UGSCCoreComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>AMyPlayerStateCharacter</span> <span class=p>:</span> <span class=k>public</span> <span class=n>AGSCModularPlayerStateCharacter</span><span class=p>,</span><span class=k>public</span> <span class=n>ICharacterHelper</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>AMyPlayerStateCharacter</span><span class=p>(</span><span class=k>const</span> <span class=n>FObjectInitializer</span><span class=o>&amp;</span> <span class=n>ObjectInitializer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//class USpringArmComponent* SpringArmComponent;
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>USpringArmComponent</span><span class=o>&gt;</span> <span class=n>SpringArmComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UCameraComponent</span><span class=o>&gt;</span> <span class=n>CameraComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//允许交互 提供技能
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCCoreComponent</span><span class=o>&gt;</span> <span class=n>GSCCoreComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//输入绑定到角色
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>VisibleAnywhere</span><span class=p>,</span> <span class=n>BlueprintReadOnly</span><span class=p>,</span> <span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Camera&#34;</span><span class=p>,</span> <span class=n>meta</span> <span class=o>=</span> <span class=p>(</span><span class=n>AllowPrivateAccess</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilityInputBindingComponent</span><span class=o>&gt;</span> <span class=n>GSCAbilityInputBindingComponent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span>  <span class=n>BeginPlay</span><span class=p>()</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span>  <span class=kt>void</span>  <span class=n>Tick</span><span class=p>(</span><span class=kt>float</span> <span class=n>DeltaSeconds</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>SetupPlayerInputComponent</span><span class=p>(</span><span class=n>UInputComponent</span><span class=o>*</span> <span class=n>PlayerInputComponent</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>就可以在玩家蓝图中看到两个函数，随后我们将InPunt Action的值穿进去，缓存</p><p><img alt=image-20240831191922495 loading=lazy src=./assets/image-20240831191922495.png></p><h4 id=2data-set>2、Data Set<a hidden class=anchor aria-hidden=true href=#2data-set>#</a></h4><p>因此可以创建一个data Asset</p><p><img alt=image-20240831192858891 loading=lazy src=./assets/image-20240831192858891.png></p><p>随后创建能力</p><h5 id=21-ugscgameplayability>2.1 UGSCGameplayAbility<a hidden class=anchor aria-hidden=true href=#21-ugscgameplayability>#</a></h5><p>基于<font color=#4db8ff>UGSCGameplayAbility</font> 创建Look 和Move</p><p><font color=#4db8ff>GA_Player_Look、GA_Player_Move</font>都继承于<font color=#4db8ff>UGSCGameplayAbility</font></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CoreMinimal.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Abilities/GSCGameplayAbility.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyGamePlayerAbility_Move.generated.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>UMyGamePlayerAbility_Move</span> <span class=p>:</span> <span class=k>public</span> <span class=n>UGSCGameplayAbility</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UMyGamePlayerAbility_Move</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>ActivateAbility</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAbilitySpecHandle</span> <span class=n>Handle</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActorInfo</span><span class=o>*</span> <span class=n>ActorInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActivationInfo</span> <span class=n>ActivationInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayEventData</span><span class=o>*</span> <span class=n>TriggerEventData</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>EndAbility</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAbilitySpecHandle</span> <span class=n>Handle</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActorInfo</span><span class=o>*</span> <span class=n>ActorInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActivationInfo</span> <span class=n>ActivationInfo</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>bReplicateEndAbility</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>bWasCancelled</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Player Movement&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=kt>void</span> <span class=n>Move</span><span class=p>(</span><span class=k>const</span> <span class=n>FVector2D</span> <span class=n>ActionValue</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>/////
+</span></span></span><span class=line><span class=cl><span class=c1>/////
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CoreMinimal.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Abilities/GSCGameplayAbility.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyGamePlayerAbility_Look.generated.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>UMyGamePlayerAbility_Look</span> <span class=p>:</span> <span class=k>public</span> <span class=n>UGSCGameplayAbility</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UMyGamePlayerAbility_Look</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>ActivateAbility</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAbilitySpecHandle</span> <span class=n>Handle</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActorInfo</span><span class=o>*</span> <span class=n>ActorInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActivationInfo</span> <span class=n>ActivationInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayEventData</span><span class=o>*</span> <span class=n>TriggerEventData</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>EndAbility</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAbilitySpecHandle</span> <span class=n>Handle</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActorInfo</span><span class=o>*</span> <span class=n>ActorInfo</span><span class=p>,</span> <span class=k>const</span> <span class=n>FGameplayAbilityActivationInfo</span> <span class=n>ActivationInfo</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>bReplicateEndAbility</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>bWasCancelled</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Player Movement&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=kt>void</span> <span class=n>Look</span><span class=p>(</span><span class=k>const</span> <span class=n>FVector2D</span> <span class=n>ActionValue</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>代码大同小异，但是都会有一个函数允许蓝图调用分别是Look和Move</p><p>函数如下，首先要判断传入的值，而这个值，是通过接口获得的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=kt>void</span> <span class=n>UMyGamePlayerAbility_Look</span><span class=o>::</span><span class=n>Look</span><span class=p>(</span><span class=k>const</span> <span class=n>FVector2D</span> <span class=n>ActionValue</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>IsZero</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>AMyPlayerStateCharacter</span><span class=o>*</span> <span class=n>MyPlayerStateCharacter</span> <span class=o>=</span> <span class=n>Cast</span><span class=o>&lt;</span><span class=n>AMyPlayerStateCharacter</span><span class=o>&gt;</span><span class=p>(</span><span class=n>GetAvatarActorFromActorInfo</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>MyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>AddControllerYawInput</span><span class=p>(</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>X</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>MyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>AddControllerPitchInput</span><span class=p>(</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>Y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>///
+</span></span></span><span class=line><span class=cl><span class=c1>///
+</span></span></span><span class=line><span class=cl><span class=c1>///
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UMyGamePlayerAbility_Move</span><span class=o>::</span><span class=n>Move</span><span class=p>(</span><span class=k>const</span> <span class=n>FVector2D</span> <span class=n>ActionValue</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>IsZero</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//返回执行此能力的物理角色
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=k>if</span><span class=p>(</span><span class=n>AMyPlayerStateCharacter</span><span class=o>*</span> <span class=n>MyPlayerStateCharacter</span> <span class=o>=</span> <span class=n>Cast</span><span class=o>&lt;</span><span class=n>AMyPlayerStateCharacter</span><span class=o>&gt;</span><span class=p>(</span><span class=n>GetAvatarActorFromActorInfo</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=c1>//获取控制器的旋转角度，通常也就是该 Pawn 的 &#34;视图 &#34;旋转角度。
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=k>const</span> <span class=n>FRotator</span> <span class=n>Rotation</span> <span class=o>=</span> <span class=n>MyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>GetControlRotation</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>//按给定的旋转角度旋转世界右矢量 
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=k>const</span> <span class=n>FVector</span> <span class=n>RightDirection</span> <span class=o>=</span> <span class=n>UKismetMathLibrary</span><span class=o>::</span> <span class=n>GetRightVector</span><span class=p>(</span><span class=n>FRotator</span><span class=p>(</span><span class=mf>0.0f</span><span class=p>,</span><span class=n>Rotation</span><span class=p>.</span><span class=n>Yaw</span><span class=p>,</span><span class=mf>0.f</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>			<span class=k>const</span> <span class=n>FVector</span> <span class=n>ForwardDirection</span> <span class=o>=</span> <span class=n>UKismetMathLibrary</span><span class=o>::</span> <span class=n>GetForwardVector</span><span class=p>(</span><span class=n>FRotator</span><span class=p>(</span><span class=mf>0.0f</span><span class=p>,</span><span class=n>Rotation</span><span class=p>.</span><span class=n>Yaw</span><span class=p>,</span><span class=mf>0.f</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>//指定方向与值
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>MyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>AddMovementInput</span><span class=p>(</span><span class=n>RightDirection</span><span class=p>,</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>X</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			
+</span></span><span class=line><span class=cl>			<span class=n>MyPlayerStateCharacter</span><span class=o>-&gt;</span><span class=n>AddMovementInput</span><span class=p>(</span><span class=n>ForwardDirection</span><span class=p>,</span><span class=n>ActionValue</span><span class=p>.</span><span class=n>Y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>调用在蓝图中使用，也是大同小异</p><p><img alt=image-20240831193512746 loading=lazy src=./assets/image-20240831193512746.png></p><p>首先抓取角色，随后抓取角色接口保存的值即</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=n>ICharacterHelper</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//接口在 character 的蓝图中赋值，随后被其他数值调用
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintNativeEvent</span><span class=p>,</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Character Helper&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FVector2D</span> <span class=n>GetInputActionLookValue</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>BlueprintNativeEvent</span><span class=p>,</span><span class=n>BlueprintCallable</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;Character Helper&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FVector2D</span> <span class=n>GetInputActionMoveValue</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>随后将值传入<font color=#4db8ff>GA_Player_Look、GA_Player_Move</font>去执行对应的Look和Move函数</p><p>处理已经实现了，那么就要编写触发</p><p>利用这个去获取能力，那么行走移动也是能力</p><p><img alt=image-20240831184148512 loading=lazy src=./assets/image-20240831184148512.png></p><h5 id=22-event-trigger>2.2 Event Trigger<a hidden class=anchor aria-hidden=true href=#22-event-trigger>#</a></h5><p>将数据放入创建的Data Asset中，可以在这里绑定Input Action与<font color=#4db8ff>GameplayAbility</font></p><p><img alt=image-20240831193937311 loading=lazy src=./assets/image-20240831193937311.png></p><p>随后在<font color=#4db8ff>BP_MyPlayerState</font>中使用，而他在Game Modes中使用</p><p><img alt=image-20240831194153778 loading=lazy src=./assets/image-20240831194153778.png></p><p>2.3 Debug</p><p><img alt=image-20240831200053804 loading=lazy src=./assets/image-20240831200053804.png></p><p><img alt=image-20240831200140420 loading=lazy src=./assets/image-20240831200140420.png></p><p>&rsquo;&rsquo; 加数字键盘3可以查看</p><p><img alt=image-20240831194259236 loading=lazy src=./assets/image-20240831194259236.png></p><h4 id=3data-table>3、Data Table<a hidden class=anchor aria-hidden=true href=#3data-table>#</a></h4><h5 id=31-data>3.1 Data<a hidden class=anchor aria-hidden=true href=#31-data>#</a></h5><p>利用这个可以制作，数值相关内容</p><p>如：Health、Stamina 、Man、RegenRate</p><p><img alt=image-20240831184013065 loading=lazy src=./assets/image-20240831184013065.png></p><p>设置按可以在</p><p><img alt=image-20240831184426000 loading=lazy src=./assets/image-20240831184426000.png></p><p>在控制台就会显示</p><p><img alt=image-20240831184507254 loading=lazy src=./assets/image-20240831184507254.png></p><h5 id=32-ui>3.2 UI<a hidden class=anchor aria-hidden=true href=#32-ui>#</a></h5><p><font color=#4db8ff>Link: </font><a href="https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5">https://www.youtube.com/watch?v=7tUwMa1BU3c&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=5</a></p><p><img alt=image-20240831200425236 loading=lazy src=./assets/image-20240831200425236.png></p><p><img alt=image-20240831200800173 loading=lazy src=./assets/image-20240831200800173.png></p><h5 id=33-cheat-manager>3.3 Cheat manager<a hidden class=anchor aria-hidden=true href=#33-cheat-manager>#</a></h5><p>可以利用控制台命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=c1>// Fill out your copyright notice in the Description page of Project Settings.
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=cp>#pragma once
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CoreMinimal.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;GameplayEffect.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Abilities/GSCAbilitySet.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Abilities/GSCAbilitySystemComponent.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;GameFramework/CheatManager.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyCheatManager.generated.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>UMyCheatManager</span> <span class=p>:</span> <span class=k>public</span> <span class=n>UCheatManager</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UMyCheatManager</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>InitCheatManager</span><span class=p>()</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//控制台命令
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>UFUNCTION</span><span class=p>(</span><span class=n>Exec</span><span class=p>,</span><span class=n>BlueprintAuthorityOnly</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>DamageSelf</span><span class=p>(</span><span class=k>const</span> <span class=kt>float</span> <span class=n>DamageAmount</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>EditAnywhere</span><span class=p>,</span><span class=n>BlueprintReadWrite</span><span class=p>,</span><span class=n>Category</span><span class=o>=</span><span class=s>&#34;GamePlayEffects&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>TSubclassOf</span><span class=o>&lt;</span><span class=n>UGameplayEffect</span><span class=o>&gt;</span> <span class=n>DamageGE</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=kt>void</span> <span class=n>ApplySetByCallerDamage</span><span class=p>(</span><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span> <span class=n>ASC</span><span class=p>,</span><span class=kt>float</span> <span class=n>DamageAmount</span><span class=p>)</span> <span class=k>const</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span> <span class=n>GetPlayerAbilitySystemComponent</span><span class=p>()</span> <span class=k>const</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>Cpp</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=c1>// Fill out your copyright notice in the Description page of Project Settings.
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyCheatManager.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyPlayerController.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyPlayerState.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=n>UMyCheatManager</span><span class=o>::</span><span class=n>UMyCheatManager</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UMyCheatManager</span><span class=o>::</span><span class=n>InitCheatManager</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>InitCheatManager</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UMyCheatManager</span><span class=o>::</span><span class=n>DamageSelf</span><span class=p>(</span><span class=k>const</span> <span class=kt>float</span> <span class=n>DamageAmount</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span> <span class=n>ASC</span> <span class=o>=</span> <span class=n>GetPlayerAbilitySystemComponent</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>ApplySetByCallerDamage</span><span class=p>(</span><span class=n>ASC</span><span class=p>,</span><span class=n>DamageAmount</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 向某个角色（或其他对象）施加一个伤害效果。这个伤害效果的数值是动态的，由函数的参数 DamageAmount 决定
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=n>UMyCheatManager</span><span class=o>::</span><span class=n>ApplySetByCallerDamage</span><span class=p>(</span><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span> <span class=n>ASC</span><span class=p>,</span> <span class=kt>float</span> <span class=n>DamageAmount</span><span class=p>)</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//断言
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>//ASC 用于管理角色的能力和效果系统
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>check</span><span class=p>(</span><span class=n>ASC</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//通常用于描述一个效果，例如伤害、治疗等
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>//Gameplay Effect (GE): 这个函数涉及的是 Unreal Engine 的 Gameplay Effect 系统，
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>//它用于处理角色之间的状态变化，例如伤害、治疗、增益或减益。DamageEf 代表了一个 GameplayEffect 对象
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>DamageGE</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//GE
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=c1>//游戏效果的规范（Spec），描述了如何应用游戏效果。这包括效果的类型、强度、持续时间
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>FGameplayEffectSpecHandle</span> <span class=n>SpecHandle</span> <span class=o>=</span> <span class=n>ASC</span><span class=o>-&gt;</span><span class=n>MakeOutgoingSpec</span><span class=p>(</span><span class=n>DamageGE</span><span class=p>,</span> <span class=mf>1.f</span><span class=p>,</span> <span class=n>ASC</span><span class=o>-&gt;</span><span class=n>MakeEffectContext</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=c1>// MakeEffectContext() 创建了一个包含效果施加时的上下文信息的对象，这个上下文可以包括施加者、目标、位置等信息。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=p>(</span><span class=n>SpecHandle</span><span class=p>.</span><span class=n>IsValid</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=c1>//GameplayTag: FGameplayTag::RequestGameplayTag(&#34;SetByCaller.Damage&#34;)
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>//用于查找或创建一个 GameplayTag。这个标签用于标识这个具体的“SetByCaller”参数，
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>//并且需要在 GameplayEffect 中配置为“SetByCaller”类型的输入。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>			<span class=c1>//RequestGameplayTag
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>//这个函数请求或创建一个名为 SetByCaller.Damage 的 GameplayTag。这个标签用于标识即将传递的参数（即伤害值）。
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=c1>// 这个标签通常在 GameplayEffect 的配置中预定义，但不会具体赋值，因为它是一个 SetByCaller 类型的标签。
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>SpecHandle</span><span class=p>.</span><span class=n>Data</span><span class=o>-&gt;</span><span class=n>SetSetByCallerMagnitude</span><span class=p>(</span><span class=n>FGameplayTag</span><span class=o>::</span><span class=n>RequestGameplayTag</span><span class=p>(</span><span class=s>&#34;SetByCaller.Damage&#34;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>			                                         <span class=n>DamageAmount</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=n>ASC</span><span class=o>-&gt;</span><span class=n>ApplyGameplayEffectSpecToSelf</span><span class=p>(</span><span class=o>*</span><span class=n>SpecHandle</span><span class=p>.</span><span class=n>Data</span><span class=p>.</span><span class=n>Get</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TObjectPtr</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span> <span class=n>UMyCheatManager</span><span class=o>::</span><span class=n>GetPlayerAbilitySystemComponent</span><span class=p>()</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>AMyPlayerController</span><span class=o>*</span> <span class=n>PC</span> <span class=o>=</span> <span class=n>Cast</span><span class=o>&lt;</span><span class=n>AMyPlayerController</span><span class=o>&gt;</span><span class=p>(</span><span class=n>GetOuterAPlayerController</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//PC-&gt;GetPlayerState&lt;AMyPlayerState&gt;() 内含类型转换
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=k>return</span> <span class=n>Cast</span><span class=o>&lt;</span><span class=n>UGSCAbilitySystemComponent</span><span class=o>&gt;</span><span class=p>(</span><span class=n>PC</span><span class=o>-&gt;</span><span class=n>GetPlayerState</span><span class=o>&lt;</span><span class=n>AMyPlayerState</span><span class=o>&gt;</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>GetAbilitySystemComponent</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=k>nullptr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h5 id=34-ge>3.4 GE<a hidden class=anchor aria-hidden=true href=#34-ge>#</a></h5><p>创建一个GE 蓝图基类，随后让子类继承他</p><p><img alt=image-20240902230025146 loading=lazy src=./assets/image-20240902230025146.png></p><p>抽象函数，允许子类继承使用</p><p><img alt=image-20240902225616906 loading=lazy src=./assets/image-20240902225616906.png></p><p>其中计算调用的是Cheat manager中书写的代码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=n>SpecHandle</span><span class=p>.</span><span class=n>Data</span><span class=o>-&gt;</span><span class=n>SetSetByCallerMagnitude</span><span class=p>(</span><span class=n>FGameplayTag</span><span class=o>::</span><span class=n>RequestGameplayTag</span><span class=p>(</span><span class=s>&#34;SetByCaller.Damage&#34;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>			                                         <span class=n>DamageAmount</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p><img alt=image-20240902230050893 loading=lazy src=./assets/image-20240902230050893.png></p><h5 id=35-damage-calculation>3.5 Damage Calculation<a hidden class=anchor aria-hidden=true href=#35-damage-calculation>#</a></h5><p>link：https://www.youtube.com/watch?v=40rLuYJ7KJE&amp;list=PLmCw_T2hLwiE4vs7rffbuYgviR0Pd_XMT&amp;index=7</p><p>继承于 UGameplayEffectExecutionCalculation</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;MyDamageExecutionCalculation.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>struct</span> <span class=nc>FDamageStatics</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// capture declarations
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>	<span class=c1>//Target Attributes
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>	<span class=c1>//声明一个 FGameplayEffectAttributeCaptureDefinition 类型的变量
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>DECLARE_ATTRIBUTE_CAPTUREDEF</span><span class=p>(</span><span class=n>health</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//可以在 Gameplay Effect 或者 Gameplay Ability 的定义中使用这个捕获定义，来获取目标的 health 属性的当前值或者基础值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>UMyDamageExecutionCalculation</span><span class=o>::</span><span class=n>UMyDamageExecutionCalculation</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 函数的实现可能会根据你的具体需求而不同，但一般来说，
+</span></span></span><span class=line><span class=cl><span class=c1>// 你可能会先从 ExecutionParams 中获取必要的信息，然后根据这些信息计算效果的结果，最后将结果写入 OutExecutionOutput。
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=n>UMyDamageExecutionCalculation</span><span class=o>::</span><span class=n>Execute_Implementation</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=k>const</span> <span class=n>FGameplayEffectCustomExecutionParameters</span><span class=o>&amp;</span> <span class=n>ExecutionParams</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGameplayEffectCustomExecutionOutput</span><span class=o>&amp;</span> <span class=n>OutExecutionOutput</span><span class=p>)</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>Execute_Implementation</span><span class=p>(</span><span class=n>ExecutionParams</span><span class=p>,</span> <span class=n>OutExecutionOutput</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>随后利用继承于<font color=#4db8ff>UGSCAttributeSetBase</font></p><p>AttributeSet 类的声明。AttributeSet 类用于存储和管理角色的所有游戏相关属性，例如生命值、魔法值、攻击力等</p><ul><li><code>PreAttributeChange</code>：这个函数在属性值改变之前被调用，你可以在这个函数中实现一些自定义逻辑，例如限制属性值的范围。</li><li><code>PostGameplayEffectExecute</code>：这个函数在 Gameplay Effect 执行之后被调用，你可以在这个函数中实现一些自定义逻辑，例如根据造成的伤害播放不同的动画。</li><li><code>GetLifetimeReplicatedProps</code>：这个函数用于设置哪些属性需要在网络中进行复制。在网络游戏中，你需要确保所有客户端都能看到正确的属性值。</li><li><code>PreAttributeBaseChange</code>：这个函数在属性的基础值改变之前被调用，你可以在这个函数中实现一些自定义逻辑，例如限制属性基础值的范围。</li></ul><p>其中</p><p>在 Unreal Engine 的 Gameplay Ability 系统中，<code>DECLARE_ATTRIBUTE_CAPTUREDEF</code> 宏声明的属性捕获定义的类型确实是 <code>FGameplayEffectAttributeCaptureDefinition</code>。这个类型用于存储关于如何捕获一个属性的信息，包括应该捕获哪个类的哪个属性，以及应该捕获这个属性的当前值还是基础值。</p><p>当你在代码中写 <code>DECLARE_ATTRIBUTE_CAPTUREDEF(Health);</code>，你实际上是在声明一个 <code>FGameplayEffectAttributeCaptureDefinition</code> 类型的变量，这个变量的名字是 <code>HealthDef</code>。这个变量用于存储关于如何捕获 <code>Health</code> 属性的信息。</p><p>然后，当你在构造函数中写 <code>DEFINE_ATTRIBUTE_CAPTUREDEF(UGSCAttributeSet, Health, Target, false);</code>，你实际上是在定义 <code>HealthDef</code> 变量的行为。这行代码指定了 <code>HealthDef</code> 应该捕获 <code>UGSCAttributeSet</code> 类中的 <code>Health</code> 属性的值，这个值应该被视为目标属性，而且应该捕获这个属性的当前值（而不是基础值）。</p><p>因此，<code>HealthDef</code> 和 <code>Health</code> 的关系是：<code>HealthDef</code> 是一个属性捕获定义，它定义了如何捕获 <code>Health</code> 属性的值。你可以在 Gameplay Effect 或 Gameplay Ability 的定义中使用 <code>HealthDef</code> 来捕获目标的 <code>Health</code> 属性的值。</p><h5 id=36-attributesetbase>3.6 AttributeSetBase<a hidden class=anchor aria-hidden=true href=#36-attributesetbase>#</a></h5><p>设置</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=c1>// Fill out your copyright notice in the Description page of Project Settings.
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=cp>#pragma once
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CoreMinimal.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Abilities/Attributes/GSCAttributeSetBase.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CombatSet.generated.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=n>UCLASS</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>GAS_RELAX_API</span> <span class=nl>UCombatSet</span> <span class=p>:</span> <span class=k>public</span> <span class=n>UGSCAttributeSetBase</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GENERATED_BODY</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UCombatSet</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>PreAttributeChange</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttribute</span><span class=o>&amp;</span> <span class=n>Attribute</span><span class=p>,</span> <span class=kt>float</span><span class=o>&amp;</span> <span class=n>NewValue</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>PostGameplayEffectExecute</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayEffectModCallbackData</span><span class=o>&amp;</span> <span class=n>Data</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=nf>GetLifetimeReplicatedProps</span><span class=p>(</span><span class=n>TArray</span><span class=o>&lt;</span><span class=n>FLifetimeProperty</span><span class=o>&gt;&amp;</span> <span class=n>OutLifetimeProps</span><span class=p>)</span> <span class=k>const</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=k>auto</span> <span class=nf>PreAttributeBaseChange</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttribute</span><span class=o>&amp;</span> <span class=n>Attribute</span><span class=p>,</span> <span class=kt>float</span><span class=o>&amp;</span> <span class=n>NewValue</span><span class=p>)</span> <span class=k>const</span> <span class=o>-&gt;</span> <span class=kt>void</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Offensive
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>	<span class=c1>//ReplicatedUsing 允许你指定一个函数，这个函数会在属性在客户端上被更新时被调用
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>BlueprintReadOnly</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;CombatSet&#34;</span><span class=p>,</span> <span class=n>ReplicatedUsing</span> <span class=o>=</span> <span class=n>OnRep_AttackSpeed</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGameplayAttributeData</span> <span class=n>AttackSpeed</span> <span class=o>=</span> <span class=mf>1.0f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//用于生成属性的 getter 和 setter 函数。在这个例子中，它会生成 GetAttackSpeed 和 SetAttackSpeed 函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>ATTRIBUTE_ACCESSORS</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span><span class=n>AttackSpeed</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>BlueprintReadOnly</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;CombatSet&#34;</span><span class=p>,</span> <span class=n>ReplicatedUsing</span> <span class=o>=</span> <span class=n>OnRep_CriticalStrikeChance</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGameplayAttributeData</span> <span class=n>CriticalStrikeChance</span> <span class=o>=</span> <span class=mf>0.1f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>ATTRIBUTE_ACCESSORS</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span><span class=n>CriticalStrikeChance</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>BlueprintReadOnly</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;CombatSet&#34;</span><span class=p>,</span><span class=n>ReplicatedUsing</span><span class=o>=</span> <span class=n>OnRep_CriticalStrikeDamageMultiple</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGameplayAttributeData</span> <span class=n>CriticalStrikeDamageMultiple</span> <span class=o>=</span> <span class=mf>1.2f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>ATTRIBUTE_ACCESSORS</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span><span class=n>CriticalStrikeDamageMultiple</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//Defensive
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>UPROPERTY</span><span class=p>(</span><span class=n>BlueprintReadOnly</span><span class=p>,</span><span class=n>Category</span> <span class=o>=</span> <span class=s>&#34;CombatSet&#34;</span><span class=p>,</span><span class=n>ReplicatedUsing</span><span class=o>=</span> <span class=n>OnRep_DamageReduction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGameplayAttributeData</span> <span class=n>DamageReduction</span> <span class=o>=</span> <span class=mf>1.2f</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>ATTRIBUTE_ACCESSORS</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span><span class=n>DamageReduction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>protected</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>OnRep_AttackSpeed</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldAttackSpeed</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>OnRep_CriticalStrikeChance</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldCriticalStrikeChance</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>OnRep_CriticalStrikeDamageMultiple</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldCriticalStrikeDamageMultiple</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>UFUNCTION</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>virtual</span> <span class=kt>void</span> <span class=n>OnRep_DamageReduction</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldDamageReduction</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>同事</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=c1>// Fill out your copyright notice in the Description page of Project Settings.
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;CombatSet.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&#34;Net/UnrealNetwork.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=n>UCombatSet</span><span class=o>::</span><span class=n>UCombatSet</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>PreAttributeChange</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttribute</span><span class=o>&amp;</span> <span class=n>Attribute</span><span class=p>,</span> <span class=kt>float</span><span class=o>&amp;</span> <span class=n>NewValue</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>PreAttributeChange</span><span class=p>(</span><span class=n>Attribute</span><span class=p>,</span> <span class=n>NewValue</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetCriticalStrikeChanceAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.f</span><span class=p>,</span> <span class=mf>1.f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetCriticalStrikeDamageMultipleAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>1.2f</span><span class=p>,</span> <span class=mf>12.0f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetAttackSpeedAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.1f</span><span class=p>,</span> <span class=mf>2.f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetDamageReductionAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.f</span><span class=p>,</span> <span class=mf>.9f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>PostGameplayEffectExecute</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayEffectModCallbackData</span><span class=o>&amp;</span> <span class=n>Data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>PostGameplayEffectExecute</span><span class=p>(</span><span class=n>Data</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>FGSCAttributeSetExecutionData</span> <span class=n>ExecutionData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>GetExecutionDataFromMod</span><span class=p>(</span><span class=n>Data</span><span class=p>,</span> <span class=n>ExecutionData</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>GetLifetimeReplicatedProps</span><span class=p>(</span><span class=n>TArray</span><span class=o>&lt;</span><span class=n>FLifetimeProperty</span><span class=o>&gt;&amp;</span> <span class=n>OutLifetimeProps</span><span class=p>)</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>GetLifetimeReplicatedProps</span><span class=p>(</span><span class=n>OutLifetimeProps</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//通知服务器，服务器进行更新
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>// 这个参数是一个枚举值，用于决定何时触发复制通知函数。在你的例子中，这个通知是 REPNOTIFY_Always，
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>// 表示无论属性是否发生改变，都会触发复制通知函数。
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>DOREPLIFETIME_CONDITION_NOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>AttackSpeed</span><span class=p>,</span> <span class=n>COND_None</span><span class=p>,</span> <span class=n>REPNOTIFY_Always</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>DOREPLIFETIME_CONDITION_NOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>CriticalStrikeChance</span><span class=p>,</span> <span class=n>COND_None</span><span class=p>,</span> <span class=n>REPNOTIFY_Always</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>DOREPLIFETIME_CONDITION_NOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>CriticalStrikeDamageMultiple</span><span class=p>,</span> <span class=n>COND_None</span><span class=p>,</span> <span class=n>REPNOTIFY_Always</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>DOREPLIFETIME_CONDITION_NOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>DamageReduction</span><span class=p>,</span> <span class=n>COND_None</span><span class=p>,</span> <span class=n>REPNOTIFY_Always</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>PreAttributeBaseChange</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttribute</span><span class=o>&amp;</span> <span class=n>Attribute</span><span class=p>,</span> <span class=kt>float</span><span class=o>&amp;</span> <span class=n>NewValue</span><span class=p>)</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Super</span><span class=o>::</span><span class=n>PreAttributeBaseChange</span><span class=p>(</span><span class=n>Attribute</span><span class=p>,</span> <span class=n>NewValue</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetCriticalStrikeChanceAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.f</span><span class=p>,</span> <span class=mf>1.f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetCriticalStrikeDamageMultipleAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>1.2f</span><span class=p>,</span> <span class=mf>12.0f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetAttackSpeedAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.1f</span><span class=p>,</span> <span class=mf>2.f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>Attribute</span> <span class=o>==</span> <span class=n>GetDamageReductionAttribute</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>//限制暴击率在 0 - 100
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>NewValue</span> <span class=o>=</span> <span class=n>FMath</span><span class=o>::</span><span class=n>Clamp</span><span class=p>(</span><span class=n>NewValue</span><span class=p>,</span> <span class=mf>0.f</span><span class=p>,</span> <span class=mf>.9f</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//	这个函数 UCombatSet::OnRep_AttackSpeed 是一个网络复制通知函数，它在 AttackSpeed
+</span></span></span><span class=line><span class=cl><span class=c1>//	属性被网络复制时被调用。这是 Unreal Engine 的网络系统的一部分，用于同步服务器和客户端之间的游戏状态。
+</span></span></span><span class=line><span class=cl><span class=c1>// 函数的参数 const FGameplayAttributeData&amp; OldAttackSpeed 是 AttackSpeed 属性在被复制之前的值。
+</span></span></span><span class=line><span class=cl><span class=c1>// 在函数体中，你调用了 GAMEPLAYATTRIBUTE_REPNOTIFY 宏。这个宏用于处理网络复制通知。它的参数是：
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>OnRep_AttackSpeed</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldAttackSpeed</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GAMEPLAYATTRIBUTE_REPNOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>AttackSpeed</span><span class=p>,</span><span class=n>OldAttackSpeed</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>OnRep_CriticalStrikeChance</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldCriticalStrikeChance</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GAMEPLAYATTRIBUTE_REPNOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>CriticalStrikeChance</span><span class=p>,</span><span class=n>OldCriticalStrikeChance</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>OnRep_CriticalStrikeDamageMultiple</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldCriticalStrikeDamageMultiple</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GAMEPLAYATTRIBUTE_REPNOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>CriticalStrikeDamageMultiple</span><span class=p>,</span><span class=n>OldCriticalStrikeDamageMultiple</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>UCombatSet</span><span class=o>::</span><span class=n>OnRep_DamageReduction</span><span class=p>(</span><span class=k>const</span> <span class=n>FGameplayAttributeData</span><span class=o>&amp;</span> <span class=n>OldDamageReduction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>GAMEPLAYATTRIBUTE_REPNOTIFY</span><span class=p>(</span><span class=n>UCombatSet</span><span class=p>,</span> <span class=n>DamageReduction</span><span class=p>,</span><span class=n>OldDamageReduction</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><ul class=post-tags></ul><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share  on x" href="https://x.com/intent/tweet/?text=&amp;url=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f&amp;hashtags="><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on reddit" href="https://reddit.com/submit?url=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f&title="><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on whatsapp" href="https://api.whatsapp.com/send?text=%20-%20https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on telegram" href="https://telegram.me/share/url?text=&amp;url=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share  on ycombinator" href="https://news.ycombinator.com/submitlink?t=&u=https%3a%2f%2ftyz-kotono.github.io%2fue5%2fue_gas%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://tyz-kotono.github.io/>Tyz-Kotono 技术博客</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>GAS模版s on Tyz-Kotono 技术博客</title><link>https://tyz-kotono.github.io/gas%E6%A8%A1%E7%89%88/</link><description>Recent content in GAS模版s on Tyz-Kotono 技术博客</description><generator>Hugo -- 0.147.8</generator><language>zh-cn</language><atom:link href="https://tyz-kotono.github.io/gas%E6%A8%A1%E7%89%88/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://tyz-kotono.github.io/gas%E6%A8%A1%E7%89%88/player/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tyz-kotono.github.io/gas%E6%A8%A1%E7%89%88/player/</guid><description>&lt;h4 id="1player">1、Player&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">UAbilitySystemComponent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">UInputAction&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">UInputMappingContext&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">UCameraComponent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">USpringArmComponent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UCLASS&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">DEVCAVE_API&lt;/span> &lt;span class="nl">AGASTutorialBasicCharacter&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="k">public&lt;/span> &lt;span class="n">ACharacter&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="k">public&lt;/span> &lt;span class="n">IAbilitySystemInterface&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GENERATED_BODY&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">VisibleAnywhere&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Camera&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">meta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">AllowPrivateAccess&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">TObjectPtr&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">USpringArmComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">CameraBoom&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">VisibleAnywhere&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Camera&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">meta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">AllowPrivateAccess&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">TObjectPtr&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UCameraComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">FollowCamera&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">public&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">protected&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">VisibleAnywhere&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;GAS&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">meta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">AllowPrivateAccess&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">TObjectPtr&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UAbilitySystemComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">AbilitySystemComponent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">SetupPlayerInputComponent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">class&lt;/span> &lt;span class="nc">UInputComponent&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">PlayerInputComponent&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">BeginPlay&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">public&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="n">Tick&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">float&lt;/span> &lt;span class="n">DeltaTime&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">virtual&lt;/span> &lt;span class="n">UAbilitySystemComponent&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="nf">GetAbilitySystemComponent&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="k">return&lt;/span> &lt;span class="n">AbilitySystemComponent&lt;/span>&lt;span class="p">;}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">FORCEINLINE&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">USpringArmComponent&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="nf">GetCameraBoom&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="k">return&lt;/span> &lt;span class="n">CameraBoom&lt;/span>&lt;span class="p">;}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">FORCEINLINE&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">UCameraComponent&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="nf">GetCamera&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="k">return&lt;/span> &lt;span class="n">FollowCamera&lt;/span>&lt;span class="p">;}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Fill out your copyright notice in the Description page of Project Settings.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;GASTutorialBasicCharacter.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;AbilitySystemComponent.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;Camera/CameraComponent.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;Components/CapsuleComponent.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;GameFramework/CharacterMovementComponent.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;GameFramework/SpringArmComponent.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Sets default values
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">PrimaryActorTick&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">bCanEverTick&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">true&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCapsuleComponent&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">InitCapsuleSize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mf">42.f&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mf">96.f&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">bUseControllerRotationPitch&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">bUseControllerRotationYaw&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">bUseControllerRotationRoll&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">bOrientRotationToMovement&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">true&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">//角色移动方向为输入
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">RotationRate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">FRotator&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mf">0.0&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mf">500.0f&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mf">0.0f&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">JumpZVelocity&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">700.0f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">AirControl&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.35f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">MaxWalkSpeed&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">500.0f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">MinAnalogWalkSpeed&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">20.0f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">GetCharacterMovement&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">BrakingDecelerationWalking&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">2000.0f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CameraBoom&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">CreateDefaultSubobject&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">USpringArmComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">TEXT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;CameraBoom&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CameraBoom&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">SetupAttachment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">RootComponent&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CameraBoom&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">TargetArmLength&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">400.0f&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CameraBoom&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">bUsePawnControlRotation&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">true&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">FollowCamera&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">CreateDefaultSubobject&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UCameraComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">TEXT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;FollowCamera&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">FollowCamera&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">SetupAttachment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CameraBoom&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">USpringArmComponent&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">SocketName&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">FollowCamera&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">bUsePawnControlRotation&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">AbilitySystemComponent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">CreateDefaultSubobject&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UAbilitySystemComponent&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">TEXT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;AbilitySystemComponent&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Called when the game starts or when spawned
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">BeginPlay&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Super&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">BeginPlay&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Called every frame
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">Tick&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">float&lt;/span> &lt;span class="n">DeltaTime&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Super&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">Tick&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">DeltaTime&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Called to bind functionality to input
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">SetupPlayerInputComponent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UInputComponent&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">PlayerInputComponent&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Super&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">SetupPlayerInputComponent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PlayerInputComponent&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="2ability">2、Ability&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">EditDefaultsOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;GAS&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">TArray&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">TSubclassOf&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UGameplayAbility&lt;/span>&lt;span class="o">&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">DefaultAbilities&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="nf">GiveDefaultAbilities&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">AGASTutorialBasicCharacter&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">GiveDefaultAbilities&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">check&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">AbilitySystemComponent&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">HasAuthority&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">TSubclassOf&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">UGameplayAbility&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nl">AbilityClass&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">DefaultAbilities&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAbilitySpec&lt;/span> &lt;span class="nf">AbilitySpec&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">AbilityClass&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">AbilitySystemComponent&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">GiveAbility&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">AbilitySpec&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="3uattributeset">3、UAttributeSet&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 用于设置网络复制的属性和条件。这个宏告诉 Unreal Engine 的网络系统，
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 哪些属性需要在网络上进行复制，并且在什么条件下进行复制
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">GetLifetimeReplicatedProps&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">TArray&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">FLifetimeProperty&lt;/span>&lt;span class="o">&amp;gt;&amp;amp;&lt;/span> &lt;span class="n">OutLifetimeProps&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//在属性值改变之前被调用。这个函数接收两个参数：一个是将要改变的属性，另一个是新的属性值
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">PreAttributeChange&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttribute&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Attribute&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">float&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">NewValue&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 它在游戏效果（Gameplay Effect）执行之后被调用，这时候属性值已经实际改变了
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">virtual&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">PostGameplayEffectExecute&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayEffectModCallbackData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">override&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//ReplicatedUsing 通过网络更新时调用的回调函数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_Health&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">Health&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Health&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_MaxHealth&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">MaxHealth&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MaxHealth&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_Stamina&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">Stamina&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Stamina&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_MaxStamina&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">MaxStamina&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MaxStamina&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_Strength&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">Strength&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Strength&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UPROPERTY&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BlueprintReadOnly&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplicatedUsing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OnRep_MaxStrength&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Category&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Ability | Gameplay Attribute&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">FGameplayAttributeData&lt;/span> &lt;span class="n">MaxStrength&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ATTRIBUTE_ACCESSORS&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">UFabAttributeSet&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MaxStrength&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//ReplicatedUsing 通过网络更新时调用的回调函数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_Health&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldHealth&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_MaxHealth&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldMaxHealth&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_Stamina&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldStamina&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_MaxStamina&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldMaxStamina&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_Strength&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldStamina&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">UFUNCTION&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">OnRep_MaxStrength&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="n">FGameplayAttributeData&lt;/span>&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">OldMaxStamina&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Cpp&lt;/p></description></item></channel></rss>
