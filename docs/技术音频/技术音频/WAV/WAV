@@ -1,0 +1,140 @@
+纯C++工程
+
+```c++
+#include <iostream>
+#include "cmath"
+
+const int SampleRate = 44100;
+
+class  SineOscillator
+{
+    //频率、振幅
+    float frequency,amplitude,angle = 0.0f;
+
+    float offset = 0.0f;
+
+public:
+    SineOscillator(float freq,float amp):frequency(freq),amplitude(amp){
+        offset =  2 * M_PI * frequency /SampleRate;
+    }
+
+   float process()
+    {
+        auto sample = amplitude + sin(angle);
+        angle  += offset;
+        return sample;
+    }
+
+};
+
+
+int main() {
+    std::cout << "Hello World! " << std::endl;
+    return 0;
+}
+
+```
+
+#### 基本定义
+
+
+
+```c++
+int main()
+{
+    int durtion = 2;
+    SineOscillator sineOscillator(440,0.5);
+
+    for (int i = 0; i < SampleRate * durtion; ++i) {
+        sineOscillator.process();
+    }
+
+    std::cout << "Hello World! " << std::endl;
+    return 0;
+}
+```
+
+#### fstream
+
+```c++
+#include <iostream>
+#include "cmath"
+#include <fstream>
+
+int main()
+{
+    int durtion = 2;
+    SineOscillator sineOscillator(440,0.5);
+
+
+
+    std::ofstream audioFile;
+    audioFile.open("waveForm");
+
+
+    for (int i = 0; i < SampleRate * durtion; ++i) {
+        audioFile<<        sineOscillator.process()<<std::endl;
+    }
+
+    audioFile.close();
+    return 0;
+}
+```
+
+
+
+![image-20250117014501885](./assets/image-20250117014501885.png)
+
+![image-20250117014938690](./assets/image-20250117014938690.png)
+
+#### format
+
+设置为44.1khe和16位 音频，设置位深度
+
+```c++
+#include <iostream>
+#include "cmath"
+#include <fstream>
+
+
+const int SampleRate = 44100;
+const int bitDepth = 16;
+
+int main()
+{
+    int durtion = 2;
+    SineOscillator sineOscillator(440,0.5);
+
+
+
+    std::ofstream audioFile;
+    //set File Format
+    audioFile.open("waveForm",std::ios::binary);
+
+    //bit depth get max Amplitude
+    auto MaxAmplitude = pow(2 , bitDepth -1) -1;
+    for (int i = 0; i < SampleRate * durtion; ++i) {
+
+        //get sin Value
+        auto sample = sineOscillator.process();
+
+        int intSample =static_cast<int>(  sample *  MaxAmplitude);
+
+        //char为 1byte =  8 bit，截取前2byte
+        audioFile.write(reinterpret_cast<char*> (&intSample), 2);
+
+        //audioFile<<    intSample    <<std::endl;
+    }
+    
+    audioFile.close();
+    return 0;
+}
+```
+
+#### 元数据
+
+https://www.youtube.com/watch?v=qqjvB_VxMRM&t=83s
+
+![image-20250122211714120](./assets/image-20250122211714120.png)
+
+35

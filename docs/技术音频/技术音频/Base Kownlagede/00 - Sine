@@ -1,0 +1,17 @@
+#### 一、Sine
+
+LinK：https://www.youtube.com/watch?v=ketWEbHMZhE&list=PLbqhA-NKGP6DxFIF7K5AhBY9kawUOOM0H&index=3
+
+![image-20250112171844291](./assets/image-20250112171844291.png)
+
+##### 1.1 FFT
+
+![image-20250112171937960](./assets/image-20250112171937960.png)
+
+
+
+波动方程中 任意标量值相乘
+
+![image-20250112174148250](./assets/image-20250112174148250.png)
+
+音频方程中响度由波的振幅决定，但是本质确切含义是由RMS 算法决定

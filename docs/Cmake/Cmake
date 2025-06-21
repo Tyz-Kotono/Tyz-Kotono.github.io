@@ -1,0 +1,23 @@
+https://www.bilibili.com/video/BV1xa4y1R7vT?spm_id_from=333.788.videopod.episodes&vd_source=fc3995fc21714a345f57a951f8232fb7&p=2
+
+生成文件
+
+```c++
+Cmake -B bulid
+```
+
+二进制可执行文件
+
+``` bulid
+ Cmake  --bulid  bulid
+```
+
+
+
+
+
+
+
+#### Cloin Camke
+
+https://blog.jetbrains.com/clion/2022/10/clion-2022-3-eap-cmake-debugger/#cmake_debugger
