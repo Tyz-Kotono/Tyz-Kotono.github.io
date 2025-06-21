@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>环境配置 &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">环境配置</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Vulkan/00_Environment.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>环境配置<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>检查显卡支持：http://vulkan.gpuinfo.org/</p></li>
+<li><p>Vulkan SDK：https://vulkan.lunarg.com/</p></li>
+</ul>
+<p>完成后打开<font color="green">Vulkan SDK\Bin\VKCube</font> 查看是否支持Vulkan</p>
+<p><img alt="image-20230713204623372" src="Vulkan/00_Environment.assets/image-20230713204623372.png" /></p>
+<section id="visual-studio">
+<h2>Visual Studio<a class="headerlink" href="#visual-studio" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>1、属性<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-CPP notranslate"><div class="highlight"><pre><span></span><span class="c1">//解决方案\bin\win32 or 64...\调试</span>
+<span class="n">Output</span><span class="w"> </span><span class="n">Directory</span><span class="w">	</span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">$</span><span class="p">(</span><span class="n">Platform</span><span class="p">)</span><span class="err">\</span><span class="n">$</span><span class="p">(</span><span class="n">Configuration</span><span class="p">)</span>
+<span class="n">Intermediate</span><span class="w"> </span><span class="n">Directory</span><span class="w">	</span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">intermediates</span><span class="err">\</span><span class="n">$</span><span class="p">(</span><span class="n">Platform</span><span class="p">)</span><span class="err">\</span><span class="n">$</span><span class="p">(</span><span class="n">Configuration</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image-20230715124844116" src="Vulkan/00_Environment.assets/image-20230715124844116.png" /></p>
+</section>
+<section id="glfw-library-link">
+<h3>2、glfw Library link<a class="headerlink" href="#glfw-library-link" title="Link to this heading"></a></h3>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">GLFW</span><span class="w">			</span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="n">Dependencies</span><span class="err">\</span><span class="n">GLFW</span><span class="err">\</span><span class="n">include</span>
+<span class="n">LINK</span><span class="w">    			</span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="n">Dependencies</span><span class="err">\</span><span class="n">GLFW</span><span class="err">\</span><span class="n">lib</span><span class="o">-</span><span class="n">vc2022</span>
+</pre></div>
+</div>
+<p><img alt="image-20230715224203232" src="Vulkan/00_Environment.assets/image-20230715224203232.png" /></p>
+<p><img alt="image-20230715130107019" src="Vulkan/00_Environment.assets/image-20230715130107019.png" /></p>
+<p><img alt="image-20230715130208971" src="Vulkan/00_Environment.assets/image-20230715130208971.png" /></p>
+</section>
+<section id="glm">
+<h3>3、GLM<a class="headerlink" href="#glm" title="Link to this heading"></a></h3>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="n">Dependencies</span><span class="err">\</span><span class="n">GLM</span><span class="err">\</span><span class="n">glm</span>
+</pre></div>
+</div>
+<p><img alt="image-20230715225130652" src="Vulkan/00_Environment.assets/image-20230715225130652.png" /></p>
+</section>
+<section id="vulkan">
+<h3>4、Vulkan<a class="headerlink" href="#vulkan" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="n">Dependencies</span><span class="err">\</span><span class="n">VulkanSDK</span><span class="err">\</span><span class="n">Include</span>
+<span class="n">$</span><span class="p">(</span><span class="n">SolutionDir</span><span class="p">)</span><span class="n">Dependencies</span><span class="err">\</span><span class="n">VulkanSDK</span><span class="err">\</span><span class="n">Lib</span>
+<span class="n">glfw3</span><span class="p">.</span><span class="n">lib</span><span class="p">;</span><span class="n">vulkan</span><span class="mf">-1.l</span><span class="n">ib</span>
+</pre></div>
+</div>
+<p><img alt="image-20230715231303877" src="Vulkan/00_Environment.assets/image-20230715231303877.png" /></p>
+<p><img alt="image-20230715231409323" src="Vulkan/00_Environment.assets/image-20230715231409323.png" /></p>
+<p><img alt="image-20230715231457234" src="Vulkan/00_Environment.assets/image-20230715231457234.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

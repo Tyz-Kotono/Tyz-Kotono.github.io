@@ -1,0 +1,211 @@
+/* UE风格自定义CSS */
+
+/* 全局字体和颜色 */
+:root {
+    --ue-primary: #2C3E50;
+    --ue-secondary: #34495E;
+    --ue-accent: #3498DB;
+    --ue-light: #ECF0F1;
+    --ue-dark: #1A252F;
+    --ue-text: #2C3E50;
+    --ue-link: #3498DB;
+    --ue-link-hover: #2980B9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--ue-text);
+    line-height: 1.6;
+}
+
+/* 导航栏样式 */
+.wy-nav-side {
+    background: var(--ue-primary);
+}
+
+.wy-nav-side .wy-side-nav-search {
+    background: var(--ue-secondary);
+}
+
+.wy-nav-side .wy-side-nav-search input[type="text"] {
+    border-color: var(--ue-accent);
+}
+
+.wy-nav-side .wy-menu-vertical a {
+    color: var(--ue-light);
+}
+
+.wy-nav-side .wy-menu-vertical a:hover {
+    background: var(--ue-accent);
+    color: white;
+}
+
+.wy-nav-side .wy-menu-vertical li.current > a {
+    background: var(--ue-accent);
+    color: white;
+    border-right: 3px solid var(--ue-accent);
+}
+
+/* 顶部导航栏 */
+.wy-nav-top {
+    background: var(--ue-primary);
+}
+
+.wy-nav-top a {
+    color: white;
+}
+
+/* 面包屑导航 */
+.wy-breadcrumbs {
+    background: var(--ue-light);
+    border-bottom: 1px solid #ddd;
+}
+
+.wy-breadcrumbs a {
+    color: var(--ue-link);
+}
+
+.wy-breadcrumbs a:hover {
+    color: var(--ue-link-hover);
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--ue-primary);
+    font-weight: 600;
+}
+
+h1 {
+    border-bottom: 3px solid var(--ue-accent);
+    padding-bottom: 10px;
+}
+
+/* 链接样式 */
+a {
+    color: var(--ue-link);
+}
+
+a:hover {
+    color: var(--ue-link-hover);
+}
+
+/* 代码块样式 */
+.highlight {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+}
+
+.highlight pre {
+    background: transparent;
+}
+
+/* 表格样式 */
+.wy-table-responsive table {
+    border: 1px solid #ddd;
+}
+
+.wy-table-responsive th {
+    background: var(--ue-light);
+    color: var(--ue-primary);
+    font-weight: 600;
+}
+
+/* 按钮样式 */
+.btn {
+    background: var(--ue-accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--ue-link-hover);
+    color: white;
+}
+
+.btn-neutral {
+    background: var(--ue-secondary);
+}
+
+.btn-neutral:hover {
+    background: var(--ue-primary);
+}
+
+/* 搜索框样式 */
+.wy-side-nav-search input[type="text"] {
+    border: 2px solid var(--ue-accent);
+    border-radius: 4px;
+}
+
+/* 内容区域 */
+.wy-nav-content {
+    background: white;
+}
+
+.rst-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 侧边栏目录样式 */
+.wy-menu-vertical .caption {
+    color: var(--ue-accent);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    background: var(--ue-secondary);
+}
+
+/* 页脚样式 */
+.rst-footer-buttons {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .wy-nav-side {
+        width: 100%;
+    }
+    
+    .wy-nav-content {
+        margin-left: 0;
+    }
+}
+
+/* 代码高亮 */
+.code-block-caption {
+    background: var(--ue-light);
+    color: var(--ue-primary);
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+/* 警告和提示框 */
+.admonition {
+    border-left: 4px solid var(--ue-accent);
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.admonition-title {
+    color: var(--ue-primary);
+    font-weight: 600;
+}
+
+/* 版本信息隐藏 */
+.wy-nav-side .wy-side-nav-search .icon-home::before {
+    content: "MyDocs";
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+} 

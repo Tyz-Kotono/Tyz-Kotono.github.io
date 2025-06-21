@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clone &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Clone</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/source/辅助类/Github.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>对应文件夹输入” CMD “</p>
+<section id="clone">
+<h1>Clone<a class="headerlink" href="#clone" title="Link to this heading"></a></h1>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="s">&quot;  &quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h1>初始化，仓库<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">init</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h1>暂存区<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="w"> 			</span><span class="n">All</span>
+<span class="n">git</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span>
+<span class="w">    </span>
+<span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="s">&quot;detail&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h1>打回<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h1>提交撤回<a class="headerlink" href="#id4" title="Link to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span><span class="o">^</span><span class="mi">1</span> 
+</pre></div>
+</div>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="err">从当前节点创建分支</span>
+<span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="n">branch</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span>
+<span class="err">列举所有分支</span>
+<span class="n">git</span><span class="w"> </span><span class="n">branch</span>
+<span class="err">切换分支</span>
+<span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">&lt;</span><span class="n">branch</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span>
+<span class="err">删除分支</span>
+<span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">-</span><span class="n">D</span><span class="w"> </span><span class="o">&lt;</span><span class="n">branch</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span>
+<span class="err">合并分支</span>
+<span class="n">git</span><span class="w"> </span><span class="n">merge</span><span class="w"> </span><span class="o">&lt;</span><span class="n">branch</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span>
+<span class="c1">//rename 本地</span>
+<span class="n">git</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">name</span>
+</pre></div>
+</div>
+</section>
+<section id="ssh">
+<h1>SSH<a class="headerlink" href="#ssh" title="Link to this heading"></a></h1>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//查看是否有SSH</span>
+<span class="n">ls</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">ssh</span>
+<span class="c1">//generate</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">ed25519</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="s">&quot;Email&quot;</span>
+<span class="c1">// </span>
+<span class="n">cat</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span><span class="p">.</span><span class="n">pub</span>
+<span class="w">    </span><span class="c1">//添加到git ssh</span>
+<span class="w">    </span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span><span class="w"> </span><span class="n">AAAAC3NzaC1lZDI1NTE5AAAAIO0oy1nO18EgEqAWzsOFeHIuZ3itzQdvKbGA3q</span><span class="o">/</span><span class="mi">33</span><span class="n">Aw8</span><span class="w"> </span><span class="mi">2713421980</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h1>提交项目<a class="headerlink" href="#id5" title="Link to this heading"></a></h1>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="c1">//初始化</span>
+<span class="n">git</span><span class="w"> </span><span class="k">init</span>
+<span class="w">	</span><span class="n">git</span><span class="w"> </span><span class="n">status</span>
+
+<span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="p">.</span>
+<span class="w">	</span><span class="n">git</span><span class="w"> </span><span class="n">status</span>
+<span class="w">	</span>
+<span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="s">&quot;first commit&quot;</span>
+<span class="w">	</span><span class="n">git</span><span class="w"> </span><span class="n">status</span>
+<span class="w">	</span>
+<span class="n">git</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="o">-</span><span class="n">M</span><span class="w"> </span><span class="n">main</span>
+
+<span class="c1">//link</span>
+<span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span>
+<span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">git@github</span><span class="p">.</span><span class="n">com</span><span class="p">:</span><span class="n">onlyyz</span><span class="o">/</span><span class="n">Vulkan_learn</span><span class="p">.</span><span class="n">git</span>
+
+<span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">main</span>
+<span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">--</span><span class="k">set</span><span class="o">-</span><span class="n">upstream</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">main</span>
+
+
+<span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="s">&quot;first commit&quot;</span>
+</pre></div>
+</div>
+<section id="id6">
+<h2>忽略文件夹<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>Create gitignore</p>
+<p>VS code set</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="err">#</span><span class="w"> </span><span class="n">Directories</span><span class="o">*</span>
+
+<span class="p">.</span><span class="n">vs</span><span class="o">/</span>
+
+<span class="n">bin</span><span class="o">/</span>
+
+<span class="n">bin</span><span class="o">-</span><span class="kt">int</span><span class="o">/</span>
+
+<span class="o">*</span><span class="err">#</span><span class="w"> </span><span class="n">Files</span><span class="o">*</span>
+
+<span class="o">*</span><span class="p">.</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>git</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//add</span>
+<span class="n">git</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">*</span>
+<span class="c1">//设置文件夹</span>
+<span class="n">git</span><span class="w"> </span><span class="n">reset</span>
+<span class="w">    </span>
+<span class="c1">//commit    </span>
+<span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="s">&quot;Setup basic Application and Entry Point&quot;</span>
+
+<span class="c1">//push</span>
+<span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">main</span><span class="o">/</span><span class="n">master</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="git">
+<h1>引用其他git库<a class="headerlink" href="#git" title="Link to this heading"></a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="s">&quot;URLpath&quot;</span><span class="w"> </span><span class="s">&quot;filePath&quot;</span>
+<span class="nl">example</span><span class="p">:</span><span class="n">E</span><span class="o">:</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">Hazel</span><span class="o">&gt;</span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/gabime/spdlog.git Hazel/vendor/spdlog</span>
+
+<span class="nl">E</span><span class="p">:</span><span class="err">\</span><span class="n">Item</span><span class="err">\</span><span class="n">Resource</span><span class="o">&gt;</span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">http</span><span class="o">:</span><span class="c1">//192.168.8.104:3300/Art_Resource/Model.git E:\Item\Resource\Model</span>
+</pre></div>
+</div>
+<section id="id7">
+<h2>查看文件历史<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">--</span><span class="n">pretty</span><span class="o">=</span><span class="n">oneline</span><span class="w"> </span><span class="err">文件名</span>
+</pre></div>
+</div>
+<p>但是，类似 <code class="docutils literal notranslate"><span class="pre">--since</span></code> 和 <code class="docutils literal notranslate"><span class="pre">--until</span></code> 这种按照时间作限制的选项很有用。 例如，下面的命令会列出最近两周的所有提交：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>log<span class="w"> </span>--since<span class="o">=</span><span class="m">2</span>.weeks
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>历史版本<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="o">&lt;</span><span class="n">git</span><span class="err">提交版本号</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件名</span><span class="o">&gt;</span>
+<span class="n">git</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="mi">34</span><span class="n">b7ac981a39193ca78e0d4673ce66515c23988dframeworks</span><span class="o">/</span><span class="k">base</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">SystemUI</span><span class="o">/</span><span class="n">AndroidManifest</span><span class="p">.</span><span class="n">xml</span>
+</pre></div>
+</div>
+<p>将文件还原到你想要还原的版本</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="err">$</span><span class="p">{</span><span class="n">commit</span><span class="p">}</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="err">。</span>
+<span class="err">即$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="mi">052</span><span class="n">c0233bcaef35bbf6e6ebd43bfd6a648e3d93b</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">fileche</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h2>冲突<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">--</span><span class="n">ours</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span>
+<span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span><span class="w">   </span><span class="c1">//标记该冲突已解决</span>
+<span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">rebase</span><span class="w"> </span><span class="o">--</span><span class="k">continue</span><span class="w"> </span>
+<span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="c1">//查看当前冲突状态</span>
+</pre></div>
+</div>
+<p>场景1：修改了文件/path/to/file，没有提交，但是觉得改的不好，想还原。
+解决：</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+</pre></div>
+</div>
+<p>将文件还原到你想要还原的版本</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="err">$</span><span class="p">{</span><span class="n">commit</span><span class="p">}</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="err">。</span>
+<span class="err">即$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="mi">052</span><span class="n">c0233bcaef35bbf6e6ebd43bfd6a648e3d93b</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+</pre></div>
+</div>
+<section id="ourstheirs">
+<h3>ours与theirs<a class="headerlink" href="#ourstheirs" title="Link to this heading"></a></h3>
+<p>在上述两种合并中，都可能会产生冲突，需要通过手动解决。如果想要保留两个分支中的某一个可以使用</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">--</span><span class="n">ours</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">--</span><span class="n">theirs</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>这里需要注意的是，一定要知道哪个分支对应ours或theirs。</p>
+</section>
+<section id="id10">
+<h3>还原文件夹<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>要还原某个文件夹，你可以使用 Git 中的 <code class="docutils literal notranslate"><span class="pre">checkout</span></code> 命令。以下是还原文件夹的步骤：</p>
+<ol class="arabic simple">
+<li><p>确定要还原的 Git 仓库所在的目录，使用终端进入该目录。</p></li>
+<li><p>确认要还原的文件夹的名称，以及在哪个分支中还原。</p></li>
+<li><p>运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;branch_name&gt;</span> <span class="pre">--</span> <span class="pre">&lt;path_to_folder&gt;</span></code> 命令来还原指定分支中的指定文件夹，其中 <code class="docutils literal notranslate"><span class="pre">&lt;branch_name&gt;</span></code> 为要还原的分支名称，<code class="docutils literal notranslate"><span class="pre">&lt;path_to_folder&gt;</span></code> 为要还原的文件夹路径。</p></li>
+</ol>
+<p>例如，如果要还原分支 <code class="docutils literal notranslate"><span class="pre">master</span></code> 中的文件夹 <code class="docutils literal notranslate"><span class="pre">src</span></code>，可以使用以下命令：</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">git</span><span class="w"> </span><span class="nt">checkout</span><span class="w"> </span><span class="nt">master</span><span class="w"> </span><span class="nt">--</span><span class="w"> </span><span class="nt">src</span>
+</pre></div>
+</div>
+<p>这将会将 <code class="docutils literal notranslate"><span class="pre">src</span></code> 文件夹还原到 <code class="docutils literal notranslate"><span class="pre">master</span></code> 分支的最新版本。如果你想还原到之前的某个提交，可以使用该提交的哈希值来代替 <code class="docutils literal notranslate"><span class="pre">master</span></code>。</p>
+<p>请注意，运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> 命令将更改你的工作目录和文件系统中的文件。在还原文件夹之前，一定要确保已经将所有未保存的更改保存并提交到 Git 仓库中。</p>
+</section>
+<section id="id11">
+<h3>放弃本地所有修改<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>两个命令的使用
+要放弃本地所有修改并还原到最近的提交状态，可以使用以下 Git 命令：</p>
+<p>git reset –hard HEAD
+1
+这个命令将会重置 HEAD 指针和工作目录，将它们恢复到最近的提交状态，并且丢弃所有未提交的修改。</p>
+</section>
+</section>
+</section>
+<section id="id12">
+<h1><a class="reference external" href="https://github.com/zeus911/blog-3/blob/master/git/merge_files_or_folders_from_other_branches.md#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF">合并分支</a><a class="headerlink" href="#id12" title="Link to this heading"></a></h1>
+<p>使用<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>命令进行分支合并是通用的做法，但是<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>合并的时候将两个分支的内容完全合并，如果想合并部分肯定是不行的。那怎么办？</p>
+<p>如何从其他分支合并指定文件到当前分支，<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>是一个合适的工具。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">source_branch</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;...</span>
+</pre></div>
+</div>
+<section id="id13">
+<h2>忽略<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<p>https://www.freecodecamp.org/chinese/news/gitignore-file-how-to-ignore-files-and-folders-in-git/</p>
+</section>
+<section id="id14">
+<h2>修改分支代理<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;$env:SystemRoot\System32\drivers\etc\hosts&quot;</span>
+</pre></div>
+</div>
+<p>刷新DSP</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ipconfig</span><span class="w"> </span><span class="o">/</span><span class="n">flushdns</span>
+</pre></div>
+</div>
+<p>验证</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ping</span><span class="w"> </span><span class="n">gitHub</span><span class="p">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h2>子系统<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<p>如果已经克隆了主仓库，但子模块目录为空：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h2><strong>更新子模块到最新远程提交</strong><a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">--</span><span class="n">remote</span><span class="w"> </span><span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+<p>如子倉庫AudioFilePlayer</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">--</span><span class="n">init</span><span class="w"> </span><span class="n">AudioFilePlayer</span>
+</pre></div>
+</div>
+<p>强制建立分支</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="mf">5.6.0</span><span class="o">-</span><span class="n">release</span>
+</pre></div>
+</div>
+<section id="id17">
+<h3>上游<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

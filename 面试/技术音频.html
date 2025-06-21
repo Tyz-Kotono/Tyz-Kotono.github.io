@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>沙罗斯 &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">沙罗斯</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/面试/技术音频.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>沙罗斯<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+</section>
+<section id="post-event-buffer-sample">
+<h1>Post Event 到Buffer Sample<a class="headerlink" href="#post-event-buffer-sample" title="Link to this heading"></a></h1>
+<p>首先定位到</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AkPlayingID</span><span class="w"> </span><span class="n">UAkAudioEvent</span><span class="o">::</span><span class="n">PostEvent</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AkGameObjectID</span><span class="w"> </span><span class="n">GameObjectID</span><span class="p">,</span><span class="w"> </span><span class="n">FCreateCallbackPackage</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CreateCallbackPackage</span><span class="p">,</span>
+<span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="n">EAkAudioContext</span><span class="w"> </span><span class="n">AudioContext</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image-20250207005044877" src="面试/assets/image-20250207005044877.png" /></p>
+<p><img alt="image-20250207005133200" src="面试/assets/image-20250207005133200.png" /></p>
+<p>是虚函数，所以定位子类
+<img alt="image-20250207005729084" src="面试/assets/image-20250207005729084.png" /></p>
+</section>
+<section id="midi">
+<h1>midi开枪，连发枪<a class="headerlink" href="#midi" title="Link to this heading"></a></h1>
+</section>
+<section id="id2">
+<h1>空间音频中间到边缘<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+</section>
+<section id="id3">
+<h1>阁楼音怎么做<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
+<p>HRTF
+1.https://zhuanlan.zhihu.com/p/187477892
+2.https://github.com/liaoyuzh/hrtf
+3.https://github.com/mrDIMAS/hrtf/tree/main
+4.https://www.bilibili.com/video/BV1Z5411S7yn/?spm_id_from=333.337.search-card.all.click&amp;vd_source=90775c281579fa6d0295f1d285af4f1b
+5.https://www.youtube.com/watch?v=p1mew43JGpU
+6.https://www.bilibili.com/video/BV1ob411L7U4/?spm_id_from=333.337.search-card.all.click&amp;vd_source=90775c281579fa6d0295f1d285af4f1b
+7.https://www.bilibili.com/video/BV1DA411N7Ar/?spm_id_from=333.337.search-card.all.click&amp;vd_source=90775c281579fa6d0295f1d285af4f1b
+8.https://www.bilibili.com/video/BV1gt4y1E7z8/?spm_id_from=333.337.search-card.all.click&amp;vd_source=90775c281579fa6d0295f1d285af4f1b
+9.https://sound.media.mit.edu/resources/KEMAR.html
+10.https://www.grasacoustics.com/industries/audiology/kemar
+11.https://docs.unrealengine.com/5.0/zh-CN/spatialization-overview-in-unreal-engine/
+12.https://docs.unity3d.com/ScriptReference/AudioSource-spatialize.html
+13.https://en.wikipedia.org/wiki/Head-related_transfer_function
+14.https://github.com/sofacoustics/API_Cpp/tree/master
+15.https://www.youtube.com/watch?v=U7Ia0oknJQA
+16.https://resonance-audio.github.io/resonance-audio/
+17.https://zhuanlan.zhihu.com/p/270865704
+18.https://www.youtube.com/watch?v=ZEr0vpyo1K0
+19.https://www.youtube.com/watch?v=3CXtmG4nXIM
+20.https://www.youtube.com/watch?v=p1mew43JGpU
+21.https://www.youtube.com/watch?v=KDTeZVmYg4c
+22.https://www.youtube.com/watch?v=4BltHXngvlk
+23.https://www.youtube.com/watch?v=a4mpK_2koR4
+24.https://www.youtube.com/watch?v=tS8myG3LX34
+25.https://github.com/aechoi/hrtfmixer</p>
+<p>在 Wwise 和 Unreal Engine (UE) 中实现声音的 <strong>上下方向定位（垂直空间感）</strong> 需要结合 Wwise 的 <strong>3D 定位功能</strong>、<strong>衰减曲线控制</strong>、<strong>空间音频技术</strong>（如 HRTF 或 Ambisonics）以及 UE 的 <strong>位置坐标传递</strong>。虽然 Wwise 的 3D Positioning 默认更侧重于水平方向（前后左右），但通过以下方法可以显著增强上下方向的音频感知：</p>
+<ol class="arabic simple">
+<li><p>利用 Z 轴坐标和衰减曲线</p></li>
+</ol>
+<p>(1) 在 Wwise 中配置垂直方向的衰减</p>
+<ul class="simple">
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>在 Wwise 中选择需要垂直定位的 <strong>Sound Object</strong>。</p></li>
+<li><p>打开 <strong>Positioning</strong> 选项卡，启用 <strong>3D Spatialization</strong>。</p></li>
+<li><p>在 <strong>Attenuation（衰减）</strong> 设置中，调整 <strong>Z 轴（垂直方向）的衰减曲线</strong>，使声音在上下方向有明显音量变化。</p>
+<ul>
+<li><p><strong>示例</strong>：将声音源的 Z 轴衰减曲线设置为陡峭下降，当玩家与声源高度差较大时，音量迅速降低。</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>效果</strong>：
+当玩家和声源处于不同高度时，音量会根据 Z 轴距离动态变化，形成上下方向的感知。</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>使用 RTPC 动态控制音效</p></li>
+</ol>
+<p>通过 <strong>RTPC（实时参数控制）</strong> 将高度差映射到音效参数（如音高、滤波频率），增强垂直方向感知。</p>
+<p>(1) 在 Wwise 中设置 RTPC</p>
+<ul>
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>创建一个 RTPC 参数（如 <code class="docutils literal notranslate"><span class="pre">VerticalDistance</span></code>），绑定到声音的 <strong>Low-Pass Filter（低通滤波）</strong> 或 <strong>Pitch（音高）</strong>。</p></li>
+<li><p>在 UE 中，根据玩家与声源的 Z 轴高度差，实时更新 <code class="docutils literal notranslate"><span class="pre">VerticalDistance</span></code> 的值。</p>
+<ul class="simple">
+<li><p><strong>示例</strong>：</p>
+<ul>
+<li><p>当玩家位于声源下方时，<code class="docutils literal notranslate"><span class="pre">VerticalDistance</span></code> 值增大，触发低通滤波（模拟声音被地板阻隔的沉闷感）。</p></li>
+<li><p>当玩家接近声源高度时，恢复原始音色。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>效果</strong>：
+通过音效的频谱变化，增强玩家对上下位置的感知。</p></li>
+<li><ol class="arabic simple" start="3">
+<li><p>启用 HRTF（头相关传输函数）</p></li>
+</ol>
+<p>HRTF 技术可以模拟人耳对上下方向声音的细微差异，结合 UE 的空间音频插件实现立体声或耳机的垂直定位。</p>
+<p>(1) 在 Wwise 中配置 HRTF</p>
+<ul class="simple">
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>在 Wwise 的 <strong>Master-Mixer Hierarchy</strong> 中，为需要垂直定位的总线启用 <strong>Spatial Audio</strong>。</p></li>
+<li><p>在 <strong>Spatial Audio Settings</strong> 中，选择 <strong>Headphones（HRTF）</strong> 模式。</p></li>
+</ol>
+</li>
+</ul>
+<p>(2) 在 UE 中启用 HRTF</p>
+<ul class="simple">
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>打开 UE 的 <strong>Project Settings → Plugins → Wwise</strong>，启用 <strong>Enable Spatial Audio</strong>。</p></li>
+<li><p>在玩家角色的音频组件中，设置音频输出为 <strong>Headphones</strong> 模式。</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>使用 Ambisonics 或 Object-Based Audio</p></li>
+</ol>
+<p>对于复杂的垂直空间音效（如空中飞行、多层建筑），可以使用 Ambisonics 技术 或 Object-Based Audio 实现更精确的 3D 定位。</p>
+<p>(1) Ambisonics 配置</p>
+<ul class="simple">
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>在 Wwise 中，将声音的 <strong>3D Spatialization</strong> 模式设为 <strong>Ambisonics</strong>。</p></li>
+<li><p>在 UE 中，使用 Ambisonics 解码插件（如 Steam Audio）渲染音频。</p></li>
+</ol>
+</li>
+</ul>
+<p>(2) Object-Based Audio</p>
+<ul class="simple">
+<li><p><strong>步骤</strong>：</p>
+<ol class="arabic simple">
+<li><p>在 Wwise 中，将声音标记为 <strong>Audio Object</strong>。</p></li>
+<li><p>在 UE 中，通过音频引擎动态更新 Object 的 3D 位置。</p></li>
+</ol>
+</li>
+</ul>
+<p>总结</p>
+<p>通过以下组合实现上下方向的声音定位：</p>
+<ol class="arabic simple">
+<li><p><strong>Z 轴衰减曲线</strong>：控制音量随高度变化。</p></li>
+<li><p><strong>RTPC 动态滤波/音高</strong>：增强垂直感知。</p></li>
+<li><p><strong>HRTF 或 Ambisonics</strong>：提供空间音频支持。</p></li>
+<li><p><strong>UE 坐标传递</strong>：确保 Z 轴数据准确。</p></li>
+</ol>
+<p>最终效果示例：</p>
+<ul class="simple">
+<li><p>当玩家位于阁楼下方时，脚步声通过低通滤波和音量衰减，听起来更沉闷且音量较小。</p></li>
+<li><p>当玩家爬上阁楼时，脚步声恢复清晰，音量增大。</p></li>
+</ul>
+<p><img alt="image-20250209202030789" src="面试/assets/image-20250209202030789.png" /></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

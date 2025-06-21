@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一、插件环境 &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">一、插件环境</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/source/技术音频/Wwise/WWise C++/WWise-Plugin.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin.html</p>
+<section id="id1">
+<h1>一、插件环境<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>开发工具：wp.py</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p><img alt="image-20240715225708906" src="source/技术音频/Wwise/WWise C++/assets/image-20240715225708906.png" /></p>
+<p><img alt="image-20240715225743142" src="source/技术音频/Wwise/WWise C++/assets/image-20240715225743142.png" /></p>
+<p><img alt="image-20240715225642256" src="source/技术音频/Wwise/WWise C++/assets/image-20240715225642256.png" /></p>
+<section id="id2">
+<h2>1.1 创建实例工程<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_newplugin.html</p>
+<p>依赖项：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">markdown</span>
+<span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">jinja2</span>
+</pre></div>
+</div>
+<p>示例会话：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="k">new</span>
+<span class="n">plug</span><span class="o">-</span><span class="n">in</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p">{</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">sink</span><span class="p">,</span><span class="w"> </span><span class="n">object_processor</span><span class="p">,</span><span class="w"> </span><span class="n">mixer</span><span class="p">,</span><span class="w"> </span><span class="n">effect</span><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="n">effect</span>
+<span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">place</span><span class="w"> </span><span class="n">processing</span><span class="o">?</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
+<span class="n">project</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">MyNewFX</span>
+<span class="n">display</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">MyNewFX</span><span class="p">)</span><span class="w"> </span><span class="n">My</span><span class="w"> </span><span class="n">New</span><span class="w"> </span><span class="n">FX</span>
+<span class="nl">author</span><span class="p">:</span><span class="w"> </span><span class="n">Audio</span><span class="w"> </span><span class="n">Kinetic</span>
+<span class="nl">description</span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">brand</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="n">plug</span><span class="o">-</span><span class="n">in</span>
+<span class="n">About</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">with</span><span class="o">:</span>
+<span class="p">{</span><span class="err">&#39;</span><span class="n">author</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Audio</span><span class="w"> </span><span class="n">Kinetic</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="err">&#39;</span><span class="n">description</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">A</span><span class="w"> </span><span class="n">brand</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="n">plug</span><span class="o">-</span><span class="n">in</span><span class="p">.</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="err">&#39;</span><span class="n">display_name</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">My</span><span class="w"> </span><span class="n">New</span><span class="w"> </span><span class="n">FX</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">MyNewFX</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="err">&#39;</span><span class="n">out_of_place</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">False</span><span class="p">,</span>
+<span class="w"> </span><span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">effect</span><span class="err">&#39;</span><span class="p">}</span>
+<span class="n">Is</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="n">OK</span><span class="o">?</span><span class="p">(</span><span class="n">yes</span><span class="p">)</span>
+<span class="n">Generating</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MyNewFX</span>
+</pre></div>
+</div>
+<p>其中%WWISEROOT%是当前Wwise的安装位置</p>
+<p>可以在对应的文件夹中使用当前命令行则会在当前文件夹中创建</p>
+<p>这样会创建一个以插件的当前工作目录命名的目录。该目录包含所要创建的插件类型的框架。</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MyNewFX</span><span class="o">/</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">FactoryAssets</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">Manifest</span><span class="p">.</span><span class="n">xml</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">Help</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXConfig</span><span class="p">.</span><span class="n">h</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">PremakePlugin</span><span class="p">.</span><span class="n">lua</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">SoundEnginePlugin</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXFX</span><span class="p">.</span><span class="n">cpp</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXFX</span><span class="p">.</span><span class="n">h</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXFXFactory</span><span class="p">.</span><span class="n">h</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXFXParams</span><span class="p">.</span><span class="n">cpp</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXFXParams</span><span class="p">.</span><span class="n">h</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">MyNewFXFXShared</span><span class="p">.</span><span class="n">cpp</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">WwisePlugin</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFX</span><span class="p">.</span><span class="n">def</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFX</span><span class="p">.</span><span class="n">xml</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXPlugin</span><span class="p">.</span><span class="n">cpp</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXPlugin</span><span class="p">.</span><span class="n">h</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">Win32</span>
+<span class="err">│</span><span class="w">       </span><span class="err">├──</span><span class="w"> </span><span class="n">MyNewFXPluginGUI</span><span class="p">.</span><span class="n">cpp</span>
+<span class="err">│</span><span class="w">       </span><span class="err">└──</span><span class="w"> </span><span class="n">MyNewFXPluginGUI</span><span class="p">.</span><span class="n">h</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">res</span>
+<span class="err">│</span><span class="w">       </span><span class="err">└──</span><span class="w"> </span><span class="n">Md</span>
+<span class="err">│</span><span class="w">           </span><span class="err">└──</span><span class="w"> </span><span class="n">en</span>
+<span class="err">│</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">Placeholder</span><span class="p">.</span><span class="n">md</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">additional_artifacts</span><span class="p">.</span><span class="n">json</span><span class="w">  </span>
+<span class="err">└──</span><span class="w"> </span><span class="n">bundle_template</span><span class="p">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">[</span><span class="o">--</span><span class="n">sink</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">--</span><span class="n">mixer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">--</span><span class="n">object_processor</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">--</span><span class="n">source</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">--</span><span class="n">effect</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--</span><span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">place</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">AUTHOR</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">DESCRIPTION</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">DISPLAY_NAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">NAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">prompt</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="premake">
+<h2>1.2 Premake配置工程<a class="headerlink" href="#premake" title="Link to this heading"></a></h2>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_premakeconfig.html</p>
+<p><code class="docutils literal notranslate"><span class="pre">premake</span></code> 命令会生成供 <code class="docutils literal notranslate"><span class="pre">build</span></code> 命令用来构建插件的解决方案,此配置文件存放在插件的根目录下，名为 <strong>PremakePlugin.lua</strong></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">MyNewFX</span>
+<span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">premake</span><span class="w"> </span><span class="n">Authoring</span>
+</pre></div>
+</div>
+<p><img alt="image-20240715213653929" src="source/技术音频/Wwise/WWise C++/assets/image-20240715213653929.png" /></p>
+<p><img alt="image-20240715214246292" src="source/技术音频/Wwise/WWise C++/assets/image-20240715214246292.png" /></p>
+</section>
+<section id="id3">
+<h2>1.3 构建工程<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_building.html</p>
+<p><code class="docutils literal notranslate"><span class="pre">build</span></code> 命令将使用之前生成的解决方案，来编译插件并将二进制文件复制到 Wwise 安装目录</p>
+<p>visual 2019</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">Release</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">x64</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">vc160</span><span class="w"> </span><span class="n">Authoring</span>
+</pre></div>
+</div>
+<p>visual 2022</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">Release</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">x64</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">vc170</span><span class="w"> </span><span class="n">Authoring</span>
+</pre></div>
+</div>
+<p>错误：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;PluginMFCWindows&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">不是</span><span class="w"> </span><span class="s">&quot;AK::Wwise::Plugin&quot;</span><span class="w"> </span><span class="n">的成员</span>
+</pre></div>
+</div>
+<p>Visual Studio 2022 安装，然后在“单个组件”下选择“用于最新 v143 构建工具（x86 和 x64）的 C++ MFC”和“用于最新 v143 构建工具（x86 和 x64）的 C++ ATL”。</p>
+<p><img alt="image-20240715231431080" src="source/技术音频/Wwise/WWise C++/assets/image-20240715231431080.png" /></p>
+<p>重启Wwise
+<img alt="image-20240715231655003" src="source/技术音频/Wwise/WWise C++/assets/image-20240715231655003.png" /></p>
+</section>
+</section>
+<section id="factory-asset">
+<h1>二、Factory Asset<a class="headerlink" href="#factory-asset" title="Link to this heading"></a></h1>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_factoryassets.html</p>
+<section id="asset">
+<h2>2.1 Asset<a class="headerlink" href="#asset" title="Link to this heading"></a></h2>
+<p><img alt="image-20240715232434308" src="source/技术音频/Wwise/WWise C++/assets/image-20240715232434308.png" /></p>
+<p>从项目中的复制到工程文件</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ItemName</span><span class="err">\</span><span class="n">Effects</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AudioKinetic</span><span class="err">\</span><span class="n">Wwise2024</span><span class="mf">.1.0.8570</span><span class="err">\</span><span class="n">Authoring</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Factory</span><span class="w"> </span><span class="n">Layouts</span><span class="err">\</span><span class="n">Effects</span>
+</pre></div>
+</div>
+<p>可以自己創建effect文件夹</p>
+</section>
+<section id="resource-files">
+<h2>2.2 Resource Files<a class="headerlink" href="#resource-files" title="Link to this heading"></a></h2>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_resource_file.html</p>
+<p>自定义图形界面的资源打开插件界面</p>
+<p><img alt="image-20240715233320124" src="source/技术音频/Wwise/WWise C++/assets/image-20240715233320124.png" /></p>
+<p>利用visual 打开Sln 随后创建一个资源文件</p>
+<p><img alt="image-20240715234627592" src="source/技术音频/Wwise/WWise C++/assets/image-20240715234627592.png" /></p>
+<p>随后添加</p>
+<p><img alt="image-20240715234814373" src="source/技术音频/Wwise/WWise C++/assets/image-20240715234814373.png" /></p>
+<p>保存之后利用命令行</p>
+<p>第一个命令在项目中包含 <code class="docutils literal notranslate"><span class="pre">Resource.rc</span></code> 文件</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">premake</span><span class="w"> </span><span class="n">Authoring</span>
+</pre></div>
+</div>
+<p>第二个命令基于资源文件创建一个 <code class="docutils literal notranslate"><span class="pre">resource.h</span></code> 文件</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">Release</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">x64</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">vc170</span><span class="w"> </span><span class="n">Authoring</span>
+</pre></div>
+</div>
+<p>需要关闭所有程序</p>
+</section>
+<section id="guiwindow">
+<h2>2.3 GUIwindow<a class="headerlink" href="#guiwindow" title="Link to this heading"></a></h2>
+<p>在WwisePlugin\Win32的打开 <font color=#4db8ff>PluginNamePluginGUI.h</font></p>
+<p>然后覆盖脚本</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="w"> </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../MyPlugin.h&quot;</span>
+<span class="w"> </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../resource.h&quot;</span>
+<span class="w"> </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPluginGUI</span><span class="w"> </span><span class="k">final</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">PluginMFCWindows</span><span class="o">&lt;&gt;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">GUIWindows</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">MyPluginGUI</span><span class="p">();</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="n">HINSTANCE</span><span class="w"> </span><span class="nf">GetResourceHandle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetDialog</span><span class="p">(</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span>
+<span class="w">        </span><span class="n">UINT</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_uiDialogID</span><span class="p">,</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">PopulateTableItem</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">out_pTable</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">WindowProc</span><span class="p">(</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span>
+<span class="w">        </span><span class="n">HWND</span><span class="w"> </span><span class="n">in_hWnd</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">in_message</span><span class="p">,</span>
+<span class="w">        </span><span class="n">WPARAM</span><span class="w"> </span><span class="n">in_wParam</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LPARAM</span><span class="w"> </span><span class="n">in_lParam</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LRESULT</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_lResult</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">HWND</span><span class="w"> </span><span class="n">m_hwndPropView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Cpp中添加下列脚本</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">HINSTANCE</span><span class="w"> </span><span class="nf">MyPluAudioPlugPluginGUIginGUI::GetResourceHandle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="w"> </span><span class="n">AfxGetStaticModuleState</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AfxGetStaticModuleState</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">m_hCurrentResourceHandle</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="w"> </span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">AudioPlugPluginGUI::GetDialog</span><span class="p">(</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span><span class="w"> </span><span class="n">UINT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_uiDialogID</span><span class="p">,</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">PopulateTableItem</span><span class="w"> </span><span class="o">*&amp;</span><span class="w"> </span><span class="n">out_pTable</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">AKASSERT</span><span class="p">(</span><span class="w"> </span><span class="n">in_eDialog</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">SettingsDialog</span><span class="w"> </span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="n">out_uiDialogID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDD_DIALOG1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">out_pTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="w"> </span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">AudioPlugPluginGUI::WindowProc</span><span class="p">(</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span><span class="w"> </span><span class="n">HWND</span><span class="w"> </span><span class="n">in_hWnd</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">in_message</span><span class="p">,</span><span class="w"> </span><span class="n">WPARAM</span><span class="w"> </span><span class="n">in_wParam</span><span class="p">,</span><span class="w"> </span><span class="n">LPARAM</span><span class="w"> </span><span class="n">in_lParam</span><span class="p">,</span><span class="w"> </span><span class="n">LRESULT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_lResult</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">in_message</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">WM_INITDIALOG</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_hwndPropView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_hWnd</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">WM_DESTROY</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_hwndPropView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">out_lResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><img alt="image-20240716001152066" src="source/技术音频/Wwise/WWise C++/assets/image-20240716001152066.png" /></p>
+</section>
+</section>
+<section id="id4">
+<h1>三、构建插件属性文档<a class="headerlink" href="#id4" title="Link to this heading"></a></h1>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=effectplugin_tools_property_help.html</p>
+<p>属性帮助文档源文件必须存放在</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="err">`</span><span class="o">&lt;</span><span class="n">PluginProject</span><span class="o">&gt;/</span><span class="n">WwisePlugin</span><span class="o">/</span><span class="n">res</span><span class="o">/</span><span class="n">Md</span><span class="o">/&lt;</span><span class="n">language</span><span class="o">&gt;/</span><span class="n">PropertyName</span><span class="p">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p>wp.py 为插件构建 Wwise Property Help 文件：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="s">&quot;%WWISEROOT%/Scripts/Build/Plugins/wp.py&quot;</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">Documentation</span>
+</pre></div>
+</div>
+<p><img alt="image-20240716002304555" src="source/技术音频/Wwise/WWise C++/assets/image-20240716002304555.png" />
+测试</p>
+</section>
+<section id="id5">
+<h1>四、代码接口<a class="headerlink" href="#id5" title="Link to this heading"></a></h1>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=wwiseplugin_backend.html</p>
+<section id="sound-bank">
+<h2>4.1 sound Bank<a class="headerlink" href="#sound-bank" title="Link to this heading"></a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;AK/Wwise/Plugin.h&gt;</span>
+<span class="w"> </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BackendSourcePlugin</span>
+<span class="o">:</span><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">AudioPlugin</span>
+<span class="p">,</span><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">Source</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// AK::Wwise::Plugin::AudioPlugin</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">GetBankParameters</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">GUID</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in_guidPlatform</span><span class="p">,</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in_dataWriter</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="c1">// AK::Wwise::Plugin::Source</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetSourceDuration</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_dblMinDuration</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_dblMaxDuration</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="w"> </span>
+<span class="n">AK_ADD_PLUGIN_CLASS_TO_CONTAINER</span><span class="p">(</span>
+<span class="w">    </span><span class="n">MyPlugin</span><span class="p">,</span><span class="w">               </span><span class="c1">// Add to container &quot;MyPlugin&quot;</span>
+<span class="w">    </span><span class="n">BackendSourcePlugin</span><span class="p">,</span><span class="w">    </span><span class="c1">// Class to add to the container</span>
+<span class="w">    </span><span class="n">SoundEngineSourcePlugin</span><span class="w"> </span><span class="c1">// Sound engine plug-in to which this plug-in corresponds</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>将其当前设置存储到声音包中。 可以通过实现<font color=#4db8ff>AK::Wwise::Plugin::AudioPlugin::GetBankParameters() </font>方法来做到。获取每个属性的当前值，然后使用适当方法将值写入，<font color=#4db8ff>AK::Wwise::Plugin::DataWriter</font>对象作为接收的参数。这些操作按照参数结构中各成员的定义顺序执行</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">MySourcePlugin::GetBankParameters</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GUID</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in_guidPlatform</span><span class="p">,</span>
+<span class="w">    </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in_dataWriter</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">in_dataWriter</span><span class="p">.</span><span class="n">WriteReal32</span><span class="p">(</span><span class="n">m_propertySet</span><span class="o">-&gt;</span><span class="n">GetReal32</span><span class="p">(</span><span class="n">in_guidPlatform</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Frequency&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">in_dataWriter</span><span class="p">.</span><span class="n">WriteReal32</span><span class="p">(</span><span class="n">m_propertySet</span><span class="o">-&gt;</span><span class="n">GetReal32</span><span class="p">(</span><span class="n">in_guidPlatform</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Gain&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">in_dataWriter</span><span class="p">.</span><span class="n">WriteReal32</span><span class="p">(</span><span class="n">m_propertySet</span><span class="o">-&gt;</span><span class="n">GetReal32</span><span class="p">(</span><span class="n">in_guidPlatform</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Duration&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="front-end">
+<h2>4.2 Front end<a class="headerlink" href="#front-end" title="Link to this heading"></a></h2>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=wwiseplugin_frontend.html</p>
+<p>工具集的方法，以便实现图形用户界面。 您需要创建通过前端类（如 <font color=#4db8ff>AK::Wwise::Plugin::GUIWindows</font>）获取的类。</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;AK/Wwise/Plugin.h&gt;</span>
+<span class="w"> </span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FrontendSourcePlugin</span>
+<span class="o">:</span><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">GUIWindows</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">FrontendSourcePlugin</span><span class="p">();</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="c1">// AK::Wwise::Plugin::GUIWindows</span>
+<span class="w">    </span><span class="n">HINSTANCE</span><span class="w"> </span><span class="nf">GetResourceHandle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetDialog</span><span class="p">(</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span>
+<span class="w">        </span><span class="n">UINT</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_uiDialogID</span><span class="p">,</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">PopulateTableItem</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">out_pTable</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">WindowProc</span><span class="p">(</span>
+<span class="w">        </span><span class="n">AK</span><span class="o">::</span><span class="n">Wwise</span><span class="o">::</span><span class="n">Plugin</span><span class="o">::</span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">,</span>
+<span class="w">        </span><span class="n">HWND</span><span class="w"> </span><span class="n">in_hWnd</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">in_message</span><span class="p">,</span>
+<span class="w">        </span><span class="n">WPARAM</span><span class="w"> </span><span class="n">in_wParam</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LPARAM</span><span class="w"> </span><span class="n">in_lParam</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LRESULT</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_lResult</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Help</span><span class="p">(</span><span class="n">HWND</span><span class="w"> </span><span class="n">in_hWnd</span><span class="p">,</span><span class="w"> </span><span class="n">eDialog</span><span class="w"> </span><span class="n">in_eDialog</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="w"> </span>
+<span class="n">AK_ADD_PLUGIN_CLASS_TO_CONTAINER</span><span class="p">(</span>
+<span class="w">    </span><span class="n">MyPlugin</span><span class="p">,</span><span class="w">               </span><span class="c1">// Add to container &quot;MyPlugin&quot;</span>
+<span class="w">    </span><span class="n">FrontendSourcePlugin</span><span class="p">,</span><span class="w">   </span><span class="c1">// Class to add to the container</span>
+<span class="w">    </span><span class="n">SoundEngineSourcePlugin</span><span class="w"> </span><span class="c1">// Sound engine plug-in to which this plug-in corresponds</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="control-link">
+<h2>4.3 control Link<a class="headerlink" href="#control-link" title="Link to this heading"></a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">propertyKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">u8</span><span class="s">&quot;MyProperty&quot;</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="n">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE</span><span class="p">(</span><span class="n">PropertyTable</span><span class="p">)</span>
+<span class="w">    </span><span class="n">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</span><span class="p">(</span><span class="n">IDC_MYPROPERTY_EDIT</span><span class="p">,</span><span class="w"> </span><span class="n">propertyKey</span><span class="p">)</span>
+<span class="n">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>将控件 <font color=#4db8ff>IDC_MYPROPERTY_EDIT</font>（来自与 .rc 文件配套的 resource.h 文件）映射到了属性 MyProperty。该 ID 必须与插件 XML 定义中的属性对应。</p>
+</section>
+</section>
+<section id="xml">
+<h1>五、XML<a class="headerlink" href="#xml" title="Link to this heading"></a></h1>
+<p><font color=#4db8ff>Link：</font>https://www.audiokinetic.com/zh/library/edge/?source=SDK&amp;id=plugin_xml.html</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

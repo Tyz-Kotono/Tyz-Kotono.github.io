@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/source/技术音频/Wappi/Wappi.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">现在使用中文回答</span>
+<span class="n">现在我要利用Waapi给Wwise写工具所以我使用</span>
+<span class="n">python3</span><span class="mf">.13</span><span class="n">和QT6编写UI</span>
+
+<span class="n">首先我有两个类QTWindow</span><span class="p">.</span><span class="n">py继承于QT的窗口他的子类都可以拖拽放置窗口位置并且垂直和水平都可以</span>
+
+<span class="n">另一个类继承QTWindowBase</span><span class="p">.</span><span class="n">py他继承于继承QTWindowBase</span><span class="p">.</span><span class="n">py</span>
+<span class="n">他内部允许放置所有的QTWindow</span><span class="p">.</span><span class="n">py窗口</span><span class="err">，</span><span class="n">但是禁止放置自己的子类以及QTWindow</span><span class="p">.</span><span class="n">py不允许QTEditorWindow</span><span class="p">.</span><span class="n">py的子类的窗口</span>
+<span class="n">随后根据图片生成这几个Python文件</span>
+
+<span class="n">所有通过</span><span class="w"> </span><span class="n">QTWindowBase</span><span class="w"> </span><span class="n">继承的窗口都可以</span><span class="err">：</span>
+
+<span class="n">放在顶部或底部区域</span><span class="err">（</span><span class="n">支持多个并列或堆叠</span><span class="err">）；</span>
+
+<span class="n">自由拖拽</span><span class="err">、</span><span class="n">浮动</span><span class="err">、</span><span class="n">小窗化</span><span class="err">；</span>
+
+<span class="n">文件路径录</span>
+
+<span class="n">Main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">Source</span>
+<span class="w">     </span><span class="n">ModuleCore</span><span class="p">.</span><span class="n">py</span><span class="w">					</span><span class="n">被Main执行调用</span><span class="w"> </span>
+<span class="w">     </span><span class="n">WindowModule</span>
+<span class="w">    	</span><span class="n">QTWindowModule</span><span class="p">.</span><span class="n">py</span><span class="w"> 			</span><span class="n">负责绘制窗口被ModuleCore调用他的Draw函数</span>
+<span class="w">	    </span><span class="n">QTWindowModuleCollection</span><span class="p">.</span><span class="n">py</span>
+<span class="w">        </span><span class="n">base</span>
+<span class="w">    	    </span><span class="n">QTEditorWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">可能继承于QSplitter</span><span class="w"> </span>
+<span class="w">            </span><span class="n">QTWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">		    </span><span class="n">可能继承于DockWidget</span><span class="w"> </span>
+<span class="w">        </span><span class="n">Window</span>
+<span class="w">            </span><span class="n">QTDebug</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">继承QTWindowBase</span>
+<span class="w">            </span><span class="n">QTContent</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">继承QTWindowBase</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Main</span><span class="p">.</span><span class="n">py</span>
+<span class="w">    </span><span class="n">Source</span>
+<span class="w">         </span><span class="n">ModuleCore</span><span class="p">.</span><span class="n">py</span><span class="w">					</span><span class="n">被Main执行调用</span><span class="w"> </span>
+<span class="w">         </span><span class="n">WindowModule</span>
+<span class="w">            </span><span class="n">QTWindowModule</span><span class="p">.</span><span class="n">py</span><span class="w"> 			</span><span class="n">负责绘制窗口被ModuleCore调用他的Draw函数</span>
+<span class="w">            </span><span class="n">QTWindowModuleCollection</span><span class="p">.</span><span class="n">py</span>
+<span class="w">        </span><span class="n">base</span>
+<span class="w">            </span><span class="n">QTEditorWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">可能继承于QSplitter</span><span class="w"> </span>
+<span class="w">            </span><span class="n">QTWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">		    </span><span class="n">可能继承于DockWidget</span><span class="w"> </span>
+<span class="w">        </span><span class="n">Window</span>
+<span class="w">                </span><span class="n">QTDebug</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">继承QTWindowBase</span>
+<span class="w">                </span><span class="n">QTContent</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">继承QTWindowBase</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">Config</span>
+<span class="w">	</span><span class="n">config</span><span class="p">.</span><span class="n">ini</span><span class="w"> 					</span><span class="n">保存所有Ini的路径方便读取以及一些设置</span>
+<span class="w">    </span><span class="n">Layout</span><span class="o">/</span><span class="n">DefaultLayout</span><span class="p">.</span><span class="n">ini</span><span class="w"> 	</span><span class="n">保存默认的Layout分布</span>
+<span class="w">		   </span><span class="n">Layout</span><span class="p">.</span><span class="n">ini</span><span class="w">        	</span><span class="n">Custom定义的Layout</span>
+<span class="w">	</span><span class="n">WindowMoudel</span><span class="p">.</span><span class="n">ini</span><span class="w">			</span><span class="n">保存所有的Window类型</span>
+<span class="w">    </span><span class="n">Moudel</span><span class="p">.</span><span class="n">ini</span>
+<span class="n">Source</span>
+<span class="w">   	 </span><span class="n">ModuleCore</span><span class="p">.</span><span class="n">py</span><span class="w">					</span><span class="n">被CollectionCore执行调用</span><span class="w"> </span><span class="n">判断获得的所有module是否开启module</span><span class="err">，</span><span class="n">随后写入Moudel</span><span class="p">.</span><span class="n">ini</span>
+<span class="w">     </span><span class="n">CollectionCore</span><span class="p">.</span><span class="n">py</span><span class="w">				</span><span class="n">调用ModuleCollectionBase</span><span class="p">.</span><span class="n">py的子类开启收集</span>
+<span class="w">     </span><span class="n">Base</span>
+<span class="w">     	</span><span class="n">ModuleBase</span><span class="p">.</span><span class="n">py</span><span class="w">				</span><span class="n">被module子类继承</span>
+<span class="w">     	</span><span class="n">ModuleCollectionBase</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">收集所有的</span><span class="w"> </span><span class="n">ModuleBase</span><span class="p">.</span><span class="n">py子类</span><span class="err">，</span><span class="n">保存在字典里</span><span class="err">，</span><span class="n">所有遍历判断是否开启module</span>
+<span class="w">	 </span><span class="n">WindowModule</span>
+<span class="w">		</span><span class="n">QTWindowModule</span><span class="p">.</span><span class="n">py</span><span class="w">		    </span><span class="n">被ModuleBase</span><span class="p">.</span><span class="n">Build</span><span class="p">.</span><span class="n">py收集</span><span class="err">，</span><span class="n">随后调用</span><span class="w"> </span><span class="n">ModuleCore</span><span class="p">.</span><span class="n">py</span><span class="err">，</span><span class="n">执行一些逻辑这里先Print</span><span class="w"> </span><span class="n">String</span>
+<span class="w">    	</span><span class="n">QTWindowModuleCollection</span><span class="p">.</span><span class="n">py</span><span class="w">  </span><span class="n">继承于ModuleCollectionBase</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="n">收集所有继承于QTWindowBase的子类这里不查找QTEditorWindow</span><span class="p">.</span><span class="n">py的子类</span><span class="err">，</span><span class="n">类如QTDebug</span><span class="p">.</span><span class="n">py</span><span class="err">、</span><span class="n">Dertails等QT窗口</span><span class="p">,</span><span class="n">随后查找和QTEditorWindow</span><span class="p">.</span><span class="n">py的子类</span><span class="err">，</span><span class="n">保存在两个字典中</span><span class="err">，</span><span class="n">并且有功能写入随后写入WindowMoudel</span><span class="p">.</span><span class="n">ini</span>
+<span class="w">		</span><span class="n">base</span>
+<span class="w">			</span><span class="n">QTEditorWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">可能继承于QSplitter</span><span class="w"> </span>
+<span class="w">			</span><span class="n">QTWindowBase</span><span class="p">.</span><span class="n">py</span><span class="w">			</span><span class="n">可能继承于DockWidget</span><span class="w"> </span>
+<span class="w">		</span><span class="n">Window</span>
+<span class="w">    		</span><span class="n">QTDebug</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">继承QTWindowBase</span>
+<span class="w">			</span><span class="n">QTContent</span><span class="p">.</span><span class="n">py</span><span class="w">	</span><span class="n">继承QTWindowBase</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">Config</span>
+<span class="w">	</span><span class="n">config</span><span class="p">.</span><span class="n">ini</span><span class="w"> 				</span><span class="n">保存所有Ini的路径方便读取以及一些设置</span>
+<span class="w">    </span><span class="n">Layout</span><span class="o">/</span><span class="n">DefaultLayout</span><span class="p">.</span><span class="n">ini</span><span class="w"> </span><span class="n">保存默认的Layout分布</span>
+<span class="w">		   </span><span class="n">Layout</span><span class="p">.</span><span class="n">ini</span><span class="w">        </span><span class="n">Custom定义的Layout</span>
+<span class="w">    </span><span class="n">Module</span><span class="p">.</span><span class="n">ini</span><span class="w">		 		</span><span class="n">收集所有的Module</span>
+<span class="n">Source</span>
+<span class="w">    </span><span class="n">collector</span><span class="p">.</span><span class="n">py</span><span class="w">			 </span><span class="n">被Main调用</span><span class="err">，</span><span class="n">负责开启Build收集数据</span><span class="err">，</span><span class="n">管理数据</span><span class="err">，</span><span class="n">写入Ini的管理</span>
+<span class="w">    </span><span class="n">Build</span>
+<span class="w">    	</span><span class="n">Bulid</span><span class="p">.</span><span class="n">py</span><span class="w">			 </span><span class="n">收集所有的继承Bulid</span><span class="p">.</span><span class="n">base</span><span class="p">.</span><span class="n">py写入Module</span><span class="p">.</span><span class="n">ini</span><span class="err">，</span><span class="n">同时写入或者创建对应的ini文件</span>
+<span class="w">		</span><span class="n">Bulid</span><span class="p">.</span><span class="n">base</span><span class="p">.</span><span class="n">py</span><span class="w">		</span>
+<span class="w">    </span><span class="n">Module</span>
+<span class="w">		</span><span class="n">Module</span><span class="p">.</span><span class="n">Build</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">收集所有的Module写入</span><span class="w"> </span><span class="n">Module</span><span class="p">.</span><span class="n">ini</span><span class="w">	</span>
+<span class="w">    	</span><span class="n">Module</span><span class="p">.</span><span class="n">py</span><span class="w">			</span><span class="n">被Main调用随后调用所有的Module如WindowModule</span>
+<span class="w">    </span><span class="n">WindowModule</span>
+<span class="w">            </span><span class="n">QTWindow</span><span class="p">.</span><span class="n">Build</span><span class="p">.</span><span class="n">py</span><span class="w">  </span><span class="n">收集所有继承于QTWindowBase的子类</span><span class="err">，</span><span class="n">如Setting</span><span class="err">、</span><span class="n">Dertails等QT窗口</span>
+<span class="w">            </span><span class="n">QTWindowBase</span><span class="p">.</span><span class="n">py</span>
+<span class="w">            </span><span class="n">QTWindow</span><span class="p">.</span><span class="n">py</span><span class="w">			</span><span class="n">被MenusMoudle调用针对收集的Menu进行QTWindow</span>
+<span class="w">			</span><span class="c1">//下列部分仅绘制一个简单UI即可</span>
+<span class="w">            </span><span class="n">Settings</span>
+<span class="w">                </span><span class="n">Setting</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">负责设置</span><span class="err">，</span><span class="n">继承于QTWindow</span><span class="p">.</span><span class="n">py</span><span class="w">		</span>
+<span class="w">            </span><span class="n">Details</span>
+<span class="w">                </span><span class="n">Details</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">负责展示Details</span><span class="err">，</span><span class="n">wwise文件细节</span><span class="err">，</span><span class="n">继承于QTWindow</span><span class="p">.</span><span class="n">py</span><span class="w">		</span>
+<span class="w">            </span><span class="n">Debug</span><span class="w">	</span>
+<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">py</span><span class="w">		</span><span class="n">负责搜集Debug并且显示</span><span class="err">，</span><span class="n">继承于QTWindow</span><span class="p">.</span><span class="n">py</span><span class="w">		</span>
+<span class="w">            </span><span class="n">Content</span>
+<span class="w">                </span><span class="n">Content</span><span class="p">.</span><span class="n">py</span><span class="w">	    </span><span class="n">负责显示收集到的所有Wwise对象</span><span class="err">，</span><span class="n">继承于QTWindow</span><span class="p">.</span><span class="n">py</span><span class="w">	</span>
+<span class="w">  </span>
+</pre></div>
+</div>
+<p>一、菜单栏</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">利用Menu</span><span class="p">.</span><span class="n">ini</span><span class="w"> </span><span class="n">抓取所有的Window</span><span class="err">，</span><span class="n">Window窗口通过Menu</span><span class="p">.</span><span class="n">ini可以打开所有的窗口类型</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

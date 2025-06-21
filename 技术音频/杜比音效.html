@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pass through &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pass through</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/技术音频/杜比音效.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>https://www.youtube.com/watch?v=hy6XHiBbAW8</p>
+<p>勾选Allow 3D Audio,Wwise将会自动构建在专用的音频设备上的可能性，如果有一个支持系统3D 音频的设备</p>
+<p>如果设备支持，那么游戏基本就能播放3D Audio</p>
+<p>没反应是因为系统目前没有设置为渲染空间化音频，所以需要再Window上开启空间化音频</p>
+<p>当我们开启以后，3D和Passthrough 将会被激活</p>
+<section id="pass-through">
+<h1>Pass through<a class="headerlink" href="#pass-through" title="Link to this heading"></a></h1>
+<p>HeadLock mix 头锁混音，是所有没有进行Specialized的内容都会通过这里播放</p>
+<p>直接进入左右声道，无需其他的渲染，所以也叫直通混音，</p>
+<p>会直接发送到耳机的左右扬声器</p>
+<p>这个是Wwise自动帮我们做到的，会智能帮我们检测，将音频发送到那种混音中</p>
+<p>开启Position ，测试</p>
+</section>
+<section id="object">
+<h1>Object<a class="headerlink" href="#object" title="Link to this heading"></a></h1>
+<p>游戏中的类型</p>
+<p>EndPoint Render的对象，也就是渲染最终音频的音频设备上渲染的对象</p>
+<p>Wwise允许将游戏对象，发送到EndPoint 渲染器的对象中</p>
+<p>当然也可以选择不发送到EndPoint中而是发送到Main Mix中</p>
+<p><img alt="image-20250602235734602" src="技术音频/assets/image-20250602235734602.png" /></p>
+<p><img alt="image-20250602235749317" src="技术音频/assets/image-20250602235749317.png" /></p>
+<p><img alt="image-20250602235802714" src="技术音频/assets/image-20250602235802714.png" /></p>
+<p>只有一个请求可以实际获得他们，所以默认关闭</p>
+</section>
+<section id="d">
+<h1>3D<a class="headerlink" href="#d" title="Link to this heading"></a></h1>
+<p>Wwise 理解为一个空间化音频对象，就会发送到EndPoint 中的音频对象占位</p>
+<p>这个时候他不是在Game 也不是在Wwise而是在EndPoint中渲染的</p>
+<p>不仅传递音频，还传递游戏中的所有定位数据</p>
+<p>这是一种完全不同的音频对象熏染方式，不再是在游戏中渲染，而是在EndPoint中渲染</p>
+<p>播放两个System 音频 四通道</p>
+<p>在 Object-based 音频系统中，每一个音频对象（sound object）通常只包含一条“干净的、未预混的单声道音轨”，并由引擎在运行时根据其位置、方向等信息进行空间渲染。</p>
+<p>每个声音对象（Object）<strong>只携带一条音频数据（Mono 单声道）</strong></p>
+<p>它的位置（如 X/Y/Z）、朝向、体积等<strong>由引擎实时计算空间化效果</strong></p>
+<p>空间化后才最终输出为立体声、环绕声或 HRTF 处理的耳机声</p>
+<p>如果每个 Object 本身是立体声或多声道，那么：</p>
+<ul class="simple">
+<li><p>空间化会<strong>变得不精确</strong>（你无法为每个声道单独定位）</p></li>
+<li><p>会造成<strong>声音重影</strong>或失真（多个声道间距固定）</p></li>
+<li><p>与<strong>HRTF 或 Binaural 渲染不兼容</strong></p></li>
+</ul>
+<p>因此，为了更好的空间化定位，每个 object 通常是单通道的（Mono），这样：</p>
+<blockquote>
+<div><p>🎯 每个声音都可以被当作“一个点”，在三维空间中任意移动，而不会受到声道结构限制。</p>
+</div></blockquote>
+<p>这是个非常核心的问题，牵涉到 <strong>Dolby Atmos 的核心工作机制：Object-based 渲染</strong>。</p>
+<p>每个 Atmos 音频 Object 是“单通道”的，但 Atmos 渲染器会根据每个 Object 的位置、方向、听者视角等参数，实时计算声场，并输出到任意数量的扬声器或耳机声道上（比如双声道、5.1、7.1、9.1.6，或 Binaural）。</p>
+<p>Atmos 音频分为两类：</p>
+<ul class="simple">
+<li><p><strong>Bed（床位）音轨</strong>：比如传统的 7.1 音轨，用于背景音乐/环境音，<strong>是固定的多通道内容</strong></p></li>
+<li><p><strong>Object（对象）音轨</strong>：每个对象是一段 <strong>Mono 单声道音频 + 元数据（位置、移动等）</strong></p></li>
+</ul>
+<p>背后有直升机飞过，你听到的是从后方逐渐移向前方的声音。</p>
+<p>这个声音实际只是一段单声道音频，Atmos 渲染器根据它的 3D 路径、你当前的监听方向，把它“模拟”为空间移动声音，并输出两个耳机声道。</p>
+<p>那么为什么是两个对象</p>
+<blockquote>
+<div><p>在 Wwise 中，如果你播放一个 <strong>立体声（Stereo）声音源</strong>，但启用了 <strong>System Audio Object 输出</strong>，<strong>Wwise 会自动将每个声道（L/R）拆分为两个独立的单通道 Audio Object</strong>，分别发送给系统级音频渲染器（如 Dolby Atmos）进行空间渲染。</p>
+</div></blockquote>
+<p>这就是你看到“<strong>立体声其实是两个对象</strong>”的原因。</p>
+<p>那么 Wwise 会自动将这个立体声：</p>
+<blockquote>
+<div><p>📦 <strong>拆分成两个单声道对象</strong>，每个声道作为独立的 Audio Object 输出！</p>
+</div></blockquote>
+<p>这两个 Object：</p>
+<ul class="simple">
+<li><p>共享同一个声音内容的两个声道（L 和 R）</p></li>
+<li><p>分别获得空间定位（通常略微错开）</p></li>
+<li><p>被底层渲染器（如 Dolby Atmos）当作两个单独声音处理</p></li>
+</ul>
+<p>这是为了符合 <strong>Object-based 渲染的标准要求</strong>：</p>
+<ul class="simple">
+<li><p>Atmos 渲染器不接受多声道对象 —— 它只接受“<strong>一个 Mono 声道 + 空间信息</strong>”作为一个处理单位</p></li>
+<li><p>所以 Wwise 要“<strong>自动拆分</strong>”才能让立体声参与系统级空间渲染</p></li>
+</ul>
+<p><img alt="image-20250602230509445" src="技术音频/assets/image-20250602230509445.png" /></p>
+<p><img alt="image-20250602230613748" src="技术音频/assets/image-20250602230613748.png" /></p>
+<p>超过对象则会降级到Main Mix</p>
+<p>如果没有空间化或者和其他非空间化的音频混合在一起，Wwise会认为</p>
+<p>强制发送Main Mix</p>
+<p>氛围对选个，环境混音</p>
+<p>不把环境音发给对象</p>
+<p><img alt="image-20250602231454310" src="技术音频/assets/image-20250602231454310.png" /></p>
+<p>当然也可以强制发送到Pass Through</p>
+<p>杜比只有16个系统音频对象</p>
+<p><img alt="image-20250602231817365" src="技术音频/assets/image-20250602231817365.png" /></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

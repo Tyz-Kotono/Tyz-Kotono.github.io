@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一、调试软件 &mdash; MyDocs - UE风格文档</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/ue_style.css?v=75e08b7f" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2C3E50" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            MyDocs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Vulkan/index.html">Vulkan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../%E6%8A%80%E6%9C%AF%E9%9F%B3%E9%A2%91/index.html">技术音频</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2C3E50" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">MyDocs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">一、调试软件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/source/技术音频/技术音频/JUCE/AkashMurthy/00- Levelmeters.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>https://www.youtube.com/watch?v=ILMdPjFQ9ps&amp;list=PLbqhA-NKGP6DiGtVK4WhEHgNZQS7NmBH7&amp;index=1</p>
+<section id="id1">
+<h1>一、调试软件<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p><img alt="image-20250124235753082" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250124235753082.png" /></p>
+<p>VST3设置为启动项</p>
+<p><img alt="image-20250124235833037" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250124235833037.png" /></p>
+<p>编译项目之后会自动打开Reaper</p>
+<p>可以在Reaper 中找到，找不到可以添加插件路径， 扫描，重新打开</p>
+<p><img alt="image-20250125000859307" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125000859307.png" /></p>
+<p><img alt="image-20250125001059635" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125001059635.png" /></p>
+<p><img alt="image-20250125001139265" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125001139265.png" /></p>
+</section>
+<section id="rms">
+<h1>二、RMS<a class="headerlink" href="#rms" title="Link to this heading"></a></h1>
+<p>2.1</p>
+<p><img alt="image-20250125001442598" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125001442598.png" /></p>
+<p>从均值平方根的计算中获得gain 转化为分贝值</p>
+<p><img alt="image-20250125002032461" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125002032461.png" /></p>
+<p>添加模块</p>
+<section id="h">
+<h2>2.2 H<a class="headerlink" href="#h" title="Link to this heading"></a></h2>
+<p><img alt="image-20250125003417663" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125003417663.png" /></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;JuceHeader.h&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">GUI</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">class</span><span class="w"> </span><span class="nc">HorizontalMeter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Component</span>
+<span class="w">	</span><span class="p">{</span>
+<span class="w">	</span><span class="k">public</span><span class="o">:</span>
+<span class="w">		</span><span class="kt">void</span><span class="w"> </span><span class="n">paint</span><span class="p">(</span><span class="n">Graphics</span><span class="o">&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">			</span><span class="k">auto</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLocalBounds</span><span class="p">().</span><span class="n">toFloat</span><span class="p">();</span>
+
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">setColour</span><span class="p">(</span><span class="n">Colours</span><span class="o">::</span><span class="n">white</span><span class="p">.</span><span class="n">withBrightness</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">));</span>
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">fillRoundedRectangle</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0f</span><span class="p">);</span>
+
+
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">setColour</span><span class="p">(</span><span class="n">Colours</span><span class="o">::</span><span class="n">white</span><span class="p">);</span>
+<span class="w">			</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">scaledX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">			</span><span class="n">jmap</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="o">-</span><span class="w"> </span><span class="mf">60.0f</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mf">6.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">getWidth</span><span class="p">());</span>
+
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">fillRoundedRectangle</span><span class="p">(</span><span class="n">bounds</span><span class="p">.</span><span class="n">removeFromBottom</span><span class="p">(</span><span class="n">scaledX</span><span class="p">),</span><span class="mf">5.0f</span><span class="p">);</span>
+<span class="w">		</span><span class="p">}</span>
+
+
+
+<span class="w">	</span><span class="k">private</span><span class="o">:</span>
+<span class="w">		</span><span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-60.0f</span><span class="p">;</span>
+<span class="w">	</span><span class="p">};</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="v">
+<h2>2.3 V<a class="headerlink" href="#v" title="Link to this heading"></a></h2>
+<p><img alt="image-20250125013345840" src="source/技术音频/技术音频/JUCE/AkashMurthy/assets/image-20250125013345840.png" /></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  ==============================================================================</span>
+
+<span class="cm">    VerticalGradientMeter.h</span>
+<span class="cm">    Created: 25 Jan 2025 1:05:51am</span>
+<span class="cm">    Author:  tyz</span>
+
+<span class="cm">  ==============================================================================</span>
+<span class="cm">*/</span>
+
+<span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;JuceHeader.h&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">GUI</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">class</span><span class="w"> </span><span class="nc">VerticalGradientMeter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Component</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w">  </span><span class="n">Timer</span>
+<span class="w">	</span><span class="p">{</span>
+<span class="w">	</span><span class="k">public</span><span class="o">:</span>
+<span class="w">		</span><span class="c1">//r 值引用			使用移动，而不是复制构造</span>
+<span class="w">		</span><span class="n">VerticalGradientMeter</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">()</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">valueFunction</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">valueSupplier</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">valueFunction</span><span class="p">))</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">			</span><span class="n">startTimerHz</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>
+<span class="w">		</span><span class="p">}</span>
+<span class="w">		</span><span class="kt">void</span><span class="w"> </span><span class="n">paint</span><span class="p">(</span><span class="n">Graphics</span><span class="o">&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">			</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valueSupplier</span><span class="p">();</span>
+
+<span class="w">			</span><span class="k">auto</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLocalBounds</span><span class="p">().</span><span class="n">toFloat</span><span class="p">();</span>
+
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">setColour</span><span class="p">(</span><span class="n">Colours</span><span class="o">::</span><span class="n">black</span><span class="p">);</span>
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">bounds</span><span class="p">);</span>
+
+
+<span class="w">			</span>
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">setGradientFill</span><span class="p">(</span><span class="n">gradient</span><span class="p">);</span>
+
+<span class="w">			</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">scaledY</span><span class="w"> </span><span class="o">=</span>
+<span class="w">				</span><span class="n">jmap</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="mf">-60.0f</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mf">6.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">getHeight</span><span class="p">()));</span>
+
+<span class="w">			</span><span class="n">g</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">bounds</span><span class="p">.</span><span class="n">removeFromBottom</span><span class="p">(</span><span class="n">scaledY</span><span class="p">));</span>
+<span class="w">		</span><span class="p">}</span>
+
+<span class="w">		</span><span class="kt">void</span><span class="w"> </span><span class="n">setLevel</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">		</span><span class="kt">void</span><span class="w"> </span><span class="n">resized</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">			</span><span class="k">auto</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLocalBounds</span><span class="p">().</span><span class="n">toFloat</span><span class="p">();</span>
+
+<span class="w">			</span><span class="n">gradient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ColourGradient</span><span class="p">{</span>
+<span class="w">				</span><span class="n">Colours</span><span class="o">::</span><span class="n">green</span><span class="p">,</span>
+<span class="w">				</span><span class="n">bounds</span><span class="p">.</span><span class="n">getBottomLeft</span><span class="p">(),</span>
+<span class="w">				</span><span class="n">Colours</span><span class="o">::</span><span class="n">red</span><span class="p">,</span>
+<span class="w">				</span><span class="n">bounds</span><span class="p">.</span><span class="n">getTopLeft</span><span class="p">(),</span>
+<span class="w">				</span><span class="nb">false</span>
+<span class="w">			</span><span class="p">};</span>
+
+<span class="w">			</span><span class="n">gradient</span><span class="p">.</span><span class="n">addColour</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">Colours</span><span class="o">::</span><span class="n">yellow</span><span class="p">);</span>
+
+<span class="w">		</span><span class="p">}</span>
+
+
+
+<span class="w">		</span><span class="kt">void</span><span class="w"> </span><span class="n">timerCallback</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">			</span><span class="n">repaint</span><span class="p">();</span>
+<span class="w">		</span><span class="p">}</span>
+<span class="w">	</span><span class="k">private</span><span class="o">:</span>
+<span class="w">		</span><span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">valueSupplier</span><span class="p">;</span>
+<span class="w">		</span><span class="n">ColourGradient</span><span class="w"> </span><span class="n">gradient</span><span class="p">;</span>
+<span class="w">	</span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  ==============================================================================</span>
+
+<span class="cm">    This file contains the basic framework code for a JUCE plugin editor.</span>
+
+<span class="cm">  ==============================================================================</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PluginProcessor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PluginEditor.h&quot;</span>
+
+<span class="c1">//==============================================================================</span>
+<span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="o">::</span><span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="w"> </span><span class="p">(</span><span class="n">Tyz00LevelMeterAudioProcessor</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">AudioProcessorEditor</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="n">audioProcessor</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">),</span>
+<span class="w">    </span><span class="n">verticalGradientMeterL</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">audioProcessor</span><span class="p">.</span><span class="n">GetRmsValue</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">    </span><span class="n">verticalGradientMeterR</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">audioProcessor</span><span class="p">.</span><span class="n">GetRmsValue</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">})</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Make sure that before the constructor has finished, you&#39;ve set the</span>
+<span class="w">    </span><span class="c1">// editor&#39;s size to whatever you need it to be.</span>
+<span class="w">    </span><span class="n">addAndMakeVisible</span><span class="p">(</span><span class="n">horizontalL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">addAndMakeVisible</span><span class="p">(</span><span class="n">horizontalR</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">addAndMakeVisible</span><span class="p">(</span><span class="n">verticalGradientMeterL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">addAndMakeVisible</span><span class="p">(</span><span class="n">verticalGradientMeterR</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setSize</span><span class="w"> </span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+
+
+
+
+<span class="w">    </span><span class="n">startTimerHz</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//startTimer(1000/24);</span>
+<span class="p">}</span>
+
+<span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="o">::~</span><span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="o">::</span><span class="n">timerCallback</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">horizontalL</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">audioProcessor</span><span class="p">.</span><span class="n">GetRmsValue</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">horizontalR</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">audioProcessor</span><span class="p">.</span><span class="n">GetRmsValue</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">horizontalL</span><span class="p">.</span><span class="n">repaint</span><span class="p">();</span>
+<span class="w">    </span><span class="n">horizontalR</span><span class="p">.</span><span class="n">repaint</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">//==============================================================================</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="o">::</span><span class="n">paint</span><span class="w"> </span><span class="p">(</span><span class="n">juce</span><span class="o">::</span><span class="n">Graphics</span><span class="o">&amp;</span><span class="w"> </span><span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">g</span><span class="p">.</span><span class="n">fillAll</span><span class="p">(</span><span class="n">Colours</span><span class="o">::</span><span class="n">darkgrey</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Tyz00LevelMeterAudioProcessorEditor</span><span class="o">::</span><span class="n">resized</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">horizontalL</span><span class="p">.</span><span class="n">setBounds</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="w">    </span><span class="n">horizontalR</span><span class="p">.</span><span class="n">setBounds</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">verticalGradientMeterL</span><span class="p">.</span><span class="n">setBounds</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">    </span><span class="n">verticalGradientMeterR</span><span class="p">.</span><span class="n">setBounds</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>2.4 38.26<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Auto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
