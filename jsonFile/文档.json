@@ -1,0 +1,1748 @@
+{
+  "category": "文档",
+  "items": [],
+  "typora_outline": [
+    {
+      "file": "Vulkan/00_Environment.md",
+      "outline": [
+        {
+          "title": "环境配置",
+          "level": 2,
+          "children": [
+            {
+              "title": "Visual Studio",
+              "level": 3,
+              "children": [
+                {
+                  "title": "1、属性",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "2、glfw Library link",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "3、GLM",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "4、Vulkan",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/3D Audio.md",
+      "outline": [
+        {
+          "title": "Project Acoustics 3D",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Steam Audio",
+          "level": 4,
+          "children": [
+            {
+              "title": "Build",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "Ambisonics",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Binaural",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "trueSpatial",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Ambisonics.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Plugin.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/杜比音效.md",
+      "outline": [
+        {
+          "title": "Pass through",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Object",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "3D",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/HRTF/Ambisonics .md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/HRTF/HRTF.md",
+      "outline": [
+        {
+          "title": "UE",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Library",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "演示：",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Steam Audio",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "演示",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Steam Audio/Steam Audio.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/VST/Vital VST.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wappi/Wappi.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/Wwise空间音频.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/WWise C++/WWise-Plugin.md",
+      "outline": [
+        {
+          "title": "一、插件环境",
+          "level": 4,
+          "children": [
+            {
+              "title": "1.1 创建实例工程",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "1.2 Premake配置工程",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "1.3 构建工程",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "二、Factory Asset",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.1 Asset",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.2 Resource Files",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 GUIwindow",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "三、构建插件属性文档",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "四、代码接口",
+          "level": 4,
+          "children": [
+            {
+              "title": "4.1 sound Bank",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "4.2 Front end",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "4.3 control Link",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "五、XML",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Wwise/WwisePython/Python.md",
+      "outline": [
+        {
+          "title": "一、环境",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Windows",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "macOS, Linux",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "Connecting to Waapi using default URL",
+          "level": 1,
+          "children": [
+            {
+              "title": "二、函数",
+              "level": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Wwise/WwiseUE/可视化.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/WwiseWindow/WwiseWindow.md",
+      "outline": [
+        {
+          "title": "显示错误",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Port链接",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Save",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/JUCE/00 - 环境.md",
+      "outline": [
+        {
+          "title": "",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "二、创建效果器",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/JUCE/AkashMurthy/00- Levelmeters.md",
+      "outline": [
+        {
+          "title": "一、调试软件",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "二、RMS",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.2 H",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 V",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.4 38.26",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/Document.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/PureData.md",
+      "outline": [
+        {
+          "title": "2020",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "2021",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/Wwise.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/QCGinteractive/Learn.md",
+      "outline": [
+        {
+          "title": "1.1 metro",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.2 Line",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "1.3 Modulation",
+          "level": 4,
+          "children": [
+            {
+              "title": "1.4 录波器",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "二、",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.1 Gain",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.2 compress",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 马赛克降频",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.4 oscillators",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.5 Low  High band Filter",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.6 Amplitude",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "三、子模块",
+          "level": 4,
+          "children": [
+            {
+              "title": "3.1 call",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.2 Class",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.3 预设",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.4",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/緒方匠/たくみ　おがた.md",
+      "outline": [
+        {
+          "title": "1.２",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.3 低通滤波、高通滤波",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.4 bandPass",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.5 ADSR",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.6 FM Synth",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.7 9",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Arena Breakout.md",
+      "outline": [
+        {
+          "title": "二、",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "双耳",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Call Of Duty.md",
+      "outline": [
+        {
+          "title": "Kill",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "gun",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "分析二",
+          "level": 3,
+          "children": [
+            {
+              "title": "录音",
+              "level": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Escape from Tarkov.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/OW.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/Spider-Man 2.md",
+      "outline": [
+        {
+          "title": "动态均衡",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "纽约城",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "DDS",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "临近区域![image-20250204001745252](./assets/image-20250204001745252.png)",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "海岸线",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "转码",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "内存处理",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Wwise/HDR.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/Wwise/Wwise.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/音频分析/Cod.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/音频分析/Untitled.md",
+      "outline": []
+    },
+    {
+      "file": "辅助类/Github.md",
+      "outline": [
+        {
+          "title": "Clone",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "初始化，仓库",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "暂存区",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "打回",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "提交撤回",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "SSH",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "提交项目",
+          "level": 2,
+          "children": [
+            {
+              "title": "忽略文件夹",
+              "level": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "引用其他git库",
+          "level": 2,
+          "children": [
+            {
+              "title": "查看文件历史",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "历史版本",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "冲突",
+              "level": 3,
+              "children": [
+                {
+                  "title": "ours与theirs",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "还原文件夹",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "放弃本地所有修改",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "[合并分支](https://github.com/zeus911/blog-3/blob/master/git/merge_files_or_folders_from_other_branches.md#合并分支)",
+          "level": 2,
+          "children": [
+            {
+              "title": "忽略",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "修改分支代理",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "子系统",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "**更新子模块到最新远程提交**",
+              "level": 3,
+              "children": [
+                {
+                  "title": "上游",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "逆向/CSGO.md",
+      "outline": [
+        {
+          "title": "Crowbar",
+          "level": 4,
+          "children": [
+            {
+              "title": "Blender",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "Source 2 View",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "导出",
+          "level": 4,
+          "children": [
+            {
+              "title": "Blender 官方模型",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "撬锁解包![image-20250413003216556](./assets/image-20250413003216556.png)",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "VRF反编译动作",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "导出动作![image-20250413003350545](./assets/image-20250413003350545.png)",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "四元素",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "获取当前选中的骨骼对象（需提前在3D视图中选中骨骼）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "检查是否为骨骼",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "获取文件中所有动作",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "过滤系统默认动作（可选）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "检查是否有可用动作",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "初始化动画数据",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "清空现有NLA轨道（可选，按需取消注释）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "armature.animation_data.nla_tracks.clear()",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "批量添加动作到NLA轨道",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "操作完成提示",
+          "level": 1,
+          "children": [
+            {
+              "title": "轴向",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "导出Glft",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "逆向/Snapdragon Profiler.md",
+      "outline": [
+        {
+          "title": "snapdragon profiler",
+          "level": 2,
+          "children": [
+            {
+              "title": "1、配置环境",
+              "level": 3,
+              "children": []
+            },
+            {
+              "title": "2、基础操作",
+              "level": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "面试/心动.md",
+      "outline": [
+        {
+          "title": "内存处理",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "面试/技术音频.md",
+      "outline": [
+        {
+          "title": "沙罗斯",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Post Event 到Buffer Sample",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "midi开枪，连发枪",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "空间音频中间到边缘",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "阁楼音怎么做",
+          "level": 4,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "ue_outline": [
+    {
+      "file": "Vulkan/00_Environment.md",
+      "outline": [
+        {
+          "title": "环境配置",
+          "level": 2,
+          "children": [
+            {
+              "title": "Visual Studio",
+              "level": 3,
+              "children": [
+                {
+                  "title": "1、属性",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "2、glfw Library link",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "3、GLM",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "4、Vulkan",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/3D Audio.md",
+      "outline": [
+        {
+          "title": "Project Acoustics 3D",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Steam Audio",
+          "level": 4,
+          "children": [
+            {
+              "title": "Build",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "Ambisonics",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Binaural",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "trueSpatial",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Ambisonics.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Plugin.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/杜比音效.md",
+      "outline": [
+        {
+          "title": "Pass through",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Object",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "3D",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/HRTF/Ambisonics .md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/HRTF/HRTF.md",
+      "outline": [
+        {
+          "title": "UE",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Library",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "演示：",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Steam Audio",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "演示",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Steam Audio/Steam Audio.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/VST/Vital VST.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wappi/Wappi.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/Wwise空间音频.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/WWise C++/WWise-Plugin.md",
+      "outline": [
+        {
+          "title": "一、插件环境",
+          "level": 4,
+          "children": [
+            {
+              "title": "1.1 创建实例工程",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "1.2 Premake配置工程",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "1.3 构建工程",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "二、Factory Asset",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.1 Asset",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.2 Resource Files",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 GUIwindow",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "三、构建插件属性文档",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "四、代码接口",
+          "level": 4,
+          "children": [
+            {
+              "title": "4.1 sound Bank",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "4.2 Front end",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "4.3 control Link",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "五、XML",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Wwise/WwisePython/Python.md",
+      "outline": [
+        {
+          "title": "一、环境",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Windows",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "macOS, Linux",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "Connecting to Waapi using default URL",
+          "level": 1,
+          "children": [
+            {
+              "title": "二、函数",
+              "level": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/Wwise/WwiseUE/可视化.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/Wwise/WwiseWindow/WwiseWindow.md",
+      "outline": [
+        {
+          "title": "显示错误",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Port链接",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Save",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/JUCE/00 - 环境.md",
+      "outline": [
+        {
+          "title": "",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "二、创建效果器",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/JUCE/AkashMurthy/00- Levelmeters.md",
+      "outline": [
+        {
+          "title": "一、调试软件",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "二、RMS",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.2 H",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 V",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.4 38.26",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/Document.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/PureData.md",
+      "outline": [
+        {
+          "title": "2020",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "2021",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/Wwise.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/QCGinteractive/Learn.md",
+      "outline": [
+        {
+          "title": "1.1 metro",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.2 Line",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "1.3 Modulation",
+          "level": 4,
+          "children": [
+            {
+              "title": "1.4 录波器",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "二、",
+          "level": 4,
+          "children": [
+            {
+              "title": "2.1 Gain",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.2 compress",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.3 马赛克降频",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.4 oscillators",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.5 Low  High band Filter",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "2.6 Amplitude",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "三、子模块",
+          "level": 4,
+          "children": [
+            {
+              "title": "3.1 call",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.2 Class",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.3 预设",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "3.4",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/技术音频/Pure Data/緒方匠/たくみ　おがた.md",
+      "outline": [
+        {
+          "title": "1.２",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.3 低通滤波、高通滤波",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.4 bandPass",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.5 ADSR",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.6 FM Synth",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "1.7 9",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Arena Breakout.md",
+      "outline": [
+        {
+          "title": "二、",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "双耳",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Call Of Duty.md",
+      "outline": [
+        {
+          "title": "Kill",
+          "level": 5,
+          "children": []
+        },
+        {
+          "title": "gun",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "分析二",
+          "level": 3,
+          "children": [
+            {
+              "title": "录音",
+              "level": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Escape from Tarkov.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/OW.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/Spider-Man 2.md",
+      "outline": [
+        {
+          "title": "动态均衡",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "纽约城",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "DDS",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "临近区域![image-20250204001745252](./assets/image-20250204001745252.png)",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "海岸线",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "转码",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "内存处理",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "技术音频/游戏音频分析/Wwise/HDR.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/游戏音频分析/Wwise/Wwise.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/音频分析/Cod.md",
+      "outline": []
+    },
+    {
+      "file": "技术音频/音频分析/Untitled.md",
+      "outline": []
+    },
+    {
+      "file": "辅助类/Github.md",
+      "outline": [
+        {
+          "title": "Clone",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "初始化，仓库",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "暂存区",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "打回",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "提交撤回",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "SSH",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "提交项目",
+          "level": 2,
+          "children": [
+            {
+              "title": "忽略文件夹",
+              "level": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "引用其他git库",
+          "level": 2,
+          "children": [
+            {
+              "title": "查看文件历史",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "历史版本",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "冲突",
+              "level": 3,
+              "children": [
+                {
+                  "title": "ours与theirs",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "还原文件夹",
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "title": "放弃本地所有修改",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "[合并分支](https://github.com/zeus911/blog-3/blob/master/git/merge_files_or_folders_from_other_branches.md#合并分支)",
+          "level": 2,
+          "children": [
+            {
+              "title": "忽略",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "修改分支代理",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "子系统",
+              "level": 4,
+              "children": []
+            },
+            {
+              "title": "**更新子模块到最新远程提交**",
+              "level": 3,
+              "children": [
+                {
+                  "title": "上游",
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "逆向/CSGO.md",
+      "outline": [
+        {
+          "title": "Crowbar",
+          "level": 4,
+          "children": [
+            {
+              "title": "Blender",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "Source 2 View",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "导出",
+          "level": 4,
+          "children": [
+            {
+              "title": "Blender 官方模型",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "撬锁解包![image-20250413003216556](./assets/image-20250413003216556.png)",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "VRF反编译动作",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "导出动作![image-20250413003350545](./assets/image-20250413003350545.png)",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "四元素",
+              "level": 5,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "获取当前选中的骨骼对象（需提前在3D视图中选中骨骼）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "检查是否为骨骼",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "获取文件中所有动作",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "过滤系统默认动作（可选）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "检查是否有可用动作",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "初始化动画数据",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "清空现有NLA轨道（可选，按需取消注释）",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "armature.animation_data.nla_tracks.clear()",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "批量添加动作到NLA轨道",
+          "level": 1,
+          "children": []
+        },
+        {
+          "title": "操作完成提示",
+          "level": 1,
+          "children": [
+            {
+              "title": "轴向",
+              "level": 5,
+              "children": []
+            },
+            {
+              "title": "导出Glft",
+              "level": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "逆向/Snapdragon Profiler.md",
+      "outline": [
+        {
+          "title": "snapdragon profiler",
+          "level": 2,
+          "children": [
+            {
+              "title": "1、配置环境",
+              "level": 3,
+              "children": []
+            },
+            {
+              "title": "2、基础操作",
+              "level": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "面试/心动.md",
+      "outline": [
+        {
+          "title": "内存处理",
+          "level": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "file": "面试/技术音频.md",
+      "outline": [
+        {
+          "title": "沙罗斯",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "Post Event 到Buffer Sample",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "midi开枪，连发枪",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "空间音频中间到边缘",
+          "level": 4,
+          "children": []
+        },
+        {
+          "title": "阁楼音怎么做",
+          "level": 4,
+          "children": []
+        }
+      ]
+    }
+  ]
+}
