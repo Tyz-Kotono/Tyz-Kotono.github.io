@@ -26,30 +26,40 @@ GitHub ID: Tyz-Kotono
 - 🌐 GitHub Pages自动部署
 - 🔧 本地预览和测试
 
-## GitHub Pages 配置
+## 🚀 GitHub Pages 配置（重要！）
 
-### 1. 仓库设置
+### 第一步：手动启用GitHub Pages
 
-1. 进入你的GitHub仓库设置页面
-2. 找到 "Pages" 选项
-3. 在 "Source" 部分选择 "GitHub Actions"
+**这是必须的步骤，GitHub Actions无法自动启用Pages！**
 
-### 2. 分支保护
+1. **打开仓库设置页面**：
+   ```
+   https://github.com/Tyz-Kotono/Tyz-Kotono.github.io/settings/pages
+   ```
 
-确保 `main` 分支受到保护，只有通过Pull Request才能合并代码。
+2. **配置Pages Source**：
+   - 在"Source"部分选择 **"GitHub Actions"**
+   - **不要**选择"Deploy from a branch"
+   - 点击"Save"按钮
 
-### 3. 自动部署
+3. **验证配置**：
+   - 配置完成后，你应该看到"Your site is being built"的消息
+   - 等待几分钟让配置生效
 
-当你推送代码到 `main` 分支时，GitHub Actions会自动：
+### 第二步：推送代码触发部署
+
+配置完成后，当你推送代码到main分支时，GitHub Actions会自动：
 1. 安装Python依赖
 2. 生成Sphinx文档
 3. 构建HTML静态站点
 4. 部署到GitHub Pages
 
-### 4. 访问地址
+### 第三步：访问网站
 
 部署完成后，你的文档将在以下地址可用：
-`https://[你的用户名].github.io/[仓库名]/`
+```
+https://Tyz-Kotono.github.io/Tyz-Kotono.github.io/
+```
 
 ## 本地开发
 
@@ -63,7 +73,7 @@ pip install -r requirements.txt
 
 ```bash
 # 使用批处理文件
-.\run_main.bat
+.\\run_main.bat
 
 # 或直接运行
 cd Python
@@ -82,17 +92,38 @@ python main.py
 ├── Python/                 # Python源代码
 │   ├── main.py            # 主程序
 │   ├── DataJsonManager.py # 数据管理
-│   ├── TreePanel.py       # 分类树面板
-│   ├── FunctionPanel.py   # 功能面板
-│   ├── PreviewPanel.py    # 预览面板
+│   ├── TreePanel.py       # 左侧树形面板
+│   ├── FunctionPanel.py   # 中间功能面板
+│   ├── PreviewPanel.py    # 右侧预览面板
 │   ├── SphinxTools.py     # Sphinx工具
 │   └── GitTools.py        # Git工具
-├── Document/              # 文档目录
+├── Document/              # 文档源文件
+│   └── 文档/              # 文档分类
 ├── jsonFile/              # JSON配置文件
-├── sphinx_site/           # Sphinx站点
+├── sphinx_site/           # Sphinx项目
 ├── .github/workflows/     # GitHub Actions
 └── requirements.txt       # Python依赖
 ```
+
+## 故障排除
+
+### GitHub Pages 404错误
+- 确保已手动启用GitHub Pages
+- 检查Actions是否成功运行
+- 等待5-10分钟让部署生效
+
+### Actions失败
+- 检查Python依赖是否正确安装
+- 确保Sphinx配置正确
+- 查看Actions日志获取详细错误信息
+
+## 贡献
+
+欢迎提交Issue和Pull Request！
+
+## 许可证
+
+MIT License
 
 ## 作者
 
